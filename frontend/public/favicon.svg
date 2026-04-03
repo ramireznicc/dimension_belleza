@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d0020"/>
+      <stop offset="100%" stop-color="#020208"/>
+    </linearGradient>
+    <linearGradient id="spark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff2da0"/>
+      <stop offset="100%" stop-color="#c026d3"/>
+    </linearGradient>
+    <radialGradient id="nebula" cx="50%" cy="50%" r="55%">
+      <stop offset="0%" stop-color="#7b1fa2" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#020208" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="1.8" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Fondo -->
+  <rect width="64" height="64" rx="14" fill="url(#bg)"/>
+  <!-- Nebulosa -->
+  <ellipse cx="32" cy="32" rx="30" ry="26" fill="url(#nebula)"/>
+
+  <!--
+    Ícono Sparkles (basado en Lucide) escalado a ~40px centrado en 32,32
+    Original viewBox 24x24 → escala ×1.9, trasladado para centrar
+    Paths del ícono Sparkles de Lucide:
+      - Estrella grande: M12 3L13.5 8.5L19 10L13.5 11.5L12 17L10.5 11.5L5 10L10.5 8.5Z
+      - Estrella chica 1: M19 3L19.75 5.25L22 6L19.75 6.75L19 9L18.25 6.75L16 6L18.25 5.25Z
+      - Estrella chica 2: M19 15L19.75 17.25L22 18L19.75 18.75L19 21L18.25 18.75L16 18L18.25 17.25Z
+  -->
+  <g filter="url(#glow)" fill="url(#spark)">
+    <!-- Estrella grande centrada -->
+    <polygon points="
+      28,10
+      30.8,20.4
+      41.2,23.2
+      30.8,26
+      28,36.4
+      25.2,26
+      14.8,23.2
+      25.2,20.4
+    "/>
+    <!-- Estrella chica superior derecha -->
+    <polygon points="
+      44,10
+      45.4,14.6
+      50,16
+      45.4,17.4
+      44,22
+      42.6,17.4
+      38,16
+      42.6,14.6
+    "/>
+    <!-- Estrella chica inferior derecha -->
+    <polygon points="
+      44,30
+      45.4,34.6
+      50,36
+      45.4,37.4
+      44,42
+      42.6,37.4
+      38,36
+      42.6,34.6
+    "/>
+  </g>
+</svg>

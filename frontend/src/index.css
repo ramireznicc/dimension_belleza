@@ -1,0 +1,243 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    font-family: 'Nunito', system-ui, sans-serif;
+    color: #e2d9f3;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    /* Nebulosa fija al viewport — nunca se corta sin importar el scroll */
+    background:
+      radial-gradient(ellipse 70% 55% at 15% 20%, rgba(139, 20, 180, 0.30) 0%, transparent 65%),
+      radial-gradient(ellipse 55% 45% at 85% 75%, rgba(236, 72, 153, 0.22) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 55% 48%, rgba(67, 20, 140, 0.18) 0%, transparent 70%),
+      #020208;
+    background-attachment: fixed;
+  }
+
+  #root {
+    width: 100%;
+    min-height: 100vh;
+    background: transparent;
+  }
+}
+
+/* ── Nebula gradient de fondo global ── */
+@layer utilities {
+
+  /* Quitamos el fondo del wrapper de página — la nebulosa vive en .stars-layer */
+  .space-bg {
+    background: transparent;
+  }
+
+  /* Tintes por sección para diferenciar sin cortar el fondo */
+  .section-purple {
+    background: rgba(88, 28, 135, 0.18);
+  }
+  .section-pink {
+    background: rgba(219, 39, 119, 0.12);
+  }
+  .section-indigo {
+    background: rgba(55, 48, 163, 0.15);
+  }
+  .section-deep {
+    background: rgba(15, 10, 40, 0.45);
+  }
+
+  /* Texto con glow neon rosa */
+  .neon-text {
+    color: #ff2da0;
+    text-shadow:
+      0 0 10px rgba(255, 45, 160, 0.9),
+      0 0 30px rgba(255, 45, 160, 0.5),
+      0 0 60px rgba(255, 45, 160, 0.2);
+  }
+
+  /* Glow suave para subtítulos */
+  .glow-purple {
+    text-shadow:
+      0 0 20px rgba(168, 85, 247, 0.6),
+      0 0 40px rgba(168, 85, 247, 0.2);
+  }
+
+  /* Tipografía del logo */
+  .font-megrim {
+    font-family: 'Megrim', cursive;
+  }
+
+  /* Tipografía de títulos */
+  .font-heading {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+  }
+
+  /* Gradiente de texto cósmico */
+  .gradient-text {
+    background: linear-gradient(135deg, #ff2da0 0%, #c026d3 50%, #818cf8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Botón primario neón */
+  .btn-neon {
+    background: linear-gradient(135deg, #ff2da0 0%, #c026d3 100%);
+    color: white;
+    font-weight: 700;
+    border-radius: 9999px;
+    padding: 14px 32px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    box-shadow:
+      0 0 20px rgba(255, 45, 160, 0.4),
+      0 0 40px rgba(255, 45, 160, 0.1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-neon::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .btn-neon:hover {
+    box-shadow:
+      0 0 30px rgba(255, 45, 160, 0.7),
+      0 0 60px rgba(255, 45, 160, 0.3);
+    transform: translateY(-2px);
+  }
+
+  .btn-neon:hover::before {
+    opacity: 1;
+  }
+
+  /* Botón secundario contorno */
+  .btn-outline {
+    border: 1.5px solid rgba(255, 45, 160, 0.6);
+    color: #ff2da0;
+    font-weight: 600;
+    border-radius: 9999px;
+    padding: 13px 32px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    background: transparent;
+  }
+
+  .btn-outline:hover {
+    background: rgba(255, 45, 160, 0.1);
+    border-color: rgba(255, 45, 160, 1);
+    box-shadow: 0 0 20px rgba(255, 45, 160, 0.2);
+  }
+
+  /* Tarjeta oscura cósmica */
+  .space-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    transition: all 0.35s ease;
+  }
+
+  .space-card:hover {
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(255, 45, 160, 0.35);
+    box-shadow:
+      0 0 30px rgba(255, 45, 160, 0.12),
+      0 8px 32px rgba(0, 0, 0, 0.4);
+    transform: translateY(-4px);
+  }
+
+  /* Badge pill cósmico */
+  .cosmic-badge {
+    background: rgba(255, 45, 160, 0.12);
+    border: 1px solid rgba(255, 45, 160, 0.3);
+    color: #ff82c5;
+    border-radius: 9999px;
+    padding: 6px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  /* Divisor estrellado */
+  .star-divider {
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 45, 160, 0.4), rgba(192, 38, 211, 0.4), transparent);
+    margin: 0;
+  }
+
+  /* Nebula blob decorativo */
+  .nebula-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+  }
+}
+
+/* ── Estrellas de fondo animadas ── */
+.stars-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  background: transparent;
+}
+
+.star {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  animation: twinkle var(--duration, 3s) ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+  opacity: 0;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0; transform: scale(0.8); }
+  50% { opacity: var(--max-opacity, 0.8); transform: scale(1.2); }
+}
+
+/* ── Animación de entrada de página ── */
+@keyframes pageIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-enter {
+  animation: pageIn 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ── Sección hero con resplandor ── */
+.hero-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 300px;
+  background: radial-gradient(ellipse, rgba(192, 38, 211, 0.2) 0%, transparent 70%);
+  pointer-events: none;
+}
