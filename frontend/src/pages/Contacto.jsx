@@ -19,7 +19,7 @@ export default function Contacto() {
     const texto = encodeURIComponent(
       `Hola! Soy ${form.nombre}.\n${form.mensaje}\n\nEmail: ${form.email}`
     );
-    window.open(`https://wa.me/5491100000000?text=${texto}`, '_blank');
+    window.open(`https://wa.me/5493413080130?text=${texto}`, '_blank');
     setEnviado(true);
     setTimeout(() => setEnviado(false), 3000);
   };
@@ -127,20 +127,26 @@ export default function Contacto() {
                 {
                   icon: <MessageCircle size={17} className="text-white" />,
                   label: 'WhatsApp',
-                  text: '+54 9 11 XXXX-XXXX',
-                  href: 'https://wa.me/5491100000000',
+                  text: '+54 9 3413 08-0130',
+                  href: 'https://wa.me/5493413080130',
                 },
                 {
                   icon: <Share2 size={17} className="text-white" />,
                   label: 'Instagram',
                   text: '@dimensionbelleza',
-                  href: 'https://instagram.com/dimensionbelleza',
+                  href: 'https://www.instagram.com/dimensionbelleza/',
                 },
                 {
                   icon: <MapPin size={17} className="text-white" />,
-                  label: 'Ubicación',
-                  text: 'Buenos Aires, Argentina',
-                  href: null,
+                  label: 'Peluquería — Funes',
+                  text: 'Los Olmos 695, Funes',
+                  href: 'https://maps.google.com/?q=Los+Olmos+695+Funes',
+                },
+                {
+                  icon: <MapPin size={17} className="text-white" />,
+                  label: 'Estética & Depilación — Rosario',
+                  text: 'Colón 2308, Rosario',
+                  href: 'https://maps.google.com/?q=Colón+2308+Rosario+Santa+Fe',
                 },
               ].map(({ icon, label, text, href }) => (
                 <div key={label} className="flex items-center gap-3">

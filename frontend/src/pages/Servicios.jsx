@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { servicios } from '../data/servicios';
-import { Check, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
+import HoverExpandServices from '../components/HoverExpandServices';
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 20 },
@@ -13,11 +14,11 @@ const fadeUp = (delay = 0) => ({
 export default function Servicios() {
   return (
     <div className="flex flex-col flex-1">
-      {/* Header — tinte púrpura */}
+      {/* Header + tarjetas — tinte púrpura */}
       <section className="section-purple py-16 px-4">
         <div className="max-w-6xl mx-auto">
           <motion.div
-            className="text-center mb-14"
+            className="text-center mb-12"
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -30,37 +31,7 @@ export default function Servicios() {
             </p>
           </motion.div>
 
-          {/* Grid de servicios */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {servicios.map((s, i) => (
-              <motion.div key={s.id} {...fadeUp(i * 0.08)} className="space-card overflow-hidden">
-                <div
-                  className="p-6 flex items-center gap-4"
-                  style={{
-                    background: 'linear-gradient(135deg, rgba(255,45,160,0.15) 0%, rgba(192,38,211,0.1) 100%)',
-                    borderBottom: '1px solid rgba(255,45,160,0.15)',
-                  }}
-                >
-                  <span className="text-5xl">{s.icon}</span>
-                  <h2 className="text-2xl font-bold font-heading" style={{ color: '#e2d9f3' }}>{s.titulo}</h2>
-                </div>
-
-                <div className="p-6">
-                  <p className="leading-relaxed mb-5 text-sm" style={{ color: 'rgba(226,217,243,0.6)' }}>
-                    {s.descripcion}
-                  </p>
-                  <ul className="space-y-2">
-                    {s.items.map((item) => (
-                      <li key={item} className="flex items-center gap-2 text-sm" style={{ color: 'rgba(226,217,243,0.75)' }}>
-                        <Check size={15} style={{ color: '#ff2da0', flexShrink: 0 }} />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+          <HoverExpandServices servicios={servicios} />
         </div>
       </section>
 

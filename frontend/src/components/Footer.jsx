@@ -45,16 +45,19 @@ export default function Footer() {
           <h4 className="font-semibold mb-3 font-heading" style={{ color: 'rgba(226,217,243,0.85)' }}>Contacto</h4>
           <ul className="text-sm space-y-3" style={{ color: 'rgba(226,217,243,0.4)' }}>
             <li className="flex items-center gap-2">
-              <Phone size={14} style={{ color: '#ff2da0' }} />
-              +54 9 11 XXXX-XXXX
+              <Phone size={14} style={{ color: '#ff2da0', flexShrink: 0 }} />
+              <a href="https://wa.me/5493413080130" style={{ color: 'rgba(226,217,243,0.4)' }}>+54 9 3413 08-0130</a>
             </li>
             <li className="flex items-center gap-2">
-              <Share2 size={14} style={{ color: '#ff2da0' }} />
-              <a href="#" style={{ color: 'rgba(226,217,243,0.4)' }}>@dimensionbelleza</a>
+              <Share2 size={14} style={{ color: '#ff2da0', flexShrink: 0 }} />
+              <a href="https://www.instagram.com/dimensionbelleza/" target="_blank" rel="noopener noreferrer" style={{ color: 'rgba(226,217,243,0.4)' }}>@dimensionbelleza</a>
             </li>
-            <li className="flex items-center gap-2">
-              <MapPin size={14} style={{ color: '#ff2da0' }} />
-              Buenos Aires, Argentina
+            <li className="flex items-start gap-2">
+              <MapPin size={14} style={{ color: '#ff2da0', flexShrink: 0, marginTop: '2px' }} />
+              <span style={{ color: 'rgba(226,217,243,0.4)' }}>
+                Los Olmos 695, Funes<br />
+                Colón 2308, Rosario
+              </span>
             </li>
           </ul>
         </div>
