@@ -94,7 +94,7 @@ export default function HoverExpandServices({ servicios }) {
                 >
                   <span className="text-4xl mb-3">{servicio.icon}</span>
                   <h3
-                    className="text-xl font-bold mb-1 font-heading"
+                    className="text-xl font-medium mb-1 font-heading"
                     style={{
                       color: '#fff',
                       textShadow: '0 0 20px rgba(255,45,160,0.5)',
@@ -150,7 +150,7 @@ export default function HoverExpandServices({ servicios }) {
               }}
             >
               <span className="text-4xl">{s.icon}</span>
-              <h3 className="text-lg font-bold font-heading text-white">{s.titulo}</h3>
+              <h3 className="text-lg font-medium font-heading text-white">{s.titulo}</h3>
             </div>
             <div className="p-5">
               <p className="text-sm leading-relaxed mb-4" style={{ color: 'rgba(226,217,243,0.6)' }}>

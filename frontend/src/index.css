@@ -72,7 +72,8 @@
 
   /* Tipografía de títulos */
   .font-heading {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 500;
   }
 
   /* Gradiente de texto cósmico */

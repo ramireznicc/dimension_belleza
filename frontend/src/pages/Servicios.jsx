@@ -23,7 +23,7 @@ export default function Servicios() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <h1 className="text-4xl md:text-5xl font-extrabold mb-4 font-heading">
+            <h1 className="text-4xl md:text-5xl font-medium mb-4 font-heading">
               <span className="gradient-text">Servicios</span>
             </h1>
             <p className="text-lg max-w-xl mx-auto" style={{ color: 'rgba(226,217,243,0.55)' }}>
@@ -48,7 +48,7 @@ export default function Servicios() {
               border: '1px solid rgba(255,45,160,0.2)',
             }}
           >
-            <h3 className="text-2xl font-bold mb-3 font-heading" style={{ color: '#e2d9f3' }}>
+            <h3 className="text-2xl font-medium mb-3 font-heading" style={{ color: '#e2d9f3' }}>
               ¿Querés saber más o reservar un turno?
             </h3>
             <p className="mb-6" style={{ color: 'rgba(226,217,243,0.5)' }}>

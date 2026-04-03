@@ -1,4 +1,5 @@
-import { Share2, Phone, MapPin, Sparkles } from 'lucide-react';
+import { Phone, MapPin, Sparkles } from 'lucide-react';
+import IconInstagram from './IconInstagram';
 
 export default function Footer() {
   return (
@@ -32,7 +33,7 @@ export default function Footer() {
         </div>
 
         <div>
-          <h4 className="font-semibold mb-3 font-heading" style={{ color: 'rgba(226,217,243,0.85)' }}>Servicios</h4>
+          <h4 className="font-medium mb-3 font-heading" style={{ color: 'rgba(226,217,243,0.85)' }}>Servicios</h4>
           <ul className="text-sm space-y-2" style={{ color: 'rgba(226,217,243,0.4)' }}>
             <li>Estilismo</li>
             <li>Estética Facial</li>
@@ -42,14 +43,14 @@ export default function Footer() {
         </div>
 
         <div>
-          <h4 className="font-semibold mb-3 font-heading" style={{ color: 'rgba(226,217,243,0.85)' }}>Contacto</h4>
+          <h4 className="font-medium mb-3 font-heading" style={{ color: 'rgba(226,217,243,0.85)' }}>Contacto</h4>
           <ul className="text-sm space-y-3" style={{ color: 'rgba(226,217,243,0.4)' }}>
             <li className="flex items-center gap-2">
               <Phone size={14} style={{ color: '#ff2da0', flexShrink: 0 }} />
               <a href="https://wa.me/5493413080130" style={{ color: 'rgba(226,217,243,0.4)' }}>+54 9 3413 08-0130</a>
             </li>
             <li className="flex items-center gap-2">
-              <Share2 size={14} style={{ color: '#ff2da0', flexShrink: 0 }} />
+              <IconInstagram size={14} style={{ color: '#ff2da0', flexShrink: 0 }} />
               <a href="https://www.instagram.com/dimensionbelleza/" target="_blank" rel="noopener noreferrer" style={{ color: 'rgba(226,217,243,0.4)' }}>@dimensionbelleza</a>
             </li>
             <li className="flex items-start gap-2">

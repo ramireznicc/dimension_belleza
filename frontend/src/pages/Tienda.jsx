@@ -35,7 +35,7 @@ export default function Tienda() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <h1 className="text-4xl md:text-5xl font-extrabold mb-4 font-heading">
+          <h1 className="text-4xl md:text-5xl font-medium mb-4 font-heading">
             <span className="gradient-text">Tienda</span>
           </h1>
           <p style={{ color: 'rgba(226,217,243,0.55)' }}>
@@ -101,7 +101,7 @@ export default function Tienda() {
                 >
                   {producto.categoria}
                 </span>
-                <h3 className="font-bold text-lg mb-1 font-heading" style={{ color: '#e2d9f3' }}>
+                <h3 className="font-medium text-lg mb-1 font-heading" style={{ color: '#e2d9f3' }}>
                   {producto.nombre}
                 </h3>
                 <p className="text-sm leading-relaxed flex-1 mb-4" style={{ color: 'rgba(226,217,243,0.5)' }}>

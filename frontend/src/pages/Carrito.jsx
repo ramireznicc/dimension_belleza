@@ -44,7 +44,7 @@ export default function Carrito() {
           transition={{ duration: 0.4 }}
         >
           <ShoppingBag size={72} className="mx-auto mb-6" style={{ color: 'rgba(255,45,160,0.3)' }} />
-          <h2 className="text-2xl font-bold mb-2 font-heading" style={{ color: '#e2d9f3' }}>
+          <h2 className="text-2xl font-medium mb-2 font-heading" style={{ color: '#e2d9f3' }}>
             Tu carrito está vacío
           </h2>
           <p className="mb-8" style={{ color: 'rgba(226,217,243,0.5)' }}>
@@ -74,7 +74,7 @@ export default function Carrito() {
             >
               <ArrowLeft size={20} />
             </Link>
-            <h1 className="text-3xl font-extrabold font-heading" style={{ color: '#e2d9f3' }}>
+            <h1 className="text-3xl font-medium font-heading" style={{ color: '#e2d9f3' }}>
               Tu <span className="gradient-text">Carrito</span>
             </h1>
           </div>
@@ -94,7 +94,7 @@ export default function Carrito() {
                   🧴
                 </div>
                 <div className="flex-1 min-w-0">
-                  <h3 className="font-semibold truncate font-heading" style={{ color: '#e2d9f3' }}>{item.nombre}</h3>
+                  <h3 className="font-medium truncate font-heading" style={{ color: '#e2d9f3' }}>{item.nombre}</h3>
                   <p className="text-sm font-bold gradient-text">{formatPrecio(item.precio)}</p>
                 </div>
                 <div className="flex items-center gap-2">

@@ -65,7 +65,7 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-3 font-heading">
+            <h2 className="text-3xl md:text-4xl font-medium mb-3 font-heading">
               <span className="gradient-text">Nuestros Servicios</span>
             </h2>
             <p style={{ color: 'rgba(226,217,243,0.5)' }}>Todo lo que necesitás en un solo lugar</p>
@@ -85,7 +85,7 @@ export default function Home() {
                 className="space-card p-6 text-center cursor-default"
               >
                 <div className="text-4xl mb-4">{s.icon}</div>
-                <h3 className="font-bold mb-2 font-heading" style={{ color: '#e2d9f3' }}>{s.titulo}</h3>
+                <h3 className="font-medium mb-2 font-heading" style={{ color: '#e2d9f3' }}>{s.titulo}</h3>
                 <p className="text-sm leading-relaxed" style={{ color: 'rgba(226,217,243,0.5)' }}>
                   {s.descripcion}
                 </p>
@@ -143,7 +143,7 @@ export default function Home() {
             transition={{ duration: 0.5 }}
           >
             <Zap size={36} className="mx-auto mb-4" style={{ color: '#ff2da0' }} />
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 font-heading" style={{ color: '#e2d9f3' }}>
+            <h2 className="text-3xl md:text-4xl font-medium mb-4 font-heading" style={{ color: '#e2d9f3' }}>
               También vendemos productos{' '}
               <span className="gradient-text">premium</span>
             </h2>

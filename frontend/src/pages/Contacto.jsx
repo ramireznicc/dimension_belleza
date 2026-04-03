@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Phone, Share2, MapPin, Send, MessageCircle, Clock } from 'lucide-react';
+import { Phone, MapPin, Send, MessageCircle, Clock } from 'lucide-react';
+import IconInstagram from '../components/IconInstagram';
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 20 },
@@ -41,7 +42,7 @@ export default function Contacto() {
       <div className="max-w-5xl mx-auto px-4 py-16">
         {/* Header */}
         <motion.div className="text-center mb-14" {...fadeUp(0)}>
-          <h1 className="text-4xl md:text-5xl font-extrabold mb-4 font-heading">
+          <h1 className="text-4xl md:text-5xl font-medium mb-4 font-heading">
             <span className="gradient-text">Contacto</span>{' '}
             <span style={{ color: '#e2d9f3' }}>& Turnos</span>
           </h1>
@@ -121,7 +122,7 @@ export default function Contacto() {
                 border: '1px solid rgba(255,45,160,0.15)',
               }}
             >
-              <h3 className="font-bold mb-4 font-heading" style={{ color: '#e2d9f3' }}>Información de contacto</h3>
+              <h3 className="font-medium mb-4 font-heading" style={{ color: '#e2d9f3' }}>Información de contacto</h3>
 
               {[
                 {
@@ -131,7 +132,7 @@ export default function Contacto() {
                   href: 'https://wa.me/5493413080130',
                 },
                 {
-                  icon: <Share2 size={17} className="text-white" />,
+                  icon: <IconInstagram size={17} style={{ color: 'white' }} />,
                   label: 'Instagram',
                   text: '@dimensionbelleza',
                   href: 'https://www.instagram.com/dimensionbelleza/',
@@ -187,7 +188,7 @@ export default function Contacto() {
             >
               <div className="flex items-center gap-2 mb-4">
                 <Clock size={16} style={{ color: '#ff2da0' }} />
-                <h3 className="font-bold font-heading" style={{ color: '#e2d9f3' }}>Horarios</h3>
+                <h3 className="font-medium font-heading" style={{ color: '#e2d9f3' }}>Horarios</h3>
               </div>
               {[
                 { dia: 'Lunes a Viernes', hora: '9:00 – 19:00' },
