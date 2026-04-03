@@ -53,9 +53,15 @@
   .neon-text {
     color: #ff2da0;
     text-shadow:
-      0 0 10px rgba(255, 45, 160, 0.9),
-      0 0 30px rgba(255, 45, 160, 0.5),
-      0 0 60px rgba(255, 45, 160, 0.2);
+      0 0 8px rgba(255, 45, 160, 0.55),
+      0 0 22px rgba(255, 45, 160, 0.25);
+  }
+
+  .neon-text-purple {
+    color: #c084fc;
+    text-shadow:
+      0 0 8px rgba(192, 132, 252, 0.55),
+      0 0 22px rgba(192, 132, 252, 0.25);
   }
 
   /* Glow suave para subtítulos */

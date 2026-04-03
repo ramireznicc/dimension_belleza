@@ -23,8 +23,8 @@ export default function Footer() {
         <div>
           <div className="flex items-center gap-1.5 text-xl mb-3 font-megrim">
             <Sparkles size={14} style={{ color: '#ff2da0' }} />
-            <span className="gradient-text">Dimensión</span>
-            <span style={{ color: '#e2d9f3' }}>Belleza</span>
+            <span className="neon-text">Dimensión</span>
+            <span className="neon-text-purple">Belleza</span>
           </div>
           <p className="text-sm leading-relaxed" style={{ color: 'rgba(226,217,243,0.45)' }}>
             Estilismo, Estética Corporal & Facial y Depilación Láser.

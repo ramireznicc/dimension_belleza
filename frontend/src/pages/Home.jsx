@@ -30,7 +30,7 @@ export default function Home() {
             className="text-6xl md:text-8xl leading-none mb-6 tracking-wide font-megrim"
           >
             <span className="neon-text block">Dimensión</span>
-            <span style={{ color: '#e2d9f3' }} className="block">Belleza</span>
+            <span className="neon-text-purple block">Belleza</span>
           </motion.h1>
 
           <motion.p
