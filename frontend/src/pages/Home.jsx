@@ -18,23 +18,23 @@ export default function Home() {
       {/* ── Hero — tinte púrpura profundo ── */}
       <section className="section-purple relative overflow-hidden py-24 px-4 text-center">
         <div className="relative max-w-4xl mx-auto">
-          <motion.div {...fadeUp(0)}>
-            <span className="cosmic-badge mb-8 inline-flex">
-              <Sparkles size={13} />
-              Tu espacio de transformación
-            </span>
-          </motion.div>
-
           <motion.h1
-            {...fadeUp(0.1)}
-            className="text-6xl md:text-8xl leading-none mb-6 tracking-wide font-megrim"
+            {...fadeUp(0)}
+            className="text-7xl md:text-9xl leading-none mb-5 tracking-wide font-megrim"
           >
             <span className="neon-text block">Dimensión</span>
             <span className="neon-text-purple block">Belleza</span>
           </motion.h1>
 
+          <motion.div {...fadeUp(0.1)} className="mb-8">
+            <span className="cosmic-badge inline-flex">
+              <Sparkles size={13} />
+              Tu espacio de transformación
+            </span>
+          </motion.div>
+
           <motion.p
-            {...fadeUp(0.2)}
+            {...fadeUp(0.25)}
             className="text-lg md:text-xl max-w-xl mx-auto mb-10 leading-relaxed"
             style={{ color: 'rgba(226,217,243,0.65)' }}
           >
@@ -42,7 +42,7 @@ export default function Home() {
             Transformá tu imagen con profesionalismo y dedicación.
           </motion.p>
 
-          <motion.div {...fadeUp(0.3)} className="flex flex-col sm:flex-row gap-4 justify-center">
+          <motion.div {...fadeUp(0.35)} className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/servicios" className="btn-neon">
               Ver servicios <ArrowRight size={18} />
             </Link>
