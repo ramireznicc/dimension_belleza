@@ -17,6 +17,31 @@ export default function Home() {
     <div className="flex flex-col flex-1">
       {/* ── Hero — tinte púrpura profundo ── */}
       <section className="section-purple relative overflow-hidden py-24 px-4 text-center">
+        {/* Nebula blobs — pulso lento */}
+        <motion.div
+          className="absolute pointer-events-none"
+          style={{
+            top: '10%', left: '8%',
+            width: 340, height: 220,
+            borderRadius: '50%',
+            background: 'radial-gradient(ellipse, rgba(192,38,211,0.18) 0%, transparent 70%)',
+            filter: 'blur(40px)',
+          }}
+          animate={{ scale: [1, 1.12, 1], opacity: [0.7, 1, 0.7] }}
+          transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
+        />
+        <motion.div
+          className="absolute pointer-events-none"
+          style={{
+            bottom: '12%', right: '6%',
+            width: 280, height: 200,
+            borderRadius: '50%',
+            background: 'radial-gradient(ellipse, rgba(255,45,160,0.14) 0%, transparent 70%)',
+            filter: 'blur(50px)',
+          }}
+          animate={{ scale: [1, 1.1, 1], opacity: [0.6, 0.95, 0.6] }}
+          transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
+        />
         <div className="relative max-w-4xl mx-auto">
           <motion.h1
             {...fadeUp(0)}
@@ -42,7 +67,7 @@ export default function Home() {
             Transformá tu imagen con profesionalismo y dedicación.
           </motion.p>
 
-          <motion.div {...fadeUp(0.35)} className="flex flex-col sm:flex-row gap-4 justify-center">
+          <motion.div {...fadeUp(0.35)} className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link to="/servicios" className="btn-neon">
               Ver servicios <ArrowRight size={18} />
             </Link>

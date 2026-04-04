@@ -36,7 +36,7 @@ export default function Carrito() {
 
   if (items.length === 0) {
     return (
-      <div className="section-deep flex-1 flex items-center justify-center px-4">
+      <div className="section-deep flex-1 flex items-center justify-center px-4 py-20 min-h-[calc(100vh-64px)]">
         <motion.div
           className="text-center"
           initial={{ opacity: 0, scale: 0.95 }}
