@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, Star, Scissors, Sparkles, Heart, Zap } from 'lucide-react';
+import WhatsAppIcon from '../components/WhatsAppIcon';
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 24 },
@@ -105,9 +106,15 @@ export default function Home() {
             <Link to="/servicios" className="btn-neon">
               Ver servicios <ArrowRight size={18} />
             </Link>
-            <Link to="/contacto" className="btn-outline">
+            <a
+              href="https://wa.me/543413080131?text=Hola!%20Quisiera%20sacar%20un%20turno."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-outline flex items-center gap-2"
+            >
+              <WhatsAppIcon size={17} />
               Sacar turno
-            </Link>
+            </a>
           </motion.div>
         </div>
       </section>

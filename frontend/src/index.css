@@ -197,6 +197,15 @@
   }
 }
 
+/* ── Scrollbar oculta (chips mobile) ── */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
 /* ── Estrellas de fondo animadas ── */
 .stars-layer {
   position: fixed;

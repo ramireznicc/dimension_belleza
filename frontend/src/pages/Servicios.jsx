@@ -4,7 +4,7 @@ import { categorias } from '../data/servicios';
 import ServicioCard from '../components/ServicioCard';
 import { Info, ChevronDown } from 'lucide-react';
 
-function CategoriaSection({ categoria, globalIndex }) {
+function CategoriaSection({ categoria, globalIndex, isFirstCategory }) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -29,7 +29,7 @@ function CategoriaSection({ categoria, globalIndex }) {
       {/* Grilla de cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {categoria.servicios.map((s, i) => (
-          <ServicioCard key={s.id} servicio={s} index={globalIndex + i} />
+          <ServicioCard key={s.id} servicio={s} index={globalIndex + i} isFirst={isFirstCategory && i === 0} />
         ))}
       </div>
 
@@ -114,7 +114,7 @@ export default function Servicios() {
 
           {/* Chips de filtro */}
           <motion.div
-            className="flex flex-wrap justify-center gap-2.5 mb-14"
+            className="flex gap-2.5 mb-14 overflow-x-auto pb-1 px-1 justify-start md:justify-center md:flex-wrap no-scrollbar"
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.1 }}
@@ -125,7 +125,7 @@ export default function Servicios() {
                 <button
                   key={cat.id}
                   onClick={() => setFiltro(cat.id)}
-                  className="relative px-5 py-2 rounded-full text-sm font-semibold transition-all duration-200 cursor-pointer"
+                  className="relative px-5 py-2 rounded-full text-sm font-semibold transition-all duration-200 cursor-pointer shrink-0"
                   style={{
                     background: active
                       ? 'linear-gradient(135deg, rgba(255,45,160,0.25), rgba(192,38,211,0.2))'
@@ -161,10 +161,10 @@ export default function Servicios() {
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
             >
-              {visibles.map((cat) => {
+              {visibles.map((cat, vi) => {
                 const globalIndex = offsets[categorias.indexOf(cat)];
                 return (
-                  <CategoriaSection key={cat.id} categoria={cat} globalIndex={globalIndex} />
+                  <CategoriaSection key={cat.id} categoria={cat} globalIndex={globalIndex} isFirstCategory={vi === 0} />
                 );
               })}
             </motion.div>

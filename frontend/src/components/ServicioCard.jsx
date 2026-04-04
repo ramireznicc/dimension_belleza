@@ -6,7 +6,7 @@ import WhatsAppIcon from './WhatsAppIcon';
 
 const WA_NUMBER = '543413080131';
 
-export default function ServicioCard({ servicio, index = 0 }) {
+export default function ServicioCard({ servicio, index = 0, isFirst = false }) {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -38,6 +38,7 @@ export default function ServicioCard({ servicio, index = 0 }) {
           <img
             src={servicio.imagen}
             alt={servicio.titulo}
+            loading="lazy"
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-108"
             style={{ transitionTimingFunction: 'cubic-bezier(0.22,1,0.36,1)' }}
           />
@@ -81,20 +82,22 @@ export default function ServicioCard({ servicio, index = 0 }) {
             </div>
           </div>
 
-          {/* Hint fijo — solo mobile */}
-          <div className="absolute bottom-3 left-1/2 -translate-x-1/2 md:hidden pointer-events-none">
-            <div
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap backdrop-blur-sm"
-              style={{
-                background: 'rgba(5,3,18,0.6)',
-                border: '1px solid rgba(255,255,255,0.15)',
-                color: 'rgba(226,217,243,0.75)',
-              }}
-            >
-              <Info size={11} />
-              Tocá para más info
+          {/* Hint fijo — solo mobile, solo en la primera card */}
+          {isFirst && (
+            <div className="absolute bottom-3 left-1/2 -translate-x-1/2 md:hidden pointer-events-none">
+              <div
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap backdrop-blur-sm"
+                style={{
+                  background: 'rgba(5,3,18,0.6)',
+                  border: '1px solid rgba(255,255,255,0.15)',
+                  color: 'rgba(226,217,243,0.75)',
+                }}
+              >
+                <Info size={11} />
+                Tocá para más info
+              </div>
             </div>
-          </div>
+          )}
         </div>
 
         {/* ── Contenido ── */}
@@ -175,7 +178,7 @@ export default function ServicioCard({ servicio, index = 0 }) {
               onClick={(e) => e.stopPropagation()}
             >
               {/* Imagen — ocupa columna izquierda en desktop, franja top en mobile */}
-              <div className="relative overflow-hidden md:w-[52%] shrink-0" style={{ minHeight: '260px' }}>
+              <div className="relative overflow-hidden md:w-[52%] shrink-0 h-48 md:h-auto">
                 <img
                   src={servicio.imagen}
                   alt={servicio.titulo}
@@ -242,16 +245,21 @@ export default function ServicioCard({ servicio, index = 0 }) {
               {/* Cerrar */}
               <button
                 onClick={() => setOpen(false)}
-                className="absolute top-3 right-3 p-1.5 rounded-full transition-all"
+                className="absolute top-3 right-3 p-2.5 rounded-full transition-all"
                 style={{
-                  background: 'rgba(5,3,18,0.8)',
-                  border: '1px solid rgba(255,255,255,0.12)',
+                  background: 'rgba(5,3,18,0.85)',
+                  border: '1px solid rgba(255,255,255,0.15)',
                   color: 'rgba(226,217,243,0.7)',
+                  minWidth: '44px',
+                  minHeight: '44px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
                 }}
                 onMouseEnter={(e) => { e.currentTarget.style.color = '#e2d9f3'; }}
                 onMouseLeave={(e) => { e.currentTarget.style.color = 'rgba(226,217,243,0.7)'; }}
               >
-                <X size={15} />
+                <X size={17} />
               </button>
             </motion.div>
           </motion.div>
