@@ -7,7 +7,7 @@
 
   body {
     margin: 0;
-    font-family: 'Nunito', system-ui, sans-serif;
+    font-family: 'DM Sans', system-ui, sans-serif;
     color: #e2d9f3;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
@@ -73,13 +73,13 @@
 
   /* Tipografía del logo */
   .font-megrim {
-    font-family: 'Righteous', cursive;
+    font-family: 'Alex Brush', cursive;
   }
 
   /* Tipografía de títulos */
   .font-heading {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-weight: 500;
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
   }
 
   /* Gradiente de texto cósmico */

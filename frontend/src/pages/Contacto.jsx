@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Phone, MapPin, Send, MessageCircle, Clock } from 'lucide-react';
+import { MapPin, Mail, Clock } from 'lucide-react';
+import WhatsAppIcon from '../components/WhatsAppIcon';
 import IconInstagram from '../components/IconInstagram';
 
 const fadeUp = (delay = 0) => ({
@@ -10,7 +11,7 @@ const fadeUp = (delay = 0) => ({
 });
 
 export default function Contacto() {
-  const [form, setForm] = useState({ nombre: '', email: '', mensaje: '' });
+  const [form, setForm] = useState({ nombre: '', mensaje: '' });
   const [enviado, setEnviado] = useState(false);
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
@@ -18,9 +19,9 @@ export default function Contacto() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const texto = encodeURIComponent(
-      `Hola! Soy ${form.nombre}.\n${form.mensaje}\n\nEmail: ${form.email}`
+      `Hola! Soy ${form.nombre}.\n${form.mensaje}`
     );
-    window.open(`https://wa.me/5493413080130?text=${texto}`, '_blank');
+    window.open(`https://wa.me/543413080131?text=${texto}`, '_blank');
     setEnviado(true);
     setTimeout(() => setEnviado(false), 3000);
   };
@@ -73,22 +74,6 @@ export default function Contacto() {
               </div>
               <div>
                 <label className="block text-sm font-medium mb-1.5" style={{ color: 'rgba(226,217,243,0.7)' }}>
-                  Email
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  required
-                  value={form.email}
-                  onChange={handleChange}
-                  placeholder="tu@email.com"
-                  style={inputStyle}
-                  onFocus={(e) => (e.target.style.borderColor = 'rgba(255,45,160,0.5)')}
-                  onBlur={(e) => (e.target.style.borderColor = 'rgba(255,255,255,0.1)')}
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium mb-1.5" style={{ color: 'rgba(226,217,243,0.7)' }}>
                   Mensaje
                 </label>
                 <textarea
@@ -105,10 +90,21 @@ export default function Contacto() {
               </div>
               <button
                 type="submit"
-                className="w-full btn-neon justify-center"
-                style={{ borderRadius: '12px' }}
+                className="w-full flex items-center justify-center gap-2 py-3 rounded-xl font-bold text-sm transition-all duration-200 cursor-pointer"
+                style={{
+                  background: enviado
+                    ? 'linear-gradient(135deg, #16a34a, #15803d)'
+                    : 'linear-gradient(135deg, #22c55e 0%, #16a34a 100%)',
+                  color: '#fff',
+                  boxShadow: '0 0 20px rgba(34,197,94,0.35)',
+                }}
+                onMouseEnter={(e) => { if (!enviado) e.currentTarget.style.boxShadow = '0 0 32px rgba(34,197,94,0.6)'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.boxShadow = '0 0 20px rgba(34,197,94,0.35)'; }}
               >
-                {enviado ? '✓ ¡Enviado!' : <><Send size={16} /> Enviar por WhatsApp</>}
+                {enviado
+                  ? '✓ ¡Mensaje enviado!'
+                  : <><WhatsAppIcon size={16} /> Enviar por WhatsApp</>
+                }
               </button>
             </form>
           </motion.div>
@@ -126,10 +122,10 @@ export default function Contacto() {
 
               {[
                 {
-                  icon: <MessageCircle size={17} className="text-white" />,
+                  icon: <WhatsAppIcon size={17} className="text-white" />,
                   label: 'WhatsApp',
-                  text: '+54 9 3413 08-0130',
-                  href: 'https://wa.me/5493413080130',
+                  text: '+54 3413 080131',
+                  href: 'https://wa.me/543413080131',
                 },
                 {
                   icon: <IconInstagram size={17} style={{ color: 'white' }} />,

@@ -1,4 +1,4 @@
-import { Phone, MapPin, Sparkles } from 'lucide-react';
+import { Phone, MapPin, Heart } from 'lucide-react';
 import IconInstagram from './IconInstagram';
 
 export default function Footer() {
@@ -19,20 +19,38 @@ export default function Footer() {
         }}
       />
 
-      <div className="max-w-6xl mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+      <div className="max-w-4xl mx-auto px-8 py-12 grid grid-cols-1 md:grid-cols-3 gap-10 relative">
         <div>
-          <div className="flex items-center gap-1.5 text-xl mb-3 font-megrim">
-            <Sparkles size={14} style={{ color: '#ff2da0', opacity: 0.7 }} />
-            <span style={{ color: '#ff2da0', textShadow: '0 0 6px rgba(255,45,160,0.35)' }}>Dimensión</span>
-            <span style={{ color: '#c084fc', textShadow: '0 0 6px rgba(192,132,252,0.35)' }}>Belleza</span>
-          </div>
+          <img
+            src="/dimension_belleza_LOGO.svg"
+            alt="Dimensión Belleza"
+            className="mb-2"
+            style={{
+              width: '80px',
+              filter: 'drop-shadow(0 0 8px rgba(255,45,160,0.3))',
+            }}
+          />
+          <span
+            className="block mb-1"
+            style={{
+              fontFamily: "'Playfair Display', serif",
+              fontWeight: 700,
+              fontSize: '1.4rem',
+              background: 'linear-gradient(135deg, #ff2da0 0%, #c026d3 50%, #818cf8 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+              WebkitTextStroke: '0.5px rgba(255,255,255,0.15)',
+            }}
+          >
+            Dimensión Belleza
+          </span>
           <p className="text-sm leading-relaxed" style={{ color: 'rgba(226,217,243,0.45)' }}>
-            Estilismo, Estética Corporal & Facial y Depilación Láser.
             Tu transformación empieza acá.
           </p>
         </div>
 
-        <div>
+        <div className="md:mx-auto">
           <h4 className="font-medium mb-3 font-heading" style={{ color: 'rgba(226,217,243,0.85)' }}>Servicios</h4>
           <ul className="text-sm space-y-2" style={{ color: 'rgba(226,217,243,0.4)' }}>
             <li>Estilismo</li>
@@ -47,7 +65,7 @@ export default function Footer() {
           <ul className="text-sm space-y-3" style={{ color: 'rgba(226,217,243,0.4)' }}>
             <li className="flex items-center gap-2">
               <Phone size={14} style={{ color: '#ff2da0', flexShrink: 0 }} />
-              <a href="https://wa.me/5493413080130" style={{ color: 'rgba(226,217,243,0.4)' }}>+54 9 3413 08-0130</a>
+              <a href="https://wa.me/543413080131" style={{ color: 'rgba(226,217,243,0.4)' }}>+54 3413 080131</a>
             </li>
             <li className="flex items-center gap-2">
               <IconInstagram size={14} style={{ color: '#ff2da0', flexShrink: 0 }} />
@@ -65,13 +83,38 @@ export default function Footer() {
       </div>
 
       <div
-        className="text-center py-4 text-xs"
-        style={{
-          borderTop: '1px solid rgba(255,255,255,0.05)',
-          color: 'rgba(226,217,243,0.25)',
-        }}
+        style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }}
+        className="px-4 py-4 flex flex-col items-center gap-2 text-xs"
       >
-        © {new Date().getFullYear()} Dimensión Belleza. Todos los derechos reservados.
+        <span style={{ color: 'rgba(226,217,243,0.25)' }}>
+          © {new Date().getFullYear()} Dimensión Belleza. Todos los derechos reservados.
+        </span>
+        <span className="flex items-center gap-1" style={{ color: 'rgba(226,217,243,0.25)' }}>
+          Hecho con <Heart size={11} style={{ color: '#ff2da0', fill: '#ff2da0' }} /> por{' '}
+          <a
+            href="https://carsi.netlify.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="transition-colors"
+            style={{ color: 'rgba(226,217,243,0.45)' }}
+            onMouseEnter={(e) => (e.currentTarget.style.color = '#ff2da0')}
+            onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(226,217,243,0.45)')}
+          >
+            carsi
+          </a>
+          {' '}&amp;{' '}
+          <a
+            href="https://ramireznicc.netlify.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="transition-colors"
+            style={{ color: 'rgba(226,217,243,0.45)' }}
+            onMouseEnter={(e) => (e.currentTarget.style.color = '#ff2da0')}
+            onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(226,217,243,0.45)')}
+          >
+            ramireznicc
+          </a>
+        </span>
       </div>
     </footer>
   );

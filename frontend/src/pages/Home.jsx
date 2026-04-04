@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { servicios } from '../data/servicios';
-import { ArrowRight, Star, Sparkles, Zap } from 'lucide-react';
+import { ArrowRight, Star, Scissors, Sparkles, Heart, Zap } from 'lucide-react';
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 24 },
@@ -12,12 +11,39 @@ const stagger = {
   animate: { transition: { staggerChildren: 0.1 } },
 };
 
+const cardVariant = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0, transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] } },
+};
+
+const categorias = [
+  {
+    icon: Scissors,
+    titulo: 'Estilismo',
+    descripcion: 'Corte, coloración, mechas, alisados y tratamientos capilares a medida.',
+  },
+  {
+    icon: Sparkles,
+    titulo: 'Estética Facial',
+    descripcion: 'Limpiezas, hidratación, microdermoabrasión y tratamientos antiedad.',
+  },
+  {
+    icon: Heart,
+    titulo: 'Estética Corporal',
+    descripcion: 'Masajes, drenajes linfáticos, cavitación y tratamientos reductores.',
+  },
+  {
+    icon: Zap,
+    titulo: 'Depilación Láser',
+    descripcion: 'Tecnología de última generación para resultados definitivos y sin dolor.',
+  },
+];
+
 export default function Home() {
   return (
     <div className="flex flex-col flex-1">
-      {/* ── Hero — tinte púrpura profundo ── */}
+      {/* ── Hero ── */}
       <section className="section-purple relative overflow-hidden py-24 px-4 text-center">
-        {/* Nebula blobs — pulso lento */}
         <motion.div
           className="absolute pointer-events-none"
           style={{
@@ -43,31 +69,39 @@ export default function Home() {
           transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
         />
         <div className="relative max-w-4xl mx-auto">
-          <motion.h1
-            {...fadeUp(0)}
-            className="text-7xl md:text-9xl leading-none mb-5 tracking-wide font-megrim"
-          >
-            <span className="neon-text block">Dimensión</span>
-            <span className="neon-text-purple block">Belleza</span>
-          </motion.h1>
-
-          <motion.div {...fadeUp(0.1)} className="mb-8">
-            <span className="cosmic-badge inline-flex">
-              <Sparkles size={13} />
-              Tu espacio de transformación
-            </span>
+          <motion.div {...fadeUp(0)} className="flex flex-col items-center gap-4 mb-8">
+            <img
+              src="/dimension_belleza_LOGO.svg"
+              alt="Dimensión Belleza"
+              className="w-64 md:w-80 lg:w-96"
+              style={{ filter: 'drop-shadow(0 0 24px rgba(255,45,160,0.35)) drop-shadow(0 0 48px rgba(192,38,211,0.2))' }}
+            />
+            <h1
+              className="text-5xl md:text-6xl leading-none"
+              style={{
+                fontFamily: "'Playfair Display', serif",
+                fontWeight: 700,
+                background: 'linear-gradient(135deg, #ff2da0 0%, #c026d3 50%, #818cf8 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+                WebkitTextStroke: '0.5px rgba(255,255,255,0.2)',
+              }}
+            >
+              Dimensión Belleza
+            </h1>
           </motion.div>
 
           <motion.p
-            {...fadeUp(0.25)}
+            {...fadeUp(0.15)}
             className="text-lg md:text-xl max-w-xl mx-auto mb-10 leading-relaxed"
             style={{ color: 'rgba(226,217,243,0.65)' }}
           >
-            Estilismo, Estética Corporal & Facial y Depilación Láser.
+            Estilismo, Estética Corporal &amp; Facial y Depilación Láser.
             Transformá tu imagen con profesionalismo y dedicación.
           </motion.p>
 
-          <motion.div {...fadeUp(0.35)} className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <motion.div {...fadeUp(0.25)} className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link to="/servicios" className="btn-neon">
               Ver servicios <ArrowRight size={18} />
             </Link>
@@ -80,7 +114,7 @@ export default function Home() {
 
       <hr className="star-divider" />
 
-      {/* ── Servicios — transparente (nebulosa global visible) ── */}
+      {/* ── Servicios ── */}
       <section className="relative py-20 px-4">
         <div className="max-w-6xl mx-auto">
           <motion.div
@@ -97,25 +131,35 @@ export default function Home() {
           </motion.div>
 
           <motion.div
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"
+            className="grid grid-cols-1 sm:grid-cols-2 gap-5"
             variants={stagger}
             initial="initial"
             whileInView="animate"
             viewport={{ once: true, margin: '-60px' }}
           >
-            {servicios.map((s) => (
-              <motion.div
-                key={s.id}
-                variants={fadeUp(0)}
-                className="space-card p-6 text-center cursor-default"
-              >
-                <div className="text-4xl mb-4">{s.icon}</div>
-                <h3 className="font-medium mb-2 font-heading" style={{ color: '#e2d9f3' }}>{s.titulo}</h3>
-                <p className="text-sm leading-relaxed" style={{ color: 'rgba(226,217,243,0.5)' }}>
-                  {s.descripcion}
-                </p>
-              </motion.div>
-            ))}
+            {categorias.map((cat) => {
+              const Icon = cat.icon;
+              return (
+                <motion.div
+                  key={cat.titulo}
+                  variants={cardVariant}
+                  className="space-card p-6 flex items-start gap-4"
+                >
+                  <div
+                    className="shrink-0 w-10 h-10 rounded-xl flex items-center justify-center"
+                    style={{ background: 'linear-gradient(135deg, rgba(255,45,160,0.2), rgba(192,38,211,0.15))', border: '1px solid rgba(255,45,160,0.2)' }}
+                  >
+                    <Icon size={18} style={{ color: '#ff82c5' }} />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-1 font-heading" style={{ color: '#e2d9f3' }}>{cat.titulo}</h3>
+                    <p className="text-sm leading-relaxed" style={{ color: 'rgba(226,217,243,0.5)' }}>
+                      {cat.descripcion}
+                    </p>
+                  </div>
+                </motion.div>
+              );
+            })}
           </motion.div>
 
           <div className="text-center mt-10">
@@ -132,8 +176,8 @@ export default function Home() {
 
       <hr className="star-divider" />
 
-      {/* ── Testimonial — tinte índigo ── */}
-      <section className="section-indigo py-20 px-4">
+      {/* ── Testimonial ── */}
+      <section className="section-indigo py-20 px-4 flex-1">
         <motion.div
           className="max-w-3xl mx-auto text-center"
           initial={{ opacity: 0, scale: 0.97 }}
@@ -154,32 +198,6 @@ export default function Home() {
           </blockquote>
           <p className="text-sm font-semibold" style={{ color: 'rgba(255,45,160,0.7)' }}>— Valentina M.</p>
         </motion.div>
-      </section>
-
-      <hr className="star-divider" />
-
-      {/* ── CTA Tienda — tinte rosa ── */}
-      <section className="section-pink py-20 px-4 flex-1">
-        <div className="max-w-6xl mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <Zap size={36} className="mx-auto mb-4" style={{ color: '#ff2da0' }} />
-            <h2 className="text-3xl md:text-4xl font-medium mb-4 font-heading" style={{ color: '#e2d9f3' }}>
-              También vendemos productos{' '}
-              <span className="gradient-text">premium</span>
-            </h2>
-            <p className="mb-8" style={{ color: 'rgba(226,217,243,0.5)' }}>
-              Para que sigas cuidándote desde casa.
-            </p>
-            <Link to="/tienda" className="btn-neon">
-              Ir a la tienda <ArrowRight size={18} />
-            </Link>
-          </motion.div>
-        </div>
       </section>
     </div>
   );

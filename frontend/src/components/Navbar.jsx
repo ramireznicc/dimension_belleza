@@ -1,18 +1,15 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ShoppingCart, Menu, X, Sparkles, Home, Scissors, ShoppingBag, MessageCircle } from 'lucide-react';
+import { Menu, X, Home, Wand2, SendHorizontal } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useCart } from '../context/CartContext';
 
 const links = [
   { to: '/', label: 'Inicio', icon: Home },
-  { to: '/servicios', label: 'Servicios', icon: Scissors },
-  { to: '/tienda', label: 'Tienda', icon: ShoppingBag },
-  { to: '/contacto', label: 'Contacto', icon: MessageCircle },
+  { to: '/servicios', label: 'Servicios', icon: Wand2 },
+  { to: '/contacto', label: 'Contacto', icon: SendHorizontal },
 ];
 
 export default function Navbar() {
-  const { totalItems } = useCart();
   const [open, setOpen] = useState(false);
   const { pathname } = useLocation();
 
@@ -26,65 +23,51 @@ export default function Navbar() {
         boxShadow: '0 4px 30px rgba(0,0,0,0.4)',
       }}
     >
-      <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between md:grid md:items-center" style={{ gridTemplateColumns: '1fr auto 1fr' }}>
+      <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
 
-        {/* Logo */}
-        <Link to="/" className="flex items-center gap-1.5 text-2xl font-megrim justify-self-start">
-          <span className="gradient-text">DB</span>
-          <Sparkles size={14} style={{ color: '#ff2da0' }} />
-        </Link>
-
-        {/* Desktop links — centro */}
-        <ul className="hidden md:flex items-center gap-8">
+        {/* Desktop links */}
+        <ul className="hidden md:flex items-center gap-10 mx-auto">
           {links.map(({ to, label, icon: Icon }) => {
             const isActive = pathname === to;
             return (
               <li key={to}>
                 <Link to={to} className="relative block py-1 group" style={{ textDecoration: 'none' }}>
-                  {/* Texto con animación de hover */}
                   <motion.span
-                    className="text-sm font-bold flex items-center gap-1.5 tracking-wide"
+                    className="text-sm font-medium tracking-wide flex items-center gap-1.5"
                     animate={{
-                      color: isActive ? '#ff2da0' : 'rgba(226,217,243,0.65)',
+                      color: isActive ? '#ff2da0' : 'rgba(226,217,243,0.6)',
                       textShadow: isActive
-                        ? '0 0 14px rgba(255,45,160,0.7), 0 0 30px rgba(255,45,160,0.3)'
+                        ? '0 0 14px rgba(255,45,160,0.6)'
                         : 'none',
                     }}
-                    whileHover={{
-                      color: '#ff82c5',
-                      textShadow: '0 0 10px rgba(255,130,197,0.5)',
-                    }}
-                    transition={{ duration: 0.2 }}
-                    style={{ letterSpacing: isActive ? '0.06em' : '0.02em' }}
+                    whileHover={{ color: '#ff82c5' }}
+                    transition={{ duration: 0.15 }}
                   >
-                    <Icon size={14} />
+                    <Icon size={15} />
                     {label}
                   </motion.span>
 
-                  {/* Línea degradada animada debajo del activo */}
                   <AnimatePresence>
                     {isActive && (
                       <motion.span
-                        layoutId="nav-underline"
                         className="absolute left-0 right-0 -bottom-0.5 h-px"
                         style={{
                           background: 'linear-gradient(90deg, transparent, #ff2da0, #c026d3, transparent)',
-                          boxShadow: '0 0 6px rgba(255,45,160,0.8)',
+                          boxShadow: '0 0 6px rgba(255,45,160,0.7)',
                         }}
                         initial={{ scaleX: 0, opacity: 0 }}
                         animate={{ scaleX: 1, opacity: 1 }}
                         exit={{ scaleX: 0, opacity: 0 }}
-                        transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                        transition={{ duration: 0.2, ease: 'easeOut' }}
                       />
                     )}
                   </AnimatePresence>
 
-                  {/* Línea de hover (solo cuando NO es activo) */}
                   {!isActive && (
                     <span
                       className="absolute left-0 right-0 -bottom-0.5 h-px origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"
                       style={{
-                        background: 'linear-gradient(90deg, transparent, rgba(255,130,197,0.5), transparent)',
+                        background: 'linear-gradient(90deg, transparent, rgba(255,130,197,0.45), transparent)',
                       }}
                     />
                   )}
@@ -94,48 +77,10 @@ export default function Navbar() {
           })}
         </ul>
 
-        {/* Cart + hamburger — derecha */}
-        <div className="flex items-center gap-3 justify-self-end">
-          <Link
-            to="/carrito"
-            className="relative p-2 rounded-full transition-all duration-200"
-            style={{ color: 'rgba(226,217,243,0.8)' }}
-            onMouseEnter={(e) => (e.currentTarget.style.color = '#ff2da0')}
-            onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(226,217,243,0.8)')}
-          >
-            {/* Pulse ring when cart has items */}
-            {totalItems > 0 && (
-              <motion.span
-                className="absolute inset-0 rounded-full"
-                animate={{ scale: [1, 1.7, 1], opacity: [0.5, 0, 0.5] }}
-                transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-                style={{ background: 'rgba(255,45,160,0.25)' }}
-              />
-            )}
-            {/* Icon with wiggle on hover */}
-            <motion.span
-              className="block"
-              whileHover={{ rotate: [0, -12, 12, -8, 8, 0] }}
-              transition={{ duration: 0.45, ease: 'easeInOut' }}
-            >
-              <ShoppingCart size={22} />
-            </motion.span>
-            {totalItems > 0 && (
-              <motion.span
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                className="absolute -top-1 -right-1 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold"
-                style={{
-                  background: 'linear-gradient(135deg, #ff2da0, #c026d3)',
-                  boxShadow: '0 0 10px rgba(255,45,160,0.7)',
-                }}
-              >
-                {totalItems}
-              </motion.span>
-            )}
-          </Link>
+        {/* Hamburger (mobile) */}
+        <div className="flex items-center md:hidden ml-auto">
           <button
-            className="md:hidden p-2 rounded-full transition-colors"
+            className="md:hidden p-2 rounded-full transition-colors cursor-pointer"
             style={{ color: 'rgba(226,217,243,0.8)' }}
             onClick={() => setOpen(!open)}
           >
@@ -144,7 +89,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile menu — con íconos */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -166,14 +111,14 @@ export default function Navbar() {
                     key={to}
                     to={to}
                     onClick={() => setOpen(false)}
-                    className="flex items-center gap-2.5 py-2.5 px-3 rounded-lg text-sm font-bold tracking-wide transition-all"
+                    className="flex items-center gap-3 py-2.5 px-3 rounded-lg text-sm font-medium transition-all"
                     style={{
                       color: isActive ? '#ff2da0' : 'rgba(226,217,243,0.65)',
                       background: isActive ? 'rgba(255,45,160,0.08)' : 'transparent',
                       borderLeft: isActive ? '2px solid #ff2da0' : '2px solid transparent',
                     }}
                   >
-                    <Icon size={15} />
+                    <Icon size={16} />
                     {label}
                   </Link>
                 );
