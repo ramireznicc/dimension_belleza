@@ -69,39 +69,6 @@ export default function Home() {
           transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
         />
 
-        {/* Estrellas fugaces — solo en el hero */}
-        {[
-          { top: '12%', delay: 2,   repeatDelay: 10, width: 130 },
-          { top: '45%', delay: 6,   repeatDelay: 12, width: 100 },
-          { top: '28%', delay: 10,  repeatDelay: 9,  width: 150 },
-        ].map((s, i) => (
-          <motion.div
-            key={i}
-            className="absolute pointer-events-none"
-            style={{
-              top: s.top,
-              left: '-10%',
-              width: s.width,
-              height: '1.5px',
-              borderRadius: '999px',
-              background: 'linear-gradient(90deg, transparent 0%, rgba(255,45,160,0.3) 30%, rgba(255,220,245,0.95) 75%, white 90%, transparent 100%)',
-              zIndex: 2,
-            }}
-            animate={{
-              x: ['0px', '120vw'],
-              y: ['0px', '80px'],
-              opacity: [0, 1, 1, 0],
-            }}
-            transition={{
-              duration: 1.8,
-              delay: s.delay,
-              repeat: Infinity,
-              repeatDelay: s.repeatDelay,
-              ease: 'easeIn',
-              times: [0, 0.06, 0.82, 1],
-            }}
-          />
-        ))}
 
         <div className="relative max-w-4xl mx-auto">
           <motion.div {...fadeUp(0)} className="flex flex-col items-center gap-4 mb-8">
