@@ -71,24 +71,35 @@ export default function Home() {
 
         {/* Estrellas fugaces — solo en el hero */}
         {[
-          { top: '18%', delay: 1.5,  repeatDelay: 9,  width: 110 },
-          { top: '55%', delay: 5,    repeatDelay: 11, width: 80  },
-          { top: '32%', delay: 8.5,  repeatDelay: 8,  width: 130 },
+          { top: '12%', delay: 2,   repeatDelay: 10, width: 130 },
+          { top: '45%', delay: 6,   repeatDelay: 12, width: 100 },
+          { top: '28%', delay: 10,  repeatDelay: 9,  width: 150 },
         ].map((s, i) => (
           <motion.div
             key={i}
             className="absolute pointer-events-none"
             style={{
               top: s.top,
-              left: 0,
+              left: '-10%',
               width: s.width,
-              height: '1px',
+              height: '1.5px',
               borderRadius: '999px',
-              background: 'linear-gradient(90deg, transparent, rgba(255,220,245,0.9), rgba(255,45,160,0.5), transparent)',
-              rotate: -30,
+              background: 'linear-gradient(90deg, transparent 0%, rgba(255,45,160,0.3) 30%, rgba(255,220,245,0.95) 75%, white 90%, transparent 100%)',
+              zIndex: 2,
             }}
-            animate={{ x: ['-120px', '110vw'], opacity: [0, 1, 1, 0] }}
-            transition={{ duration: 1.6, delay: s.delay, repeat: Infinity, repeatDelay: s.repeatDelay, ease: 'easeIn', times: [0, 0.08, 0.85, 1] }}
+            animate={{
+              x: ['0px', '120vw'],
+              y: ['0px', '80px'],
+              opacity: [0, 1, 1, 0],
+            }}
+            transition={{
+              duration: 1.8,
+              delay: s.delay,
+              repeat: Infinity,
+              repeatDelay: s.repeatDelay,
+              ease: 'easeIn',
+              times: [0, 0.06, 0.82, 1],
+            }}
           />
         ))}
 
@@ -110,34 +121,13 @@ export default function Home() {
               transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
             />
 
-            {/* Texto con shimmer + subrayado animado */}
-            <div className="flex flex-col items-center gap-2">
-              <h1
-                className="hero-title-shimmer text-5xl md:text-6xl leading-none"
-                style={{ fontFamily: "'Poiret One', cursive", fontWeight: 700, WebkitTextStroke: '0.5px rgba(255,255,255,0.15)' }}
-              >
-                Dimensión Belleza
-              </h1>
-
-              {/* Subrayado: slide de izquierda a derecha con overflow hidden */}
-              <div className="w-full overflow-hidden" style={{ height: '2px' }}>
-                <motion.div
-                  className="w-full h-full"
-                  style={{ background: 'linear-gradient(90deg, #ff2da0, #c026d3, #818cf8)' }}
-                  initial={{ x: '-100%' }}
-                  animate={{ x: '0%' }}
-                  transition={{ duration: 1.2, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                />
-              </div>
-              {/* Glow debajo de la línea, pulsa una vez que se dibujó */}
-              <motion.div
-                className="w-full"
-                style={{ height: '4px', marginTop: '-6px', background: 'linear-gradient(90deg, transparent, #ff2da0, #c026d3, #818cf8, transparent)', filter: 'blur(4px)' }}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: [0, 0.8, 0.35, 0.8] }}
-                transition={{ duration: 2.8, delay: 2, repeat: Infinity, ease: 'easeInOut' }}
-              />
-            </div>
+            {/* Texto con shimmer */}
+            <h1
+              className="hero-title-shimmer text-5xl md:text-6xl leading-none"
+              style={{ fontFamily: "'Poiret One', cursive", fontWeight: 700, WebkitTextStroke: '0.5px rgba(255,255,255,0.15)' }}
+            >
+              Dimensión Belleza
+            </h1>
           </motion.div>
 
           <motion.p
