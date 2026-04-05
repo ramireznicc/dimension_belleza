@@ -109,28 +109,31 @@ export default function Home() {
                 Dimensión Belleza
               </h1>
 
-              {/* Subrayado elegante */}
-              <motion.div
-                className="relative h-px w-full"
-                initial={{ scaleX: 0 }}
-                animate={{ scaleX: 1 }}
-                transition={{ duration: 1.2, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                style={{ originX: '50%' }}
-              >
-                <div
-                  className="absolute inset-0"
-                  style={{ background: 'linear-gradient(90deg, transparent, #ff2da0, #c026d3, #818cf8, #c026d3, #ff2da0, transparent)' }}
-                />
+              {/* Subrayado — se dibuja de izquierda a derecha */}
+              <div className="relative w-full" style={{ height: '2px' }}>
+                {/* Línea principal */}
                 <motion.div
                   className="absolute inset-0"
-                  animate={{ opacity: [0.4, 1, 0.4] }}
-                  transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut', delay: 1.8 }}
                   style={{
-                    background: 'linear-gradient(90deg, transparent, #ff2da0, #c026d3, #818cf8, #c026d3, #ff2da0, transparent)',
-                    filter: 'blur(3px)',
+                    background: 'linear-gradient(90deg, #ff2da0, #c026d3, #818cf8)',
+                    transformOrigin: 'left center',
                   }}
+                  initial={{ scaleX: 0 }}
+                  animate={{ scaleX: 1 }}
+                  transition={{ duration: 1.4, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
                 />
-              </motion.div>
+                {/* Glow pulsante — empieza después del dibujo */}
+                <motion.div
+                  className="absolute inset-0"
+                  style={{
+                    background: 'linear-gradient(90deg, #ff2da0, #c026d3, #818cf8)',
+                    filter: 'blur(5px)',
+                  }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: [0, 0.7, 0.3, 0.7] }}
+                  transition={{ duration: 2.5, delay: 2.1, repeat: Infinity, ease: 'easeInOut' }}
+                />
+              </div>
             </div>
           </motion.div>
 
