@@ -64,23 +64,6 @@ export default function ServicioCard({ servicio, index = 0 }) {
             {servicio.precio}
           </div>
 
-          {/* Tooltip hover — solo desktop */}
-          <div
-            className="absolute inset-0 hidden md:flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-            style={{ background: 'rgba(5,3,18,0.45)' }}
-          >
-            <div
-              className="flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold backdrop-blur-sm"
-              style={{
-                background: 'rgba(255,255,255,0.12)',
-                border: '1px solid rgba(255,255,255,0.2)',
-                color: '#e2d9f3',
-              }}
-            >
-              <Info size={13} />
-              Ver más información
-            </div>
-          </div>
 
         </div>
 
