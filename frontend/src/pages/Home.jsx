@@ -54,30 +54,44 @@ export default function Home() {
     <div className="flex flex-col flex-1">
       {/* ── Hero ── */}
       <section className="section-purple relative overflow-hidden py-24 px-4 text-center">
+
+        {/* Nebula blobs */}
         <motion.div
           className="absolute pointer-events-none"
-          style={{
-            top: '10%', left: '8%',
-            width: 340, height: 220,
-            borderRadius: '50%',
-            background: 'radial-gradient(ellipse, rgba(192,38,211,0.18) 0%, transparent 70%)',
-            filter: 'blur(40px)',
-          }}
+          style={{ top: '10%', left: '8%', width: 340, height: 220, borderRadius: '50%', background: 'radial-gradient(ellipse, rgba(192,38,211,0.18) 0%, transparent 70%)', filter: 'blur(40px)' }}
           animate={{ scale: [1, 1.12, 1], opacity: [0.7, 1, 0.7] }}
           transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
         />
         <motion.div
           className="absolute pointer-events-none"
-          style={{
-            bottom: '12%', right: '6%',
-            width: 280, height: 200,
-            borderRadius: '50%',
-            background: 'radial-gradient(ellipse, rgba(255,45,160,0.14) 0%, transparent 70%)',
-            filter: 'blur(50px)',
-          }}
+          style={{ bottom: '12%', right: '6%', width: 280, height: 200, borderRadius: '50%', background: 'radial-gradient(ellipse, rgba(255,45,160,0.14) 0%, transparent 70%)', filter: 'blur(50px)' }}
           animate={{ scale: [1, 1.1, 1], opacity: [0.6, 0.95, 0.6] }}
           transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
         />
+
+        {/* Estrellas fugaces — solo en el hero */}
+        {[
+          { top: '18%', delay: 1.5,  repeatDelay: 9,  width: 110 },
+          { top: '55%', delay: 5,    repeatDelay: 11, width: 80  },
+          { top: '32%', delay: 8.5,  repeatDelay: 8,  width: 130 },
+        ].map((s, i) => (
+          <motion.div
+            key={i}
+            className="absolute pointer-events-none"
+            style={{
+              top: s.top,
+              left: 0,
+              width: s.width,
+              height: '1px',
+              borderRadius: '999px',
+              background: 'linear-gradient(90deg, transparent, rgba(255,220,245,0.9), rgba(255,45,160,0.5), transparent)',
+              rotate: -30,
+            }}
+            animate={{ x: ['-120px', '110vw'], opacity: [0, 1, 1, 0] }}
+            transition={{ duration: 1.6, delay: s.delay, repeat: Infinity, repeatDelay: s.repeatDelay, ease: 'easeIn', times: [0, 0.08, 0.85, 1] }}
+          />
+        ))}
+
         <div className="relative max-w-4xl mx-auto">
           <motion.div {...fadeUp(0)} className="flex flex-col items-center gap-4 mb-8">
 
@@ -89,7 +103,7 @@ export default function Home() {
               animate={{
                 filter: [
                   'drop-shadow(0 0 20px rgba(255,45,160,0.35)) drop-shadow(0 0 44px rgba(192,38,211,0.18))',
-                  'drop-shadow(0 0 32px rgba(255,45,160,0.6))  drop-shadow(0 0 64px rgba(192,38,211,0.35))',
+                  'drop-shadow(0 0 32px rgba(255,45,160,0.6)) drop-shadow(0 0 64px rgba(192,38,211,0.35))',
                   'drop-shadow(0 0 20px rgba(255,45,160,0.35)) drop-shadow(0 0 44px rgba(192,38,211,0.18))',
                 ],
               }}
@@ -100,40 +114,29 @@ export default function Home() {
             <div className="flex flex-col items-center gap-2">
               <h1
                 className="hero-title-shimmer text-5xl md:text-6xl leading-none"
-                style={{
-                  fontFamily: "'Poiret One', cursive",
-                  fontWeight: 700,
-                  WebkitTextStroke: '0.5px rgba(255,255,255,0.15)',
-                }}
+                style={{ fontFamily: "'Poiret One', cursive", fontWeight: 700, WebkitTextStroke: '0.5px rgba(255,255,255,0.15)' }}
               >
                 Dimensión Belleza
               </h1>
 
-              {/* Subrayado — se dibuja de izquierda a derecha */}
-              <div className="relative w-full" style={{ height: '2px' }}>
-                {/* Línea principal */}
+              {/* Subrayado: slide de izquierda a derecha con overflow hidden */}
+              <div className="w-full overflow-hidden" style={{ height: '2px' }}>
                 <motion.div
-                  className="absolute inset-0"
-                  style={{
-                    background: 'linear-gradient(90deg, #ff2da0, #c026d3, #818cf8)',
-                    transformOrigin: 'left center',
-                  }}
-                  initial={{ scaleX: 0 }}
-                  animate={{ scaleX: 1 }}
-                  transition={{ duration: 1.4, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
-                />
-                {/* Glow pulsante — empieza después del dibujo */}
-                <motion.div
-                  className="absolute inset-0"
-                  style={{
-                    background: 'linear-gradient(90deg, #ff2da0, #c026d3, #818cf8)',
-                    filter: 'blur(5px)',
-                  }}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: [0, 0.7, 0.3, 0.7] }}
-                  transition={{ duration: 2.5, delay: 2.1, repeat: Infinity, ease: 'easeInOut' }}
+                  className="w-full h-full"
+                  style={{ background: 'linear-gradient(90deg, #ff2da0, #c026d3, #818cf8)' }}
+                  initial={{ x: '-100%' }}
+                  animate={{ x: '0%' }}
+                  transition={{ duration: 1.2, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
                 />
               </div>
+              {/* Glow debajo de la línea, pulsa una vez que se dibujó */}
+              <motion.div
+                className="w-full"
+                style={{ height: '4px', marginTop: '-6px', background: 'linear-gradient(90deg, transparent, #ff2da0, #c026d3, #818cf8, transparent)', filter: 'blur(4px)' }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: [0, 0.8, 0.35, 0.8] }}
+                transition={{ duration: 2.8, delay: 2, repeat: Infinity, ease: 'easeInOut' }}
+              />
             </div>
           </motion.div>
 
