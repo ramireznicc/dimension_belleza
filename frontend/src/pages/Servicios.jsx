@@ -3,10 +3,63 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { categorias } from '../data/servicios';
 import { mergeWithOverrides } from '../utils/serviciosStorage';
 import ServicioCard from '../components/ServicioCard';
-import { Info, ChevronDown } from 'lucide-react';
+import { Info } from 'lucide-react';
+import { createPortal } from 'react-dom';
+
+function AclaracionModal({ texto, onClose }) {
+  return createPortal(
+    <motion.div
+      className="fixed inset-0 z-50 flex items-center justify-center p-4"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.2 }}
+      onClick={onClose}
+      style={{ background: 'rgba(2,2,8,0.85)', backdropFilter: 'blur(12px)' }}
+    >
+      <motion.div
+        className="relative w-full max-w-lg rounded-2xl p-6"
+        initial={{ scale: 0.94, opacity: 0, y: 16 }}
+        animate={{ scale: 1, opacity: 1, y: 0 }}
+        exit={{ scale: 0.94, opacity: 0, y: 12 }}
+        transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+        onClick={(e) => e.stopPropagation()}
+        style={{
+          background: 'rgba(10,5,30,0.97)',
+          border: '1px solid rgba(192,38,211,0.25)',
+          boxShadow: '0 24px 80px rgba(0,0,0,0.6)',
+        }}
+      >
+        <div className="flex items-center gap-2 mb-4">
+          <Info size={15} style={{ color: 'rgba(192,132,252,0.8)', flexShrink: 0 }} />
+          <h3 className="font-semibold font-heading text-sm" style={{ color: 'rgba(192,132,252,0.9)' }}>
+            Aclaración importante
+          </h3>
+        </div>
+        <p className="text-sm leading-relaxed" style={{ color: 'rgba(226,217,243,0.65)' }}>
+          {texto}
+        </p>
+        <button
+          onClick={onClose}
+          className="mt-5 w-full py-2.5 rounded-xl text-sm font-semibold transition-all"
+          style={{
+            background: 'rgba(192,38,211,0.12)',
+            border: '1px solid rgba(192,38,211,0.2)',
+            color: 'rgba(192,132,252,0.8)',
+          }}
+          onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(192,38,211,0.2)'; }}
+          onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(192,38,211,0.12)'; }}
+        >
+          Entendido
+        </button>
+      </motion.div>
+    </motion.div>,
+    document.body
+  );
+}
 
 function CategoriaSection({ categoria, globalIndex }) {
-  const [open, setOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
 
   return (
     <motion.section
@@ -28,7 +81,28 @@ function CategoriaSection({ categoria, globalIndex }) {
           className="flex-1 h-px"
           style={{ background: 'linear-gradient(90deg, rgba(255,45,160,0.4), rgba(192,38,211,0.2), transparent)' }}
         />
+        {categoria.aclaracion && (
+          <button
+            onClick={() => setModalOpen(true)}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold shrink-0 transition-all"
+            style={{
+              background: 'rgba(192,38,211,0.1)',
+              border: '1px solid rgba(192,38,211,0.25)',
+              color: 'rgba(192,132,252,0.8)',
+            }}
+            onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(192,38,211,0.2)'; e.currentTarget.style.color = '#c084fc'; }}
+            onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(192,38,211,0.1)'; e.currentTarget.style.color = 'rgba(192,132,252,0.8)'; }}
+          >
+            <Info size={12} />
+            <span className="hidden sm:inline">Aclaración importante</span>
+            <span className="sm:hidden">Aclaración</span>
+          </button>
+        )}
       </div>
+
+      <AnimatePresence>
+        {modalOpen && <AclaracionModal texto={categoria.aclaracion} onClose={() => setModalOpen(false)} />}
+      </AnimatePresence>
 
       {/* Grilla de cards */}
       <motion.div
@@ -42,47 +116,6 @@ function CategoriaSection({ categoria, globalIndex }) {
           <ServicioCard key={s.id} servicio={s} index={globalIndex + i} />
         ))}
       </motion.div>
-      {/* Aclaración expandible (si la hay) */}
-      {categoria.aclaracion && (
-        <div className="mt-6">
-          <button
-            onClick={() => setOpen((v) => !v)}
-            className="flex items-center gap-2 text-sm font-semibold transition-all"
-            style={{ color: 'rgba(192,132,252,0.7)' }}
-            onMouseEnter={(e) => (e.currentTarget.style.color = '#c084fc')}
-            onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(192,132,252,0.7)')}
-          >
-            <Info size={14} />
-            Aclaración importante
-            <motion.span animate={{ rotate: open ? 180 : 0 }} transition={{ duration: 0.2 }}>
-              <ChevronDown size={14} />
-            </motion.span>
-          </button>
-
-          <AnimatePresence initial={false}>
-            {open && (
-              <motion.div
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: 'auto', opacity: 1 }}
-                exit={{ height: 0, opacity: 0 }}
-                transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                className="overflow-hidden"
-              >
-                <p
-                  className="mt-3 text-sm leading-relaxed p-4 rounded-xl"
-                  style={{
-                    color: 'rgba(226,217,243,0.55)',
-                    background: 'rgba(67,20,140,0.12)',
-                    border: '1px solid rgba(192,38,211,0.15)',
-                  }}
-                >
-                  {categoria.aclaracion}
-                </p>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
-      )}
     </motion.section>
   );
 }
