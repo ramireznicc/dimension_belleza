@@ -79,23 +79,7 @@ export default function Home() {
           transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
         />
         <div className="relative max-w-4xl mx-auto">
-          <motion.div {...fadeUp(0)} className="relative flex flex-col items-center gap-4 mb-8 px-10 pt-8 pb-4">
-
-            {/* Esquinas decorativas */}
-            {[
-              { pos: 'top-0 left-0',     style: { borderTop: '1.5px solid rgba(255,45,160,0.6)', borderLeft: '1.5px solid rgba(255,45,160,0.6)' } },
-              { pos: 'top-0 right-0',    style: { borderTop: '1.5px solid rgba(192,38,211,0.6)', borderRight: '1.5px solid rgba(192,38,211,0.6)' } },
-              { pos: 'bottom-0 left-0',  style: { borderBottom: '1.5px solid rgba(192,38,211,0.6)', borderLeft: '1.5px solid rgba(192,38,211,0.6)' } },
-              { pos: 'bottom-0 right-0', style: { borderBottom: '1.5px solid rgba(255,45,160,0.6)', borderRight: '1.5px solid rgba(255,45,160,0.6)' } },
-            ].map(({ pos, style }) => (
-              <motion.div
-                key={pos}
-                className={`absolute ${pos} w-6 h-6 pointer-events-none`}
-                style={style}
-                animate={{ opacity: [0.5, 1, 0.5] }}
-                transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-              />
-            ))}
+          <motion.div {...fadeUp(0)} className="flex flex-col items-center gap-4 mb-8">
 
             {/* Logo con glow animado */}
             <motion.img
@@ -112,17 +96,42 @@ export default function Home() {
               transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
             />
 
-            {/* Texto con shimmer */}
-            <h1
-              className="hero-title-shimmer text-5xl md:text-6xl leading-none"
-              style={{
-                fontFamily: "'Poiret One', cursive",
-                fontWeight: 700,
-                WebkitTextStroke: '0.5px rgba(255,255,255,0.15)',
-              }}
-            >
-              Dimensión Belleza
-            </h1>
+            {/* Texto con shimmer + subrayado animado */}
+            <div className="flex flex-col items-center gap-2">
+              <h1
+                className="hero-title-shimmer text-5xl md:text-6xl leading-none"
+                style={{
+                  fontFamily: "'Poiret One', cursive",
+                  fontWeight: 700,
+                  WebkitTextStroke: '0.5px rgba(255,255,255,0.15)',
+                }}
+              >
+                Dimensión Belleza
+              </h1>
+
+              {/* Subrayado elegante */}
+              <motion.div
+                className="relative h-px w-full"
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ duration: 1.2, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                style={{ originX: '50%' }}
+              >
+                <div
+                  className="absolute inset-0"
+                  style={{ background: 'linear-gradient(90deg, transparent, #ff2da0, #c026d3, #818cf8, #c026d3, #ff2da0, transparent)' }}
+                />
+                <motion.div
+                  className="absolute inset-0"
+                  animate={{ opacity: [0.4, 1, 0.4] }}
+                  transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut', delay: 1.8 }}
+                  style={{
+                    background: 'linear-gradient(90deg, transparent, #ff2da0, #c026d3, #818cf8, #c026d3, #ff2da0, transparent)',
+                    filter: 'blur(3px)',
+                  }}
+                />
+              </motion.div>
+            </div>
           </motion.div>
 
           <motion.p
