@@ -89,7 +89,7 @@ export default function Home() {
             <h1
               className="text-5xl md:text-6xl leading-none"
               style={{
-                fontFamily: "'Playfair Display', serif",
+                fontFamily: "'Poiret One', cursive",
                 fontWeight: 700,
                 background: 'linear-gradient(135deg, #ff2da0 0%, #c026d3 50%, #818cf8 100%)',
                 WebkitBackgroundClip: 'text',

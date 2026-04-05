@@ -33,7 +33,7 @@ export default function Footer() {
           <span
             className="block mb-1"
             style={{
-              fontFamily: "'Playfair Display', serif",
+              fontFamily: "'Poiret One', cursive",
               fontWeight: 700,
               fontSize: '1.4rem',
               background: 'linear-gradient(135deg, #ff2da0 0%, #c026d3 50%, #818cf8 100%)',
