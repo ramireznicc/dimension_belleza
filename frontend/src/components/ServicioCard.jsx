@@ -6,7 +6,7 @@ import WhatsAppIcon from './WhatsAppIcon';
 
 const WA_NUMBER = '543413080131';
 
-export default function ServicioCard({ servicio, index = 0, isFirst = false }) {
+export default function ServicioCard({ servicio, index = 0 }) {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -82,22 +82,20 @@ export default function ServicioCard({ servicio, index = 0, isFirst = false }) {
             </div>
           </div>
 
-          {/* Hint fijo — solo mobile, solo en la primera card */}
-          {isFirst && (
-            <div className="absolute bottom-3 left-1/2 -translate-x-1/2 md:hidden pointer-events-none">
-              <div
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap backdrop-blur-sm"
-                style={{
-                  background: 'rgba(5,3,18,0.6)',
-                  border: '1px solid rgba(255,255,255,0.15)',
-                  color: 'rgba(226,217,243,0.75)',
-                }}
-              >
-                <Info size={11} />
-                Tocá para más info
-              </div>
+          {/* Hint fijo — solo mobile */}
+          <div className="absolute bottom-3 left-1/2 -translate-x-1/2 md:hidden pointer-events-none">
+            <div
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap backdrop-blur-sm"
+              style={{
+                background: 'rgba(5,3,18,0.6)',
+                border: '1px solid rgba(255,255,255,0.15)',
+                color: 'rgba(226,217,243,0.75)',
+              }}
+            >
+              <Info size={11} />
+              Tocá para más info
             </div>
-          )}
+          </div>
         </div>
 
         {/* ── Contenido ── */}
@@ -108,13 +106,6 @@ export default function ServicioCard({ servicio, index = 0, isFirst = false }) {
           >
             {servicio.titulo}
           </h3>
-
-          <p
-            className="text-xs leading-relaxed line-clamp-2"
-            style={{ color: 'rgba(226,217,243,0.45)' }}
-          >
-            {servicio.descripcion}
-          </p>
 
           <div
             className="h-px w-full"

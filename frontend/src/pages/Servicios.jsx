@@ -4,7 +4,7 @@ import { categorias } from '../data/servicios';
 import ServicioCard from '../components/ServicioCard';
 import { Info, ChevronDown } from 'lucide-react';
 
-function CategoriaSection({ categoria, globalIndex, isFirstCategory }) {
+function CategoriaSection({ categoria, globalIndex }) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -40,7 +40,7 @@ function CategoriaSection({ categoria, globalIndex, isFirstCategory }) {
         viewport={{ once: true, margin: '-40px' }}
       >
         {categoria.servicios.map((s, i) => (
-          <ServicioCard key={s.id} servicio={s} index={globalIndex + i} isFirst={isFirstCategory && i === 0} />
+          <ServicioCard key={s.id} servicio={s} index={globalIndex + i} />
         ))}
       </motion.div>
 
@@ -175,10 +175,10 @@ export default function Servicios() {
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
             >
-              {visibles.map((cat, vi) => {
+              {visibles.map((cat) => {
                 const globalIndex = offsets[categorias.indexOf(cat)];
                 return (
-                  <CategoriaSection key={cat.id} categoria={cat} globalIndex={globalIndex} isFirstCategory={vi === 0} />
+                  <CategoriaSection key={cat.id} categoria={cat} globalIndex={globalIndex} />
                 );
               })}
             </motion.div>

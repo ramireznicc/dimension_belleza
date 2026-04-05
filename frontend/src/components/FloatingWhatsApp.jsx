@@ -27,7 +27,7 @@ export default function FloatingWhatsApp() {
           href="https://wa.me/543413080131?text=Hola!%20Quisiera%20hacer%20una%20consulta."
           target="_blank"
           rel="noopener noreferrer"
-          className="fixed bottom-6 right-5 z-50 flex items-center rounded-2xl cursor-pointer select-none overflow-hidden"
+          className="fixed bottom-6 right-5 z-50 flex items-center rounded-full cursor-pointer select-none overflow-hidden"
           initial={{ opacity: 0, y: 24, scale: 0.85 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 24, scale: 0.85 }}
@@ -42,7 +42,7 @@ export default function FloatingWhatsApp() {
         >
           {/* Anillo de ping */}
           <motion.span
-            className="absolute inset-0 rounded-2xl pointer-events-none"
+            className="absolute inset-0 rounded-full pointer-events-none"
             animate={{ scale: [1, 1.5], opacity: [0.25, 0] }}
             transition={{ duration: 2, repeat: Infinity, ease: 'easeOut', repeatDelay: 1.5 }}
             style={{ background: 'rgba(37,211,102,0.35)' }}
