@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { AnimatePresence, motion } from 'framer-motion';
-import { X, Info } from 'lucide-react';
+import { X } from 'lucide-react';
 import WhatsAppIcon from './WhatsAppIcon';
 
 const WA_NUMBER = '543413080131';
@@ -82,30 +82,28 @@ export default function ServicioCard({ servicio, index = 0 }) {
             </div>
           </div>
 
-          {/* Hint fijo — solo mobile */}
-          <div className="absolute bottom-3 left-1/2 -translate-x-1/2 md:hidden pointer-events-none">
-            <div
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap backdrop-blur-sm"
-              style={{
-                background: 'rgba(5,3,18,0.6)',
-                border: '1px solid rgba(255,255,255,0.15)',
-                color: 'rgba(226,217,243,0.75)',
-              }}
-            >
-              <Info size={11} />
-              Tocá para más info
-            </div>
-          </div>
         </div>
 
         {/* ── Contenido ── */}
-        <div className="flex flex-col flex-1 p-5 gap-4">
+        <div className="flex flex-col flex-1 p-5 gap-3">
           <h3
             className="text-lg font-medium font-heading leading-snug"
             style={{ color: '#e2d9f3' }}
           >
             {servicio.titulo}
           </h3>
+
+          <div className="relative">
+            <p className="text-xs leading-relaxed line-clamp-2" style={{ color: 'rgba(226,217,243,0.45)' }}>
+              {servicio.descripcion}
+            </p>
+            <span
+              className="text-xs font-semibold cursor-pointer"
+              style={{ color: 'rgba(255,130,197,0.7)' }}
+            >
+              Ver más
+            </span>
+          </div>
 
           <div
             className="h-px w-full"
