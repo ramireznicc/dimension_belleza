@@ -79,23 +79,46 @@ export default function Home() {
           transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
         />
         <div className="relative max-w-4xl mx-auto">
-          <motion.div {...fadeUp(0)} className="flex flex-col items-center gap-4 mb-8">
-            <img
+          <motion.div {...fadeUp(0)} className="relative flex flex-col items-center gap-4 mb-8 px-10 pt-8 pb-4">
+
+            {/* Esquinas decorativas */}
+            {[
+              { pos: 'top-0 left-0',     style: { borderTop: '1.5px solid rgba(255,45,160,0.6)', borderLeft: '1.5px solid rgba(255,45,160,0.6)' } },
+              { pos: 'top-0 right-0',    style: { borderTop: '1.5px solid rgba(192,38,211,0.6)', borderRight: '1.5px solid rgba(192,38,211,0.6)' } },
+              { pos: 'bottom-0 left-0',  style: { borderBottom: '1.5px solid rgba(192,38,211,0.6)', borderLeft: '1.5px solid rgba(192,38,211,0.6)' } },
+              { pos: 'bottom-0 right-0', style: { borderBottom: '1.5px solid rgba(255,45,160,0.6)', borderRight: '1.5px solid rgba(255,45,160,0.6)' } },
+            ].map(({ pos, style }) => (
+              <motion.div
+                key={pos}
+                className={`absolute ${pos} w-6 h-6 pointer-events-none`}
+                style={style}
+                animate={{ opacity: [0.5, 1, 0.5] }}
+                transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+              />
+            ))}
+
+            {/* Logo con glow animado */}
+            <motion.img
               src="/dimension_belleza_LOGO.svg"
               alt="Dimensión Belleza"
               className="w-64 md:w-80 lg:w-96"
-              style={{ filter: 'drop-shadow(0 0 24px rgba(255,45,160,0.35)) drop-shadow(0 0 48px rgba(192,38,211,0.2))' }}
+              animate={{
+                filter: [
+                  'drop-shadow(0 0 20px rgba(255,45,160,0.35)) drop-shadow(0 0 44px rgba(192,38,211,0.18))',
+                  'drop-shadow(0 0 32px rgba(255,45,160,0.6))  drop-shadow(0 0 64px rgba(192,38,211,0.35))',
+                  'drop-shadow(0 0 20px rgba(255,45,160,0.35)) drop-shadow(0 0 44px rgba(192,38,211,0.18))',
+                ],
+              }}
+              transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
             />
+
+            {/* Texto con shimmer */}
             <h1
-              className="text-5xl md:text-6xl leading-none"
+              className="hero-title-shimmer text-5xl md:text-6xl leading-none"
               style={{
                 fontFamily: "'Poiret One', cursive",
                 fontWeight: 700,
-                background: 'linear-gradient(135deg, #ff2da0 0%, #c026d3 50%, #818cf8 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-                WebkitTextStroke: '0.5px rgba(255,255,255,0.2)',
+                WebkitTextStroke: '0.5px rgba(255,255,255,0.15)',
               }}
             >
               Dimensión Belleza

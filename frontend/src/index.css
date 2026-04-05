@@ -230,6 +230,21 @@
   50% { opacity: var(--max-opacity, 0.8); transform: scale(1.2); }
 }
 
+/* ── Shimmer en texto degradado ── */
+@keyframes textShimmer {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.hero-title-shimmer {
+  background: linear-gradient(90deg, #ff2da0, #c026d3, #818cf8, #c026d3, #ff2da0);
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: textShimmer 6s ease infinite;
+}
+
 /* ── Animación de entrada de página ── */
 @keyframes pageIn {
   from {
