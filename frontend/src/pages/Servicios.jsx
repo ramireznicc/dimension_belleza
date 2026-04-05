@@ -84,18 +84,17 @@ function CategoriaSection({ categoria, globalIndex }) {
         {categoria.aclaracion && (
           <button
             onClick={() => setModalOpen(true)}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold shrink-0 transition-all"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold shrink-0 transition-all cursor-pointer"
             style={{
-              background: 'rgba(192,38,211,0.1)',
-              border: '1px solid rgba(192,38,211,0.25)',
-              color: 'rgba(192,132,252,0.8)',
+              background: 'rgba(255,45,160,0.12)',
+              border: '1px solid rgba(255,45,160,0.4)',
+              color: '#ff82c5',
             }}
-            onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(192,38,211,0.2)'; e.currentTarget.style.color = '#c084fc'; }}
-            onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(192,38,211,0.1)'; e.currentTarget.style.color = 'rgba(192,132,252,0.8)'; }}
+            onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(255,45,160,0.22)'; e.currentTarget.style.borderColor = 'rgba(255,45,160,0.7)'; e.currentTarget.style.color = '#fff'; }}
+            onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(255,45,160,0.12)'; e.currentTarget.style.borderColor = 'rgba(255,45,160,0.4)'; e.currentTarget.style.color = '#ff82c5'; }}
           >
             <Info size={12} />
-            <span className="hidden sm:inline">Aclaración importante</span>
-            <span className="sm:hidden">Aclaración</span>
+            Importante
           </button>
         )}
       </div>
