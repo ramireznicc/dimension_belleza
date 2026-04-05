@@ -115,7 +115,7 @@ export default function ServicioCard({ servicio, index = 0 }) {
           />
 
           {/* WhatsApp — detiene propagación para no abrir el modal */}
-          <div className="mt-auto" onClick={(e) => e.stopPropagation()}>
+          <div className="mt-auto flex justify-center" onClick={(e) => e.stopPropagation()}>
             <a
               href={waUrl}
               target="_blank"
