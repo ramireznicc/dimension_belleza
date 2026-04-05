@@ -120,7 +120,7 @@ export default function ServicioCard({ servicio, index = 0 }) {
               href={waUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 w-full text-xs font-bold py-2.5 rounded-xl transition-all duration-200"
+              className="inline-flex items-center gap-2 text-xs font-bold px-5 py-2.5 rounded-xl transition-all duration-200"
               style={{
                 background: 'linear-gradient(135deg, #22c55e 0%, #16a34a 100%)',
                 color: '#fff',
