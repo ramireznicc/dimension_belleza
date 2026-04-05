@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Star, Scissors, Sparkles, Heart, Zap, ChevronDown, CalendarDays } from 'lucide-react';
+import { ArrowRight, Scissors, Sparkles, Heart, Zap, ChevronDown, CalendarDays } from 'lucide-react';
 import WhatsAppIcon from '../components/WhatsAppIcon';
+import InstagramTestimonials from '../components/InstagramTestimonials';
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 24 },
@@ -214,28 +215,26 @@ export default function Home() {
 
       <hr className="star-divider" />
 
-      {/* ── Testimonial ── */}
-      <section className="section-indigo py-20 px-4 flex-1">
-        <motion.div
-          className="max-w-3xl mx-auto text-center"
-          initial={{ opacity: 0, scale: 0.97 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <div className="flex justify-center gap-1.5 mb-6">
-            {Array.from({ length: 5 }).map((_, i) => (
-              <Star key={i} size={20} style={{ color: '#fbbf24', fill: '#fbbf24' }} />
-            ))}
-          </div>
-          <blockquote
-            className="text-xl md:text-2xl font-medium italic mb-5"
-            style={{ color: 'rgba(226,217,243,0.85)' }}
+      {/* ── Testimonios estilo Instagram ── */}
+      <section className="section-indigo py-16 px-4 flex-1">
+        <div className="max-w-xl mx-auto">
+          <motion.div
+            className="text-center mb-10"
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
           >
-            "Salí completamente transformada. El trato es increíble y los resultados hablan solos."
-          </blockquote>
-          <p className="text-sm font-semibold" style={{ color: 'rgba(255,45,160,0.7)' }}>— Valentina M.</p>
-        </motion.div>
+            <h2 className="text-3xl md:text-4xl font-medium mb-3 font-heading">
+              <span className="gradient-text">Lo que dicen</span>
+            </h2>
+            <div className="flex justify-center mb-3">
+              <div className="h-px w-16" style={{ background: 'linear-gradient(90deg, transparent, #ff2da0, #c026d3, transparent)', boxShadow: '0 0 8px rgba(255,45,160,0.5)' }} />
+            </div>
+            <p style={{ color: 'rgba(226,217,243,0.5)' }}>Reseñas reales de nuestras clientas</p>
+          </motion.div>
+          <InstagramTestimonials />
+        </div>
       </section>
     </div>
   );
