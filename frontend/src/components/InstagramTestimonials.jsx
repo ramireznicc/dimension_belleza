@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Heart } from 'lucide-react';
-import IconInstagram from './IconInstagram';
 
 const INTERVAL = 4500;
 
@@ -46,27 +45,6 @@ export default function InstagramTestimonials() {
             boxShadow: '0 20px 50px rgba(0,0,0,0.7)',
           }}
         >
-          {/* Header fijo del post — simula el encabezado de comentarios */}
-          <div
-            className="flex items-center justify-between px-4 py-3"
-            style={{ borderBottom: '1px solid #1c1c1e' }}
-          >
-            <div className="flex items-center gap-2">
-              <div
-                className="w-6 h-6 rounded-full flex items-center justify-center overflow-hidden"
-                style={{ background: 'linear-gradient(135deg, #ff2da0, #c026d3, #818cf8)', padding: '1.5px' }}
-              >
-                <div className="w-full h-full rounded-full bg-black flex items-center justify-center">
-                  <img src="/dimension_belleza_LOGO.svg" alt="" className="w-3.5" style={{ filter: 'brightness(0) invert(1)' }} />
-                </div>
-              </div>
-              <span className="text-xs font-semibold" style={{ color: '#fff', fontFamily: 'system-ui, sans-serif' }}>
-                dimensionbelleza
-              </span>
-            </div>
-            <IconInstagram size={15} style={{ color: '#a8a8a8' }} />
-          </div>
-
           {/* Comentario animado */}
           <div className="px-4 py-4" style={{ minHeight: '88px' }}>
             <AnimatePresence mode="wait">
@@ -120,36 +98,20 @@ export default function InstagramTestimonials() {
             />
           </div>
 
-          {/* Dots + link IG */}
-          <div
-            className="flex items-center justify-between px-4 pb-3"
-          >
-            <div className="flex gap-1.5">
-              {reseñas.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => { setCurrent(i); setProgressKey((k) => k + 1); }}
-                  className="rounded-full transition-all duration-300"
-                  style={{
-                    width: i === current ? '14px' : '5px',
-                    height: '5px',
-                    background: i === current ? '#fff' : '#333',
-                  }}
-                />
-              ))}
-            </div>
-            <a
-              href="https://www.instagram.com/dimensionbelleza/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-xs font-semibold transition-colors"
-              style={{ color: '#a8a8a8', fontFamily: 'system-ui, sans-serif' }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = '#fff')}
-              onMouseLeave={(e) => (e.currentTarget.style.color = '#a8a8a8')}
-            >
-              Ver perfil
-              <IconInstagram size={12} />
-            </a>
+          {/* Dots */}
+          <div className="flex justify-center gap-1.5 pb-3">
+            {reseñas.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => { setCurrent(i); setProgressKey((k) => k + 1); }}
+                className="rounded-full transition-all duration-300"
+                style={{
+                  width: i === current ? '14px' : '5px',
+                  height: '5px',
+                  background: i === current ? '#fff' : '#333',
+                }}
+              />
+            ))}
           </div>
         </div>
 
