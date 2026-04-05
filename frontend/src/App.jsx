@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import StarField from './components/StarField';
 import PageTransition from './components/PageTransition';
+import FloatingWhatsApp from './components/FloatingWhatsApp';
 import Home from './pages/Home';
 import Servicios from './pages/Servicios';
 import Contacto from './pages/Contacto';
@@ -38,6 +39,7 @@ function App() {
           <AppRoutes />
         </main>
         <Footer />
+        <FloatingWhatsApp />
       </div>
     </BrowserRouter>
   );

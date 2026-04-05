@@ -68,8 +68,8 @@ export default function Contacto() {
                   onChange={handleChange}
                   placeholder="Valentina"
                   style={inputStyle}
-                  onFocus={(e) => (e.target.style.borderColor = 'rgba(255,45,160,0.5)')}
-                  onBlur={(e) => (e.target.style.borderColor = 'rgba(255,255,255,0.1)')}
+                  onFocus={(e) => { e.target.style.borderColor = 'rgba(255,45,160,0.5)'; e.target.style.boxShadow = '0 0 0 3px rgba(255,45,160,0.1)'; }}
+                  onBlur={(e) => { e.target.style.borderColor = 'rgba(255,255,255,0.1)'; e.target.style.boxShadow = 'none'; }}
                 />
               </div>
               <div>
@@ -84,8 +84,8 @@ export default function Contacto() {
                   onChange={handleChange}
                   placeholder="Quiero saber más sobre depilación láser..."
                   style={{ ...inputStyle, resize: 'none' }}
-                  onFocus={(e) => (e.target.style.borderColor = 'rgba(255,45,160,0.5)')}
-                  onBlur={(e) => (e.target.style.borderColor = 'rgba(255,255,255,0.1)')}
+                  onFocus={(e) => { e.target.style.borderColor = 'rgba(255,45,160,0.5)'; e.target.style.boxShadow = '0 0 0 3px rgba(255,45,160,0.1)'; }}
+                  onBlur={(e) => { e.target.style.borderColor = 'rgba(255,255,255,0.1)'; e.target.style.boxShadow = 'none'; }}
                 />
               </div>
               <button

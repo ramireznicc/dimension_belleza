@@ -27,11 +27,17 @@ function CategoriaSection({ categoria, globalIndex, isFirstCategory }) {
       </div>
 
       {/* Grilla de cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <motion.div
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+        variants={{ animate: { transition: { staggerChildren: 0.08 } } }}
+        initial="initial"
+        whileInView="animate"
+        viewport={{ once: true, margin: '-40px' }}
+      >
         {categoria.servicios.map((s, i) => (
           <ServicioCard key={s.id} servicio={s} index={globalIndex + i} isFirst={isFirstCategory && i === 0} />
         ))}
-      </div>
+      </motion.div>
 
       {/* Aclaración (si la hay) */}
       {categoria.aclaracion && (

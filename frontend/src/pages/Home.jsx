@@ -1,6 +1,7 @@
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { ArrowRight, Star, Scissors, Sparkles, Heart, Zap } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowRight, Star, Scissors, Sparkles, Heart, Zap, ChevronDown } from 'lucide-react';
 import WhatsAppIcon from '../components/WhatsAppIcon';
 
 const fadeUp = (delay = 0) => ({
@@ -41,6 +42,13 @@ const categorias = [
 ];
 
 export default function Home() {
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const fn = () => setScrolled(window.scrollY > 60);
+    window.addEventListener('scroll', fn, { passive: true });
+    return () => window.removeEventListener('scroll', fn);
+  }, []);
+
   return (
     <div className="flex flex-col flex-1">
       {/* ── Hero ── */}
@@ -117,6 +125,26 @@ export default function Home() {
             </a>
           </motion.div>
         </div>
+
+        {/* Scroll indicator */}
+        <AnimatePresence>
+          {!scrolled && (
+            <motion.div
+              className="absolute bottom-6 left-1/2 -translate-x-1/2 pointer-events-none"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ delay: 1.2, duration: 0.6 }}
+            >
+              <motion.div
+                animate={{ y: [0, 7, 0] }}
+                transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut' }}
+              >
+                <ChevronDown size={22} style={{ color: 'rgba(255,45,160,0.45)' }} />
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </section>
 
       <hr className="star-divider" />

@@ -23,10 +23,10 @@ export default function ServicioCard({ servicio, index = 0, isFirst = false }) {
       <motion.article
         className="group relative overflow-hidden rounded-2xl flex flex-col cursor-pointer"
         onClick={() => setOpen(true)}
-        initial={{ opacity: 0, y: 28 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: '-40px' }}
-        transition={{ duration: 0.5, delay: index * 0.07, ease: [0.22, 1, 0.36, 1] }}
+        variants={{
+          initial: { opacity: 0, y: 28 },
+          animate: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } },
+        }}
         style={{
           background: 'rgba(255,255,255,0.03)',
           border: '1px solid rgba(255,255,255,0.07)',
@@ -108,6 +108,13 @@ export default function ServicioCard({ servicio, index = 0, isFirst = false }) {
           >
             {servicio.titulo}
           </h3>
+
+          <p
+            className="text-xs leading-relaxed line-clamp-2"
+            style={{ color: 'rgba(226,217,243,0.45)' }}
+          >
+            {servicio.descripcion}
+          </p>
 
           <div
             className="h-px w-full"

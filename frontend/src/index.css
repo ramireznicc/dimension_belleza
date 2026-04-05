@@ -230,6 +230,26 @@
   50% { opacity: var(--max-opacity, 0.8); transform: scale(1.2); }
 }
 
+/* ── Estrellas fugaces ── */
+.shooting-star {
+  position: absolute;
+  left: -200px;
+  height: 1px;
+  width: var(--shoot-width, 120px);
+  background: linear-gradient(90deg, transparent, rgba(255, 200, 240, 0.85), transparent);
+  border-radius: 9999px;
+  animation: shoot var(--shoot-duration, 2.2s) ease-in infinite;
+  animation-delay: var(--shoot-delay, 6s);
+  opacity: 0;
+}
+
+@keyframes shoot {
+  0%   { transform: translateX(0) translateY(0); opacity: 0; }
+  5%   { opacity: 1; }
+  85%  { opacity: 0.6; }
+  100% { transform: translateX(110vw) translateY(60px); opacity: 0; }
+}
+
 /* ── Animación de entrada de página ── */
 @keyframes pageIn {
   from {
