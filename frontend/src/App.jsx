@@ -5,9 +5,12 @@ import Footer from './components/Footer';
 import StarField from './components/StarField';
 import PageTransition from './components/PageTransition';
 import FloatingWhatsApp from './components/FloatingWhatsApp';
+import ProtectedRoute from './components/ProtectedRoute';
 import Home from './pages/Home';
 import Servicios from './pages/Servicios';
 import Contacto from './pages/Contacto';
+import AdminLogin from './pages/AdminLogin';
+import AdminDashboard from './pages/AdminDashboard';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -17,6 +20,19 @@ function ScrollToTop() {
 
 function AppRoutes() {
   const location = useLocation();
+  const isAdmin = location.pathname.startsWith('/admin');
+
+  if (isAdmin) {
+    return (
+      <Routes>
+        <Route path="/admin" element={<AdminLogin />} />
+        <Route path="/admin/dashboard" element={
+          <ProtectedRoute><AdminDashboard /></ProtectedRoute>
+        } />
+      </Routes>
+    );
+  }
+
   return (
     <PageTransition>
       <Routes location={location} key={location.pathname}>
@@ -28,19 +44,32 @@ function AppRoutes() {
   );
 }
 
+function AppShell() {
+  const location = useLocation();
+  const isAdmin = location.pathname.startsWith('/admin');
+
+  if (isAdmin) {
+    return <AppRoutes />;
+  }
+
+  return (
+    <div className="min-h-screen flex flex-col relative">
+      <StarField count={130} />
+      <Navbar />
+      <main className="flex-1 relative z-10 flex flex-col">
+        <AppRoutes />
+      </main>
+      <Footer />
+      <FloatingWhatsApp />
+    </div>
+  );
+}
+
 function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
-      <div className="min-h-screen flex flex-col relative">
-        <StarField count={130} />
-        <Navbar />
-        <main className="flex-1 relative z-10 flex flex-col">
-          <AppRoutes />
-        </main>
-        <Footer />
-        <FloatingWhatsApp />
-      </div>
+      <AppShell />
     </BrowserRouter>
   );
 }

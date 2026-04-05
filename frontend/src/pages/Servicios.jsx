@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { categorias } from '../data/servicios';
+import { mergeWithOverrides } from '../utils/serviciosStorage';
 import ServicioCard from '../components/ServicioCard';
 import { Info, ChevronDown } from 'lucide-react';
 
@@ -93,15 +94,16 @@ const ALL = 'todos';
 
 export default function Servicios() {
   const [filtro, setFiltro] = useState(ALL);
+  const categoriasActivas = useMemo(() => mergeWithOverrides(categorias), []);
 
-  const offsets = categorias.reduce((acc, cat, i) => {
-    acc.push(i === 0 ? 0 : acc[i - 1] + categorias[i - 1].servicios.length);
+  const offsets = categoriasActivas.reduce((acc, cat, i) => {
+    acc.push(i === 0 ? 0 : acc[i - 1] + categoriasActivas[i - 1].servicios.length);
     return acc;
   }, []);
 
   const visibles = filtro === ALL
-    ? categorias
-    : categorias.filter((c) => c.id === filtro);
+    ? categoriasActivas
+    : categoriasActivas.filter((c) => c.id === filtro);
 
   return (
     <div className="flex flex-col flex-1">
@@ -133,7 +135,7 @@ export default function Servicios() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.1 }}
           >
-            {[{ id: ALL, titulo: 'Todos' }, ...categorias].map((cat) => {
+            {[{ id: ALL, titulo: 'Todos' }, ...categoriasActivas].map((cat) => {
               const active = filtro === cat.id;
               return (
                 <button
@@ -176,7 +178,7 @@ export default function Servicios() {
               transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
             >
               {visibles.map((cat) => {
-                const globalIndex = offsets[categorias.indexOf(cat)];
+                const globalIndex = offsets[categoriasActivas.indexOf(cat)];
                 return (
                   <CategoriaSection key={cat.id} categoria={cat} globalIndex={globalIndex} />
                 );
