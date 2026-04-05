@@ -61,7 +61,7 @@ export default function FloatingWhatsApp() {
                 transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
                 style={{ paddingRight: '4px' }}
               >
-                Hacé tu consulta
+                ¡Hacé tu consulta!
               </motion.span>
             )}
           </AnimatePresence>

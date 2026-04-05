@@ -17,7 +17,12 @@ function CategoriaSection({ categoria, globalIndex, isFirstCategory }) {
     >
       {/* Encabezado de categoría */}
       <div className="flex items-center gap-4 mb-8">
-        <h2 className="text-3xl md:text-4xl font-medium font-heading whitespace-nowrap" style={{ color: '#e2d9f3' }}>
+        <h2
+          className="text-3xl md:text-4xl font-medium font-heading whitespace-nowrap gradient-text"
+          style={{
+            textShadow: '0 0 32px rgba(255,45,160,0.25)',
+          }}
+        >
           {categoria.titulo}
         </h2>
         <div
@@ -110,9 +115,12 @@ export default function Servicios() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <h1 className="text-4xl md:text-5xl font-medium mb-4 font-heading">
+            <h1 className="text-4xl md:text-5xl font-medium mb-3 font-heading">
               <span className="gradient-text">Servicios</span>
             </h1>
+            <div className="flex justify-center mb-4">
+              <div className="h-px w-16" style={{ background: 'linear-gradient(90deg, transparent, #ff2da0, #c026d3, transparent)', boxShadow: '0 0 8px rgba(255,45,160,0.5)' }} />
+            </div>
             <p className="text-lg max-w-xl mx-auto" style={{ color: 'rgba(226,217,243,0.55)' }}>
               Tratamientos profesionales personalizados para realzar tu belleza.
             </p>

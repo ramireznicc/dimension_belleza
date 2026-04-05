@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Star, Scissors, Sparkles, Heart, Zap, ChevronDown } from 'lucide-react';
+import { ArrowRight, Star, Scissors, Sparkles, Heart, Zap, ChevronDown, CalendarDays } from 'lucide-react';
 import WhatsAppIcon from '../components/WhatsAppIcon';
 
 const fadeUp = (delay = 0) => ({
@@ -120,7 +120,7 @@ export default function Home() {
               rel="noopener noreferrer"
               className="btn-outline flex items-center gap-2"
             >
-              <WhatsAppIcon size={17} />
+              <CalendarDays size={17} />
               Sacar turno
             </a>
           </motion.div>
@@ -162,6 +162,9 @@ export default function Home() {
             <h2 className="text-3xl md:text-4xl font-medium mb-3 font-heading">
               <span className="gradient-text">Nuestros Servicios</span>
             </h2>
+            <div className="flex justify-center mb-3">
+              <div className="h-px w-16" style={{ background: 'linear-gradient(90deg, transparent, #ff2da0, #c026d3, transparent)', boxShadow: '0 0 8px rgba(255,45,160,0.5)' }} />
+            </div>
             <p style={{ color: 'rgba(226,217,243,0.5)' }}>Todo lo que necesitás en un solo lugar</p>
           </motion.div>
 

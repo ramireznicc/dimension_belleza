@@ -43,10 +43,13 @@ export default function Contacto() {
       <div className="max-w-5xl mx-auto px-4 py-16">
         {/* Header */}
         <motion.div className="text-center mb-14" {...fadeUp(0)}>
-          <h1 className="text-4xl md:text-5xl font-medium mb-4 font-heading">
+          <h1 className="text-4xl md:text-5xl font-medium mb-3 font-heading">
             <span className="gradient-text">Contacto</span>{' '}
             <span style={{ color: '#e2d9f3' }}>& Turnos</span>
           </h1>
+          <div className="flex justify-center mb-4">
+            <div className="h-px w-16" style={{ background: 'linear-gradient(90deg, transparent, #ff2da0, #c026d3, transparent)', boxShadow: '0 0 8px rgba(255,45,160,0.5)' }} />
+          </div>
           <p style={{ color: 'rgba(226,217,243,0.55)' }}>
             Escribinos y te respondemos a la brevedad.
           </p>

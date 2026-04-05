@@ -2,14 +2,6 @@ import { useMemo } from 'react';
 
 const rand = (min, max) => Math.random() * (max - min) + min;
 
-const SHOOTING_STARS = Array.from({ length: 3 }, (_, i) => ({
-  id: i,
-  top: `${rand(8, 45)}%`,
-  delay: `${rand(3, 14)}s`,
-  duration: `${rand(1.8, 2.8)}s`,
-  width: rand(90, 160),
-}));
-
 export default function StarField({ count = 120 }) {
   const stars = useMemo(
     () =>
@@ -43,18 +35,6 @@ export default function StarField({ count = 120 }) {
         />
       ))}
 
-      {SHOOTING_STARS.map((s) => (
-        <div
-          key={`shoot-${s.id}`}
-          className="shooting-star"
-          style={{
-            top: s.top,
-            '--shoot-delay': s.delay,
-            '--shoot-duration': s.duration,
-            '--shoot-width': `${s.width}px`,
-          }}
-        />
-      ))}
     </div>
   );
 }
