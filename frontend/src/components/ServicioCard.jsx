@@ -68,9 +68,9 @@ export default function ServicioCard({ servicio, index = 0 }) {
         </div>
 
         {/* ── Contenido ── */}
-        <div className="flex flex-col flex-1 p-5 gap-3">
+        <div className="flex flex-col flex-1 p-3 sm:p-5 gap-2 sm:gap-3">
           <h3
-            className="text-lg font-medium font-heading leading-snug"
+            className="text-sm sm:text-lg font-medium font-heading leading-snug"
             style={{ color: '#e2d9f3' }}
           >
             {servicio.titulo}
@@ -117,7 +117,8 @@ export default function ServicioCard({ servicio, index = 0 }) {
               }}
             >
               <WhatsAppIcon size={15} />
-              Consultar por WhatsApp
+              <span className="hidden sm:inline">Consultar por WhatsApp</span>
+              <span className="sm:hidden">Consultar</span>
             </a>
           </div>
         </div>
