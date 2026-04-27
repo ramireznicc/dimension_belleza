@@ -1,11 +1,83 @@
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo, useEffect, useRef } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { categorias } from '../data/servicios';
 import { mergeWithOverrides } from '../utils/serviciosStorage';
 import ServicioCard from '../components/ServicioCard';
-import { Info } from 'lucide-react';
+import { Info, ChevronDown, SlidersHorizontal } from 'lucide-react';
 import { createPortal } from 'react-dom';
+
+function MobileFiltroMenu({ categorias, filtro, setFiltro, ALL }) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef(null);
+  const todas = [{ id: ALL, titulo: 'Todos' }, ...categorias];
+  const seleccionada = todas.find((c) => c.id === filtro)?.titulo ?? 'Todos';
+
+  useEffect(() => {
+    if (!open) return;
+    const handler = (e) => { if (ref.current && !ref.current.contains(e.target)) setOpen(false); };
+    document.addEventListener('mousedown', handler);
+    return () => document.removeEventListener('mousedown', handler);
+  }, [open]);
+
+  return (
+    <div className="relative md:hidden" ref={ref}>
+      <button
+        onClick={() => setOpen((o) => !o)}
+        className="w-full flex items-center justify-between px-5 py-3 rounded-2xl text-sm font-semibold transition-all"
+        style={{
+          background: 'rgba(255,45,160,0.08)',
+          border: '1px solid rgba(255,45,160,0.3)',
+          color: '#ff82c5',
+        }}
+      >
+        <span className="flex items-center gap-2">
+          <SlidersHorizontal size={14} />
+          {seleccionada}
+        </span>
+        <motion.span animate={{ rotate: open ? 180 : 0 }} transition={{ duration: 0.2 }}>
+          <ChevronDown size={16} />
+        </motion.span>
+      </button>
+
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            className="absolute top-full left-0 right-0 mt-2 rounded-2xl overflow-hidden z-20"
+            initial={{ opacity: 0, y: -8, scale: 0.97 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -8, scale: 0.97 }}
+            transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            style={{
+              background: 'rgba(10,5,30,0.97)',
+              border: '1px solid rgba(255,45,160,0.2)',
+              boxShadow: '0 16px 48px rgba(0,0,0,0.6)',
+            }}
+          >
+            {todas.map((cat) => {
+              const active = filtro === cat.id;
+              return (
+                <button
+                  key={cat.id}
+                  onClick={() => { setFiltro(cat.id); setOpen(false); }}
+                  className="w-full flex items-center justify-between px-5 py-3 text-sm transition-all"
+                  style={{
+                    color: active ? '#ff82c5' : 'rgba(226,217,243,0.65)',
+                    background: active ? 'rgba(255,45,160,0.1)' : 'transparent',
+                    borderBottom: '1px solid rgba(255,255,255,0.05)',
+                  }}
+                >
+                  {cat.titulo}
+                  {active && <span style={{ color: '#ff2da0', fontSize: '0.55rem' }}>✦</span>}
+                </button>
+              );
+            })}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
 
 function AclaracionModal({ texto, onClose }) {
   return createPortal(
@@ -165,43 +237,54 @@ export default function Servicios() {
             </p>
           </motion.div>
 
-          {/* Chips de filtro */}
+          {/* Chips de filtro — desktop: fila, mobile: menú plegable */}
           <motion.div
-            className="flex gap-2.5 mb-14 overflow-x-auto pb-1 px-1 justify-start md:justify-center md:flex-wrap no-scrollbar"
+            className="mb-14"
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.15 }}
           >
-            {[{ id: ALL, titulo: 'Todos' }, ...categoriasActivas].map((cat) => {
-              const active = filtro === cat.id;
-              return (
-                <button
-                  key={cat.id}
-                  onClick={() => setFiltro(cat.id)}
-                  className="relative px-5 py-2 rounded-full text-sm font-semibold transition-all duration-200 cursor-pointer shrink-0"
-                  style={{
-                    background: active
-                      ? 'linear-gradient(135deg, rgba(255,45,160,0.25), rgba(192,38,211,0.2))'
-                      : 'rgba(255,255,255,0.05)',
-                    border: active
-                      ? '1px solid rgba(255,45,160,0.55)'
-                      : '1px solid rgba(255,255,255,0.1)',
-                    color: active ? '#ff82c5' : 'rgba(226,217,243,0.55)',
-                    boxShadow: active ? '0 0 16px rgba(255,45,160,0.2)' : 'none',
-                  }}
-                >
-                  {active && (
-                    <motion.span
-                      layoutId="chip-active"
-                      className="absolute inset-0 rounded-full pointer-events-none"
-                      style={{ background: 'rgba(255,45,160,0.08)' }}
-                      transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                    />
-                  )}
-                  {cat.titulo}
-                </button>
-              );
-            })}
+            {/* ── Mobile: botón "Filtrar" + dropdown ── */}
+            <MobileFiltroMenu
+              categorias={categoriasActivas}
+              filtro={filtro}
+              setFiltro={setFiltro}
+              ALL={ALL}
+            />
+
+            {/* ── Desktop (md+): chips horizontales ── */}
+            <div className="hidden md:flex gap-2.5 pb-1 px-1 justify-center flex-wrap">
+              {[{ id: ALL, titulo: 'Todos' }, ...categoriasActivas].map((cat) => {
+                const active = filtro === cat.id;
+                return (
+                  <button
+                    key={cat.id}
+                    onClick={() => setFiltro(cat.id)}
+                    className="relative px-5 py-2 rounded-full text-sm font-semibold transition-all duration-200 cursor-pointer shrink-0"
+                    style={{
+                      background: active
+                        ? 'linear-gradient(135deg, rgba(255,45,160,0.25), rgba(192,38,211,0.2))'
+                        : 'rgba(255,255,255,0.05)',
+                      border: active
+                        ? '1px solid rgba(255,45,160,0.55)'
+                        : '1px solid rgba(255,255,255,0.1)',
+                      color: active ? '#ff82c5' : 'rgba(226,217,243,0.55)',
+                      boxShadow: active ? '0 0 16px rgba(255,45,160,0.2)' : 'none',
+                    }}
+                  >
+                    {active && (
+                      <motion.span
+                        layoutId="chip-active-desktop"
+                        className="absolute inset-0 rounded-full pointer-events-none"
+                        style={{ background: 'rgba(255,45,160,0.08)' }}
+                        transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                      />
+                    )}
+                    {cat.titulo}
+                  </button>
+                );
+              })}
+            </div>
           </motion.div>
 
           {/* Secciones */}

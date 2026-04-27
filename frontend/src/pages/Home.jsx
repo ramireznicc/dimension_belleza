@@ -217,71 +217,6 @@ function PhotoCollage() {
   );
 }
 
-function CollapseGroup({ title, items }) {
-  const [open, setOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(() => window.innerWidth < 640);
-
-  useEffect(() => {
-    const handler = () => setIsMobile(window.innerWidth < 640);
-    window.addEventListener('resize', handler);
-    return () => window.removeEventListener('resize', handler);
-  }, []);
-
-  const expanded = !isMobile || open;
-
-  return (
-    <div>
-      <button
-        className="w-full flex items-center justify-between py-3 px-4 rounded-xl mb-2 sm:hidden transition-all"
-        style={{
-          background: open ? 'rgba(255,45,160,0.1)' : 'rgba(255,45,160,0.05)',
-          border: '1px solid rgba(255,45,160,0.2)',
-        }}
-        onClick={() => setOpen((o) => !o)}
-      >
-        <span className="text-base font-semibold font-heading" style={{ color: 'rgba(255,45,160,0.9)' }}>
-          {title}
-        </span>
-        <motion.span animate={{ rotate: open ? 180 : 0 }} transition={{ duration: 0.22 }}>
-          <ChevronDown size={16} style={{ color: 'rgba(255,45,160,0.7)' }} />
-        </motion.span>
-      </button>
-
-      <p className="hidden sm:block text-base font-semibold mb-3 font-heading" style={{ color: 'rgba(255,45,160,0.85)' }}>
-        {title}
-      </p>
-
-      <AnimatePresence initial={false}>
-        {expanded && (
-          <motion.ul
-            className="flex flex-col gap-2 mb-1 sm:mb-0"
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            style={{ overflow: 'hidden' }}
-          >
-            {items.map(({ label, id }) => (
-              <li key={id}>
-                <Link
-                  to={`/servicios?filtro=${id}`}
-                  className="flex items-center gap-2 py-2.5 px-4 rounded-xl text-sm transition-all"
-                  style={{ background: 'rgba(255,45,160,0.06)', border: '1px solid rgba(255,45,160,0.12)', color: 'rgba(226,217,243,0.75)' }}
-                  onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(255,45,160,0.12)'; e.currentTarget.style.borderColor = 'rgba(255,45,160,0.3)'; }}
-                  onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(255,45,160,0.06)'; e.currentTarget.style.borderColor = 'rgba(255,45,160,0.12)'; }}
-                >
-                  <span style={{ color: '#ff2da0', fontSize: '0.6rem', flexShrink: 0 }}>✦</span>
-                  {label}
-                </Link>
-              </li>
-            ))}
-          </motion.ul>
-        )}
-      </AnimatePresence>
-    </div>
-  );
-}
-
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
@@ -530,32 +465,69 @@ export default function Home() {
           </motion.div>
 
           <motion.div
-            className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8"
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            className="grid grid-cols-1 sm:grid-cols-2 gap-8"
+            variants={stagger}
+            initial="initial"
+            whileInView="animate"
             viewport={{ once: true, margin: '-60px' }}
-            transition={{ duration: 0.4 }}
           >
-            <CollapseGroup
-              title="Peluquería consciente"
-              items={[
-                { label: 'Coloración',             id: 'coloracion' },
-                { label: 'Cortes y peinados',      id: 'cortes-peinados' },
-                { label: 'Tratamientos capilares', id: 'tratamientos-capilares' },
-              ]}
-            />
-            <CollapseGroup
-              title="Tratamientos de bienestar"
-              items={[
-                { label: 'Masajes y Reiki',         id: 'masaje-reiki' },
-                { label: 'Depilación láser',        id: 'depilacion-laser' },
-                { label: 'Tratamientos reductores', id: 'reductores' },
-                { label: 'Limpieza facial',         id: 'limpieza-facial' },
-                { label: 'Radiofrecuencia',         id: 'radiofrecuencia' },
-                { label: 'Cavitación',              id: 'cavitacion' },
-                { label: 'Ondas rusas',             id: 'ondas-rusas' },
-              ]}
-            />
+            {/* Columna 1: Peluquería consciente */}
+            <div>
+              <p className="text-base font-semibold mb-3 font-heading" style={{ color: 'rgba(255,45,160,0.85)' }}>
+                Peluquería consciente
+              </p>
+              <ul className="flex flex-col gap-2">
+                {[
+                  { label: 'Coloración',             id: 'coloracion' },
+                  { label: 'Cortes y peinados',     id: 'cortes-peinados' },
+                  { label: 'Tratamientos capilares', id: 'tratamientos-capilares' },
+                ].map(({ label, id }) => (
+                  <motion.li key={id} variants={cardVariant}>
+                    <Link
+                      to={`/servicios?filtro=${id}`}
+                      className="flex items-center gap-2 py-2.5 px-4 rounded-xl text-sm transition-all"
+                      style={{ background: 'rgba(255,45,160,0.06)', border: '1px solid rgba(255,45,160,0.12)', color: 'rgba(226,217,243,0.75)' }}
+                      onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,45,160,0.12)'; e.currentTarget.style.borderColor = 'rgba(255,45,160,0.3)'; }}
+                      onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,45,160,0.06)'; e.currentTarget.style.borderColor = 'rgba(255,45,160,0.12)'; }}
+                    >
+                      <span style={{ color: '#ff2da0', fontSize: '0.6rem', flexShrink: 0 }}>✦</span>
+                      {label}
+                    </Link>
+                  </motion.li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Columna 2: Tratamientos de bienestar */}
+            <div>
+              <p className="text-base font-semibold mb-3 font-heading" style={{ color: 'rgba(255,45,160,0.85)' }}>
+                Tratamientos de bienestar
+              </p>
+              <ul className="flex flex-col gap-2">
+                {[
+                  { label: 'Masajes y Reiki',          id: 'masaje-reiki' },
+                  { label: 'Depilación láser',         id: 'depilacion-laser' },
+                  { label: 'Tratamientos reductores',  id: 'reductores' },
+                  { label: 'Limpieza facial',          id: 'limpieza-facial' },
+                  { label: 'Radiofrecuencia',          id: 'radiofrecuencia' },
+                  { label: 'Cavitación',               id: 'cavitacion' },
+                  { label: 'Ondas rusas',              id: 'ondas-rusas' },
+                ].map(({ label, id }) => (
+                  <motion.li key={id} variants={cardVariant}>
+                    <Link
+                      to={`/servicios?filtro=${id}`}
+                      className="flex items-center gap-2 py-2.5 px-4 rounded-xl text-sm transition-all"
+                      style={{ background: 'rgba(255,45,160,0.06)', border: '1px solid rgba(255,45,160,0.12)', color: 'rgba(226,217,243,0.75)' }}
+                      onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,45,160,0.12)'; e.currentTarget.style.borderColor = 'rgba(255,45,160,0.3)'; }}
+                      onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,45,160,0.06)'; e.currentTarget.style.borderColor = 'rgba(255,45,160,0.12)'; }}
+                    >
+                      <span style={{ color: '#ff2da0', fontSize: '0.6rem', flexShrink: 0 }}>✦</span>
+                      {label}
+                    </Link>
+                  </motion.li>
+                ))}
+              </ul>
+            </div>
           </motion.div>
         </div>
       </section>
