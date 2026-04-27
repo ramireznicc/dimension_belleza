@@ -26,3 +26,36 @@ El Reiki es una terapia energética de origen japonés que se basa en la canaliz
 Acompañamos con un suave y relajante masaje para desbloquear energía estancada que por consecuencia nos esté provocando un dolor físico o muchos pensamientos, dolor de cabeza. 
 Y finalizamos con reflexologia en cabeza, manos y pies.
 Precio: $50000
+
+corte1: TITULO: Lavado + corte
+Descripción: Lavado y corte de pelo.
+Precio: $
+
+trenzas1+trenzas2: TITULO: Trenzas Malibú.
+Descripción: Trenzas Malibú es un estilo propio de Dimensión Belleza. Son extensiones de cabello con ondas que se adaptan a la energía de cada persona. Cómodas y energéticamente fuertes para mujeres que buscan elevar su vibra. Opcion rubias o castañas.
+Precio: $
+
+depi1: TITULO: Depilaciòn Láser.
+Descripción: La depilación láser es uno de los métodos más elegidos hoy en día porque no solo elimina el vello, sino que también mejora la piel. 
+No duele y con lleva mínimos cuidados 24hs post depilación. Depilación Láser jornada 1 vez al mes (consultar fechas disponibles). Los turnos se reservan con una seña del 50%.
+ 
+alisadoMaster1: TITULO: Alisado máster progresiv.
+Descripción: Contiene keratina y formol en porcentaje aprobado. 
+Trabajamos con este producto en garantía de 10 años.
+Conservamos las mismas clientas y todas conservan la calidad de la fibra.
+Se va con los lavados. No es definitivo. 
+Su duración varía de 2 a 4 meses.
+El proceso en el salón lleva un tiempo estimado de 2 horas. Se deja puesto de 2 a 3 días dependiendo grosor del cabello. 
+Es termo activo y se mantiene con nutrición.
+El proceso en el salón es bastante largo así que asistir con paciencia ya que se puede demorar de 4 a 8 horas por sus técnicas precisas de alisado definitivo.
+
+karseell1: TITULO: Karseell.
+Descripción: Karseell es un tratamiento capilar intensivo formulado para nutrir, reparar y revitalizar el cabello desde el interior de la fibra capilar. Su fórmula, enriquecida con colágeno, aceites nutritivos y proteínas, actúa profundamente restaurando la elasticidad, suavidad y brillo del cabello. Está especialmente diseñado para cabellos dañados, secos, decolorados o tratados químicamente, devolviéndoles fuerza, hidratación y un aspecto saludable desde la primera aplicación.
+
+
+
+
+
+
+
+

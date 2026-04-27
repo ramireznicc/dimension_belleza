@@ -1,4 +1,5 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { categorias } from '../data/servicios';
 import { mergeWithOverrides } from '../utils/serviciosStorage';
@@ -105,7 +106,7 @@ function CategoriaSection({ categoria, globalIndex }) {
 
       {/* Grilla de cards */}
       <motion.div
-        className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6"
+        className="grid grid-cols-3 lg:grid-cols-4 gap-3"
         variants={{ animate: { transition: { staggerChildren: 0.08 } } }}
         initial="initial"
         whileInView="animate"
@@ -122,17 +123,24 @@ function CategoriaSection({ categoria, globalIndex }) {
 const ALL = 'todos';
 
 export default function Servicios() {
-  const [filtro, setFiltro] = useState(ALL);
+  const [searchParams] = useSearchParams();
+  const [filtro, setFiltro] = useState(() => searchParams.get('filtro') ?? ALL);
   const categoriasActivas = useMemo(() => mergeWithOverrides(categorias), []);
+
+  useEffect(() => {
+    const f = searchParams.get('filtro');
+    if (f) setFiltro(f);
+  }, [searchParams]);
 
   const offsets = categoriasActivas.reduce((acc, cat, i) => {
     acc.push(i === 0 ? 0 : acc[i - 1] + categoriasActivas[i - 1].servicios.length);
     return acc;
   }, []);
 
-  const visibles = filtro === ALL
+  const visibles = (filtro === ALL
     ? categoriasActivas
-    : categoriasActivas.filter((c) => c.id === filtro);
+    : categoriasActivas.filter((c) => c.id === filtro)
+  ).filter((c) => c.servicios.length > 0);
 
   return (
     <div className="flex flex-col flex-1">
@@ -162,7 +170,7 @@ export default function Servicios() {
             className="flex gap-2.5 mb-14 overflow-x-auto pb-1 px-1 justify-start md:justify-center md:flex-wrap no-scrollbar"
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.1 }}
+            transition={{ duration: 0.4, delay: 0.15 }}
           >
             {[{ id: ALL, titulo: 'Todos' }, ...categoriasActivas].map((cat) => {
               const active = filtro === cat.id;

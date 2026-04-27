@@ -34,12 +34,12 @@ export default function ServicioCard({ servicio, index = 0 }) {
         }}
       >
         {/* ── Imagen ── */}
-        <div className="relative overflow-hidden" style={{ aspectRatio: '4/3' }}>
+        <div className="relative overflow-hidden" style={{ aspectRatio: '3/4', background: 'rgba(5,3,18,0.6)' }}>
           <img
             src={servicio.imagen}
             alt={servicio.titulo}
             loading="lazy"
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-108"
+            className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
             style={{ transitionTimingFunction: 'cubic-bezier(0.22,1,0.36,1)' }}
           />
 
@@ -158,12 +158,20 @@ export default function ServicioCard({ servicio, index = 0 }) {
               onClick={(e) => e.stopPropagation()}
             >
               {/* Imagen — ocupa columna izquierda en desktop, franja top en mobile */}
-              <div className="relative overflow-hidden md:w-[52%] shrink-0 h-48 md:h-auto">
-                <img
-                  src={servicio.imagen}
-                  alt={servicio.titulo}
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
+              <div className="relative overflow-hidden md:w-[52%] shrink-0 h-48 md:h-auto" style={{ background: 'rgba(5,3,18,0.6)' }}>
+                {servicio.imagen?.endsWith('.mp4') ? (
+                  <video
+                    src={servicio.imagen}
+                    className="absolute inset-0 w-full h-full object-contain"
+                    autoPlay loop muted playsInline
+                  />
+                ) : (
+                  <img
+                    src={servicio.imagen}
+                    alt={servicio.titulo}
+                    className="absolute inset-0 w-full h-full object-contain"
+                  />
+                )}
                 {/* Gradiente lateral derecho solo en desktop */}
                 <div
                   className="absolute inset-0 pointer-events-none hidden md:block"

@@ -51,7 +51,7 @@ export default function Contacto() {
             <div className="h-px w-16" style={{ background: 'linear-gradient(90deg, transparent, #ff2da0, #c026d3, transparent)', boxShadow: '0 0 8px rgba(255,45,160,0.5)' }} />
           </div>
           <p style={{ color: 'rgba(226,217,243,0.55)' }}>
-            Escribinos y te respondemos a la brevedad.
+            Escribinos tu idea, duda o inquietud y te respondemos a la brevedad ✨
           </p>
         </motion.div>
 
@@ -69,7 +69,7 @@ export default function Contacto() {
                   required
                   value={form.nombre}
                   onChange={handleChange}
-                  placeholder="Valentina"
+                  placeholder="Nombre"
                   style={inputStyle}
                   onFocus={(e) => { e.target.style.borderColor = 'rgba(255,45,160,0.5)'; e.target.style.boxShadow = '0 0 0 3px rgba(255,45,160,0.1)'; }}
                   onBlur={(e) => { e.target.style.borderColor = 'rgba(255,255,255,0.1)'; e.target.style.boxShadow = 'none'; }}
@@ -85,7 +85,7 @@ export default function Contacto() {
                   rows={5}
                   value={form.mensaje}
                   onChange={handleChange}
-                  placeholder="Quiero saber más sobre depilación láser..."
+                  placeholder="Quiero saber más sobre..."
                   style={{ ...inputStyle, resize: 'none' }}
                   onFocus={(e) => { e.target.style.borderColor = 'rgba(255,45,160,0.5)'; e.target.style.boxShadow = '0 0 0 3px rgba(255,45,160,0.1)'; }}
                   onBlur={(e) => { e.target.style.borderColor = 'rgba(255,255,255,0.1)'; e.target.style.boxShadow = 'none'; }}
