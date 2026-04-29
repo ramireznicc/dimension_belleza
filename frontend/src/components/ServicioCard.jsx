@@ -165,7 +165,7 @@ export default function ServicioCard({ servicio, index = 0 }) {
               onClick={(e) => e.stopPropagation()}
             >
               {/* Imagen / carrusel — columna izquierda en desktop, franja top en mobile */}
-              <div className="relative overflow-hidden md:w-[52%] shrink-0 h-48 md:h-auto" style={{ background: 'rgba(5,3,18,0.6)' }}>
+              <div className="relative overflow-hidden md:w-[52%] shrink-0 h-64 md:h-auto md:min-h-[380px]" style={{ background: 'rgba(5,3,18,0.6)' }}>
                 <AnimatePresence mode="wait" custom={imgDir}>
                   {(() => {
                     const src = imgs ? imgs[imgIndex] : servicio.imagen;
