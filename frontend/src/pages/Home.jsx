@@ -505,13 +505,9 @@ export default function Home() {
               </p>
               <ul className="flex flex-col gap-2">
                 {[
-                  { label: 'Masajes y Reiki',          id: 'masaje-reiki' },
-                  { label: 'Depilación láser',         id: 'depilacion-laser' },
-                  { label: 'Tratamientos reductores',  id: 'reductores' },
-                  { label: 'Limpieza facial',          id: 'limpieza-facial' },
-                  { label: 'Radiofrecuencia',          id: 'radiofrecuencia' },
-                  { label: 'Cavitación',               id: 'cavitacion' },
-                  { label: 'Ondas rusas',              id: 'ondas-rusas' },
+                  { label: 'Masajes y Reiki',  id: 'masaje-reiki' },
+                  { label: 'Depilación láser', id: 'depilacion-laser' },
+                  { label: 'Limpieza facial',  id: 'limpieza-facial' },
                 ].map(({ label, id }) => (
                   <motion.li key={id} variants={cardVariant}>
                     <Link

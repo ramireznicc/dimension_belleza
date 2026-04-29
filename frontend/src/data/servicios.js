@@ -195,28 +195,8 @@ export const categorias = [
     ],
   },
   {
-    id: 'reductores',
-    titulo: 'Tratamientos reductores',
-    servicios: [],
-  },
-  {
     id: 'limpieza-facial',
     titulo: 'Limpieza facial',
-    servicios: [],
-  },
-  {
-    id: 'radiofrecuencia',
-    titulo: 'Radiofrecuencia',
-    servicios: [],
-  },
-  {
-    id: 'cavitacion',
-    titulo: 'Cavitación',
-    servicios: [],
-  },
-  {
-    id: 'ondas-rusas',
-    titulo: 'Ondas rusas',
     servicios: [],
   },
 ];
