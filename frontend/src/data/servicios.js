@@ -51,12 +51,12 @@ export const categorias = [
         titulo: 'Tintura en Raíces + Baño de Luz',
         precio: 'Desde $18.000',
         descripcion:
-          'Utilizamos tinturas sin amoníaco de líneas profesionales de alta gama que cuidan y respetan la fibra capilar. La tintura se aplica únicamente en la zona de raíz para cubrir el crecimiento, mientras que el baño de luz revive y tonifica el color en el resto del cabello, evitando la aplicación innecesaria de tinte en toda la longitud. La coloración completa se realiza únicamente cuando se busca un cambio de look radical.',
+          'Utilizamos tinturas sin amoníaco de líneas profesionales de alta gama que cuidan y respetan la fibra capilar durante el proceso de coloración. La tintura se aplica únicamente en la zona de raíz para cubrir el crecimiento, mientras que el baño de luz se utiliza para revivir y tonificar el color en el resto del cabello, evitando la aplicación innecesaria de tinte en toda la longitud. La coloración completa se realiza únicamente cuando se busca un cambio de look radical.',
         imagen: '/coloracion/06.jpeg',
       },
     ],
     aclaracion:
-      'Para cualquier técnica que incluya decoloración, el tiempo de pose puede extenderse entre 1 y 2 horas dependiendo del cabello y el resultado buscado. Sumando el empapelado, lavado, nutrición y peinado, la sesión completa puede durar entre 4 y 5 horas aproximadamente. En Dimensión Belleza la salud capilar siempre tiene prioridad sobre alcanzar el tono deseado en una sola sesión. Los mejores resultados se obtienen sobre cabellos vírgenes; en cabellos con tintes previos trabajamos con especial precaución.',
+      'Para cualquier técnica que incluya decoloración, es importante tener en cuenta que el tiempo de pose puede extenderse entre 1 y 2 horas, dependiendo del cabello y el resultado buscado. Sumando el tiempo de empapelado o aplicación según el diseño elegido, el lavado, la nutrición y el peinado final, la sesión completa puede durar entre 4 y 5 horas aproximadamente. Cada cabello reacciona de manera diferente a los productos, y en Dimensión Belleza la salud capilar siempre tiene prioridad sobre alcanzar el tono deseado en una sola sesión. Los mejores resultados se obtienen sobre cabellos vírgenes (sin coloraciones previas). En cabellos tratados con tintes o productos de otros salones, trabajamos con especial precaución, ya que desconocemos los componentes utilizados anteriormente y priorizamos en todo momento el cuidado de tu cabello.',
   },
   {
     id: 'tratamientos-capilares',
