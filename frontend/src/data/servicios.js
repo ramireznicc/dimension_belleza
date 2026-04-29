@@ -42,6 +42,7 @@ export const categorias = [
         descripcion:
           'Técnica estratégica de mechas diseñada para enmarcar el contorno del rostro con reflejos de luz, potenciando las facciones y aportando luminosidad donde más se necesita. El efecto es visualmente favorecedor y estilizante, adaptado a la forma de cada rostro.',
         imagen: '/coloracion/05.jpeg',
+        imagenes: ['/coloracion/05.jpeg', '/coloracion/07.jpeg'],
       },
       {
         id: 'tintura-raices',
@@ -50,13 +51,6 @@ export const categorias = [
         descripcion:
           'Utilizamos tinturas sin amoníaco de líneas profesionales de alta gama que cuidan y respetan la fibra capilar. La tintura se aplica únicamente en la zona de raíz para cubrir el crecimiento, mientras que el baño de luz revive y tonifica el color en el resto del cabello, evitando la aplicación innecesaria de tinte en toda la longitud. La coloración completa se realiza únicamente cuando se busca un cambio de look radical.',
         imagen: '/coloracion/06.jpeg',
-      },
-      {
-        id: 'servicio-07',
-        titulo: 'Próximamente',
-        precio: '',
-        descripcion: 'Descripción próximamente.',
-        imagen: '/coloracion/07.jpeg',
       },
       {
         id: 'servicio-08',
