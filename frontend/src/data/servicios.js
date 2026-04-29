@@ -174,6 +174,7 @@ export const categorias = [
         precio: '',
         descripcion: 'La depilación láser es uno de los métodos más elegidos hoy en día porque no solo elimina el vello, sino que también mejora la piel. No duele y conlleva mínimos cuidados 24hs post depilación. Depilación Láser jornada 1 vez al mes (consultar fechas disponibles). Los turnos se reservan con una seña del 50%.',
         imagen: '/depilación laser/depi1.jpeg',
+        imagenes: ['/depilación laser/depi1.jpeg', '/depilación laser/depi2.jpeg'],
       },
     ],
   },
