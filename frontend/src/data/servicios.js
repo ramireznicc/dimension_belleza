@@ -10,6 +10,7 @@ export const categorias = [
         descripcion:
           'Técnica de aclarado a mano alzada que se aplica de medios a puntas, respetando la raíz para lograr un efecto de color degradado natural. Se puede realizar de forma total en todo el cabello o de manera sectorizada según el diseño deseado. El resultado es una transición suave y luminosa, con un crecimiento muy favorecedor que no exige retoques frecuentes.',
         imagen: '/coloracion/01.jpeg',
+        imagenes: ['/coloracion/01.jpeg', '/coloracion/08.jpeg'],
       },
       {
         id: 'woodlight',
@@ -51,13 +52,6 @@ export const categorias = [
         descripcion:
           'Utilizamos tinturas sin amoníaco de líneas profesionales de alta gama que cuidan y respetan la fibra capilar. La tintura se aplica únicamente en la zona de raíz para cubrir el crecimiento, mientras que el baño de luz revive y tonifica el color en el resto del cabello, evitando la aplicación innecesaria de tinte en toda la longitud. La coloración completa se realiza únicamente cuando se busca un cambio de look radical.',
         imagen: '/coloracion/06.jpeg',
-      },
-      {
-        id: 'servicio-08',
-        titulo: 'Próximamente',
-        precio: '',
-        descripcion: 'Descripción próximamente.',
-        imagen: '/coloracion/08.jpeg',
       },
       {
         id: 'servicio-09',
