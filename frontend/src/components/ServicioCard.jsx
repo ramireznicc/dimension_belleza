@@ -1,18 +1,25 @@
 import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { AnimatePresence, motion } from 'framer-motion';
-import { X } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import WhatsAppIcon from './WhatsAppIcon';
 
 const WA_NUMBER = '543413080131';
 
 export default function ServicioCard({ servicio, index = 0 }) {
   const [open, setOpen] = useState(false);
+  const [imgIndex, setImgIndex] = useState(0);
+  const [imgDir, setImgDir] = useState(1);
+  const imgs = servicio.imagenes?.length > 1 ? servicio.imagenes : null;
 
   useEffect(() => {
-    if (open) document.body.style.overflow = 'hidden';
+    if (!open) setImgIndex(0);
+    document.body.style.overflow = open ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
   }, [open]);
+
+  const prevImg = () => { setImgDir(-1); setImgIndex((i) => (i - 1 + imgs.length) % imgs.length); };
+  const nextImg = () => { setImgDir(1);  setImgIndex((i) => (i + 1) % imgs.length); };
 
   const waUrl = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(
     `Hola! Me gustaría consultar sobre el servicio de ${servicio.titulo} y reservar un turno.`
@@ -157,21 +164,69 @@ export default function ServicioCard({ servicio, index = 0 }) {
               transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Imagen — ocupa columna izquierda en desktop, franja top en mobile */}
+              {/* Imagen / carrusel — columna izquierda en desktop, franja top en mobile */}
               <div className="relative overflow-hidden md:w-[52%] shrink-0 h-48 md:h-auto" style={{ background: 'rgba(5,3,18,0.6)' }}>
-                {servicio.imagen?.endsWith('.mp4') ? (
-                  <video
-                    src={servicio.imagen}
-                    className="absolute inset-0 w-full h-full object-contain"
-                    autoPlay loop muted playsInline
-                  />
-                ) : (
-                  <img
-                    src={servicio.imagen}
-                    alt={servicio.titulo}
-                    className="absolute inset-0 w-full h-full object-contain"
-                  />
+                <AnimatePresence mode="wait" custom={imgDir}>
+                  {(() => {
+                    const src = imgs ? imgs[imgIndex] : servicio.imagen;
+                    return src?.endsWith('.mp4') ? (
+                      <video
+                        key={src}
+                        src={src}
+                        className="absolute inset-0 w-full h-full object-contain"
+                        autoPlay loop muted playsInline
+                      />
+                    ) : (
+                      <motion.img
+                        key={src}
+                        src={src}
+                        alt={servicio.titulo}
+                        className="absolute inset-0 w-full h-full object-contain"
+                        custom={imgDir}
+                        initial={{ opacity: 0, x: imgDir * 30 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: imgDir * -30 }}
+                        transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+                      />
+                    );
+                  })()}
+                </AnimatePresence>
+
+                {/* Flechas de navegación (solo si hay varias imágenes) */}
+                {imgs && (
+                  <>
+                    <button
+                      onClick={(e) => { e.stopPropagation(); prevImg(); }}
+                      className="absolute left-2 top-1/2 -translate-y-1/2 z-10 p-1.5 rounded-full transition-all"
+                      style={{ background: 'rgba(5,3,18,0.7)', border: '1px solid rgba(255,255,255,0.15)', color: '#e2d9f3' }}
+                    >
+                      <ChevronLeft size={16} />
+                    </button>
+                    <button
+                      onClick={(e) => { e.stopPropagation(); nextImg(); }}
+                      className="absolute right-2 top-1/2 -translate-y-1/2 z-10 p-1.5 rounded-full transition-all"
+                      style={{ background: 'rgba(5,3,18,0.7)', border: '1px solid rgba(255,255,255,0.15)', color: '#e2d9f3' }}
+                    >
+                      <ChevronRight size={16} />
+                    </button>
+                    {/* Dots */}
+                    <div className="absolute bottom-2 left-0 right-0 flex justify-center gap-1.5 z-10">
+                      {imgs.map((_, i) => (
+                        <button
+                          key={i}
+                          onClick={(e) => { e.stopPropagation(); setImgDir(i > imgIndex ? 1 : -1); setImgIndex(i); }}
+                          className="rounded-full transition-all duration-300"
+                          style={{
+                            width: i === imgIndex ? '14px' : '5px',
+                            height: '5px',
+                            background: i === imgIndex ? '#ff2da0' : 'rgba(255,255,255,0.3)',
+                          }}
+                        />
+                      ))}
+                    </div>
+                  </>
                 )}
+
                 {/* Gradiente lateral derecho solo en desktop */}
                 <div
                   className="absolute inset-0 pointer-events-none hidden md:block"
