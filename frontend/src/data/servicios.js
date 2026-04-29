@@ -96,7 +96,7 @@ export const categorias = [
         id: 'cauterizacion',
         titulo: 'Cauterización',
         precio: '',
-        descripcion: 'Descripción próximamente.',
+        descripcion: 'Cierra cutículas, otorga brillo y suavidad sin necesidad de alisar.',
         imagen: '/tratamientos capilares/caute.jpeg',
         imagenes: ['/tratamientos capilares/caute.jpeg', '/tratamientos capilares/caute2.jpeg'],
       },
@@ -132,7 +132,7 @@ export const categorias = [
     servicios: [
       {
         id: 'masaje-holistico',
-        titulo: 'Masaje Holístico',
+        titulo: 'Masaje Holístico + Reiki',
         precio: '$50.000',
         descripcion:
           'Comienza con Reiki, una terapia energética de origen japonés que se basa en la canalización de la "energía vital universal" a través de la imposición de manos para promover el equilibrio físico, mental y espiritual. Acompañamos con un suave y relajante masaje para desbloquear energía estancada que por consecuencia nos esté provocando un dolor físico o muchos pensamientos, dolor de cabeza. Finalizamos con reflexología en cabeza, manos y pies.',
@@ -170,7 +170,7 @@ export const categorias = [
         id: 'limpieza-radiofrecuencia',
         titulo: 'Limpieza + Radiofrecuencia',
         precio: '',
-        descripcion: 'Descripción próximamente.',
+        descripcion: 'Limpieza facial profunda + radiofrecuencia. La limpieza facial elimina impurezas, células muertas y exceso de sebo. La radiofrecuencia estimula colágeno mejorando la firmeza y calidad de la piel. La combinación de ambas es ideal para mantener la piel sana, prevenir el envejecimiento y potenciar cualquier rutina de skincare.',
         imagen: '/tratamientos faciales/limpiezaYradiofrec1.jpeg',
         imagenes: ['/tratamientos faciales/limpiezaYradiofrec1.jpeg', '/tratamientos faciales/limpiezaYradiofrec.jpeg'],
       },
