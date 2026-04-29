@@ -35,6 +35,7 @@ export const categorias = [
         descripcion:
           'Mechas muy finas y delicadas distribuidas en pequeñas secciones que imitan los reflejos naturales que el sol deja en el cabello desde la infancia. El resultado es sutil, con un brillo natural y multidimensional, ideal para quienes buscan cambios discretos y elegantes.',
         imagen: '/coloracion/04.jpeg',
+        imagenes: ['/coloracion/04.jpeg', '/coloracion/09.jpeg'],
       },
       {
         id: 'contouring',
@@ -52,13 +53,6 @@ export const categorias = [
         descripcion:
           'Utilizamos tinturas sin amoníaco de líneas profesionales de alta gama que cuidan y respetan la fibra capilar. La tintura se aplica únicamente en la zona de raíz para cubrir el crecimiento, mientras que el baño de luz revive y tonifica el color en el resto del cabello, evitando la aplicación innecesaria de tinte en toda la longitud. La coloración completa se realiza únicamente cuando se busca un cambio de look radical.',
         imagen: '/coloracion/06.jpeg',
-      },
-      {
-        id: 'servicio-09',
-        titulo: 'Próximamente',
-        precio: '',
-        descripcion: 'Descripción próximamente.',
-        imagen: '/coloracion/09.jpeg',
       },
     ],
     aclaracion:
