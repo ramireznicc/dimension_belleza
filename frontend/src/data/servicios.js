@@ -181,7 +181,22 @@ export const categorias = [
   {
     id: 'limpieza-facial',
     titulo: 'Tratamientos faciales',
-    servicios: [],
+    servicios: [
+      {
+        id: 'limpieza-facial-1',
+        titulo: 'Limpieza facial',
+        precio: '',
+        descripcion: 'Descripción próximamente.',
+        imagen: '/tratamientos faciales/limpieza.jpeg',
+      },
+      {
+        id: 'limpieza-radiofrecuencia',
+        titulo: 'Limpieza + Radiofrecuencia',
+        precio: '',
+        descripcion: 'Descripción próximamente.',
+        imagen: '/tratamientos faciales/limpiezaYradiofrec.jpeg',
+      },
+    ],
   },
 ];
 
