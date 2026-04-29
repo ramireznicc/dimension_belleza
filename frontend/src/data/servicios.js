@@ -180,7 +180,7 @@ export const categorias = [
   },
   {
     id: 'limpieza-facial',
-    titulo: 'Limpieza facial',
+    titulo: 'Tratamientos faciales',
     servicios: [],
   },
 ];

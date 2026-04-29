@@ -507,7 +507,7 @@ export default function Home() {
                 {[
                   { label: 'Masajes y Reiki',  id: 'masaje-reiki' },
                   { label: 'Depilación láser', id: 'depilacion-laser' },
-                  { label: 'Limpieza facial',  id: 'limpieza-facial' },
+                  { label: 'Tratamientos faciales', id: 'limpieza-facial' },
                 ].map(({ label, id }) => (
                   <motion.li key={id} variants={cardVariant}>
                     <Link
