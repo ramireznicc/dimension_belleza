@@ -137,18 +137,7 @@ export const categorias = [
         descripcion:
           'Comienza con Reiki, una terapia energética de origen japonés que se basa en la canalización de la "energía vital universal" a través de la imposición de manos para promover el equilibrio físico, mental y espiritual. Acompañamos con un suave y relajante masaje para desbloquear energía estancada que por consecuencia nos esté provocando un dolor físico o muchos pensamientos, dolor de cabeza. Finalizamos con reflexología en cabeza, manos y pies.',
         imagen: '/masajes/masaje1.jpeg',
-        imagenes: ['/masajes/masaje1.jpeg', '/masajes/sesionHolisticaIntegral1.jpeg'],
-      },
-      {
-        id: 'reiki',
-        titulo: 'Reiki',
-        precio: '',
-        descripcion: 'Descripción próximamente.',
-        imagen: '/masajes/reiki1.jpeg',
-        imagenes: [
-          '/masajes/reiki1.jpeg',
-          '/masajes/reiki2.jpeg',
-        ],
+        imagenes: ['/masajes/masaje1.jpeg', '/masajes/sesionHolisticaIntegral1.jpeg', '/masajes/reiki1.jpeg', '/masajes/reiki2.jpeg'],
       },
     ],
   },
