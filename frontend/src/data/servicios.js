@@ -70,22 +70,16 @@ export const categorias = [
         imagen: '/tratamientos capilares/karseell1.jpeg',
       },
       {
-        id: 'alisado',
-        titulo: 'Alisado',
-        precio: '',
-        descripcion: 'Descripción próximamente.',
-        imagen: '/tratamientos capilares/alisado2.jpeg',
-        imagenes: [
-          '/tratamientos capilares/alisado2.jpeg',
-          '/tratamientos capilares/alisado3.jpeg',
-        ],
-      },
-      {
         id: 'alisado-master',
         titulo: 'Alisado Máster Progresiv',
         precio: '',
         descripcion: 'Contiene keratina y formol en porcentaje aprobado. Trabajamos con este producto en garantía de 10 años. Conservamos las mismas clientas y todas conservan la calidad de la fibra. Se va con los lavados, no es definitivo. Su duración varía de 2 a 4 meses. El proceso en el salón lleva un tiempo estimado de 2 horas. Se deja puesto de 2 a 3 días dependiendo del grosor del cabello. Es termo activo y se mantiene con nutrición. El proceso en el salón es bastante largo así que asistir con paciencia ya que se puede demorar de 4 a 8 horas por sus técnicas precisas de alisado definitivo.',
         imagen: '/tratamientos capilares/alisadoMaster1.jpeg',
+        imagenes: [
+          '/tratamientos capilares/alisadoMaster1.jpeg',
+          '/tratamientos capilares/alisado2.jpeg',
+          '/tratamientos capilares/alisado3.jpeg',
+        ],
       },
       {
         id: 'tratamiento-ampolla-nutritiva',
