@@ -109,7 +109,7 @@ function AclaracionModal({ texto, onClose }) {
             Aclaración importante
           </h3>
         </div>
-        <p className="text-sm leading-relaxed" style={{ color: 'rgba(226,217,243,0.65)' }}>
+        <p className="text-sm leading-relaxed" style={{ color: 'rgba(226,217,243,0.65)', whiteSpace: 'pre-line' }}>
           {texto}
         </p>
         <button
