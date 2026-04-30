@@ -18,6 +18,17 @@ export default function ServicioCard({ servicio, index = 0 }) {
     return () => { document.body.style.overflow = ''; };
   }, [open]);
 
+  useEffect(() => {
+    if (!open) return;
+    const handler = (e) => {
+      if (e.key === 'Escape') setOpen(false);
+      if (e.key === 'ArrowRight' && imgs) nextImg();
+      if (e.key === 'ArrowLeft' && imgs) prevImg();
+    };
+    window.addEventListener('keydown', handler);
+    return () => window.removeEventListener('keydown', handler);
+  }, [open, imgs, imgIndex]);
+
   const prevImg = () => { setImgDir(-1); setImgIndex((i) => (i - 1 + imgs.length) % imgs.length); };
   const nextImg = () => { setImgDir(1);  setImgIndex((i) => (i + 1) % imgs.length); };
 
