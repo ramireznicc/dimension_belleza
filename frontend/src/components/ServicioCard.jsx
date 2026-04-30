@@ -6,6 +6,23 @@ import WhatsAppIcon from './WhatsAppIcon';
 
 const WA_NUMBER = '543413080131';
 
+function DescripcionText({ text, className, style }) {
+  const parts = text.split('\n');
+  const lastIdx = parts.map((p, i) => ({ p, i })).filter(({ p }) => p.trim()).pop()?.i ?? parts.length - 1;
+  return (
+    <p className={className} style={{ ...style, whiteSpace: 'pre-line' }}>
+      {parts.map((part, i) => (
+        <span key={i}>
+          {i === lastIdx
+            ? <strong style={{ color: 'rgba(226,217,243,0.9)', fontWeight: 600 }}>{part}</strong>
+            : part}
+          {i < parts.length - 1 ? '\n' : null}
+        </span>
+      ))}
+    </p>
+  );
+}
+
 export default function ServicioCard({ servicio, index = 0 }) {
   const [open, setOpen] = useState(false);
   const [imgIndex, setImgIndex] = useState(0);
@@ -273,9 +290,11 @@ export default function ServicioCard({ servicio, index = 0 }) {
                   style={{ background: 'linear-gradient(90deg, rgba(255,45,160,0.5), rgba(192,38,211,0.3), transparent)' }}
                 />
 
-                <p className="text-sm leading-relaxed mb-7" style={{ color: 'rgba(226,217,243,0.62)', whiteSpace: 'pre-line' }}>
-                  {servicio.descripcion}
-                </p>
+                <DescripcionText
+                  text={servicio.descripcion}
+                  className="text-sm leading-relaxed mb-7"
+                  style={{ color: 'rgba(226,217,243,0.62)' }}
+                />
 
                 <a
                   href={waUrl}
