@@ -163,7 +163,7 @@ export default function ServicioCard({ servicio, index = 0 }) {
             <motion.div
               className="relative w-full overflow-hidden rounded-2xl flex flex-col md:flex-row"
               style={{
-                maxWidth: '860px',
+                maxWidth: '1100px',
                 maxHeight: '90vh',
                 background: 'rgba(10,5,30,0.97)',
                 border: '1px solid rgba(255,255,255,0.1)',
@@ -176,7 +176,7 @@ export default function ServicioCard({ servicio, index = 0 }) {
               onClick={(e) => e.stopPropagation()}
             >
               {/* Imagen / carrusel — columna izquierda en desktop, franja top en mobile */}
-              <div className="relative overflow-hidden md:w-[52%] shrink-0 h-64 md:h-auto md:min-h-[380px]" style={{ background: 'rgba(5,3,18,0.6)' }}>
+              <div className="relative overflow-hidden md:w-[55%] shrink-0 h-64 md:h-auto md:min-h-[500px]" style={{ background: 'rgba(5,3,18,0.6)' }}>
                 <AnimatePresence mode="wait" custom={imgDir}>
                   {(() => {
                     const src = imgs ? imgs[imgIndex] : servicio.imagen;
