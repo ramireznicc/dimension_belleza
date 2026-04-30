@@ -273,7 +273,7 @@ export default function ServicioCard({ servicio, index = 0 }) {
                   style={{ background: 'linear-gradient(90deg, rgba(255,45,160,0.5), rgba(192,38,211,0.3), transparent)' }}
                 />
 
-                <p className="text-sm leading-relaxed mb-7" style={{ color: 'rgba(226,217,243,0.62)' }}>
+                <p className="text-sm leading-relaxed mb-7" style={{ color: 'rgba(226,217,243,0.62)', whiteSpace: 'pre-line' }}>
                   {servicio.descripcion}
                 </p>
 
