@@ -45,31 +45,48 @@ function RecomendacionCarousel() {
     return () => clearInterval(t);
   }, []);
 
+  const prev = () => setIdx((i) => (i - 1 + RECOMENDACIONES.length) % RECOMENDACIONES.length);
+  const next = () => setIdx((i) => (i + 1) % RECOMENDACIONES.length);
+
   return (
     <div className="flex flex-col items-center gap-3">
-      <div className="w-full relative" style={{ maxWidth: '420px' }}>
-        <img
-          key={idx}
-          src={RECOMENDACIONES[idx]}
-          alt="Recomendación"
-          className="w-full h-auto block rounded-2xl"
-          style={{ filter: 'drop-shadow(0 8px 24px rgba(255,45,160,0.15)) drop-shadow(0 2px 8px rgba(0,0,0,0.4))' }}
-        />
+      <div
+        className="w-full relative overflow-hidden rounded-2xl"
+        style={{
+          maxWidth: '560px',
+          aspectRatio: '16/9',
+          filter: 'drop-shadow(0 8px 24px rgba(255,45,160,0.15)) drop-shadow(0 2px 8px rgba(0,0,0,0.4))',
+        }}
+      >
+        <AnimatePresence mode="sync">
+          <motion.img
+            key={idx}
+            src={RECOMENDACIONES[idx]}
+            alt="Recomendación"
+            className="absolute inset-0 w-full h-full object-contain"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5, ease: 'easeInOut' }}
+          />
+        </AnimatePresence>
+
         <button
-          onClick={() => setIdx((i) => (i - 1 + RECOMENDACIONES.length) % RECOMENDACIONES.length)}
-          className="absolute left-2 top-1/2 -translate-y-1/2 p-1.5 rounded-full"
+          onClick={prev}
+          className="absolute left-2 top-1/2 -translate-y-1/2 z-10 p-1.5 rounded-full"
           style={{ background: 'rgba(5,3,18,0.7)', border: '1px solid rgba(255,255,255,0.15)', color: '#e2d9f3' }}
         >
           ‹
         </button>
         <button
-          onClick={() => setIdx((i) => (i + 1) % RECOMENDACIONES.length)}
-          className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 rounded-full"
+          onClick={next}
+          className="absolute right-2 top-1/2 -translate-y-1/2 z-10 p-1.5 rounded-full"
           style={{ background: 'rgba(5,3,18,0.7)', border: '1px solid rgba(255,255,255,0.15)', color: '#e2d9f3' }}
         >
           ›
         </button>
       </div>
+
       <div className="flex gap-1.5">
         {RECOMENDACIONES.map((_, i) => (
           <button
