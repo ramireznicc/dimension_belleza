@@ -8,12 +8,12 @@ Precio: $150000
 02: TITULO: Woodlight
 Descripción: Técnica de mechas realizadas con gorro o cap que generan un efecto similar al balayage, con decoloración controlada y distribuida de forma irregular para imitar los reflejos naturales del sol.
 <br>Es ideal para quienes buscan un resultado más difuminado y de bajo mantenimiento.
-Precio: $
+Precio: desde $100000
 
 03: TITULO: Reflejos Global
 Descripción: Aplicación de mechas en gran cantidad y de manera uniforme por todo el cabello, logrando un efecto muy luminoso y rubio total. 
 <br>Es la técnica indicada para quienes desean una transformación de mayor impacto y cobertura completa con máxima luminosidad.
-Precio: $
+Precio: desde $150000
 
 04: TITULO: Babylights
 Descripción: Mechas muy finas y delicadas distribuidas en pequeñas secciones que imitan los reflejos naturales que el sol deja en el cabello desde la infancia. 
@@ -34,13 +34,12 @@ Precio: $66000
 ACLARACIÓN GENERAL:
 Para cualquier técnica que incluya decoloración, es importante tener en cuenta que el tiempo de pose puede extenderse entre 1 y 2 horas, dependiendo del cabello y el resultado buscado. Sumando el tiempo de empapelado o aplicación según el diseño elegido, el lavado, la nutrición y el peinado final, la sesión completa puede durar entre 4 y 5 horas aproximadamente. Cada cabello reacciona de manera diferente a los productos, y en Dimensión Belleza la salud capilar siempre tiene prioridad sobre alcanzar el tono deseado en una sola sesión.
 <br>Los mejores resultados se obtienen sobre cabellos vírgenes (sin coloraciones previas). En cabellos tratados con tintes o productos de otros salones, trabajamos con especial precaución, ya que desconocemos los componentes utilizados anteriormente y priorizamos en todo momento el cuidado de tu cabello.
-Precio: $
+
 
 07: TITULO: Masaje Holístico + reiki.
 Descripción: Comienza con Reiki. El Reiki es una terapia energética de origen japonés que se basa en la canalización de la "energía vital universal" a través de la imposición de manos para promover el equilibrio físico, mental y espiritual.
 <br>Acompañamos con un suave y relajante masaje para desbloquear energía estancada que por consecuencia nos esté provocando un dolor físico o muchos pensamientos, dolor de cabeza. 
 <br> Finalizamos con reflexologia en cabeza, manos y pies.
-Precio: $50000
 
 corte1: TITULO: Lavado + corte
 Descripción: Lavado, corte de pelo y brushing.
@@ -61,13 +60,13 @@ Trabajamos con este producto en garantía de 10 años.
 <br>
 Es termo activo y se mantiene con nutrición.
 <br>El proceso en el salón es bastante largo así que asistir con paciencia ya que se puede demorar de 4 a 8 horas por sus técnicas precisas de alisado definitivo.
-Precio: $
+Precio: $76000
 
 karseell1: TITULO: Karseell.
 Descripción: Karseell es un tratamiento capilar intensivo formulado para nutrir, reparar y revitalizar el cabello desde el interior de la fibra capilar. 
 <br>Su fórmula, enriquecida con colágeno, aceites nutritivos y proteínas, actúa profundamente restaurando la elasticidad, suavidad y brillo del cabello. 
 <br>Está especialmente diseñado para cabellos dañados, secos, decolorados o tratados químicamente, devolviéndoles fuerza, hidratación y un aspecto saludable desde la primera aplicación.
-Precio: $
+Precio: $50000
 
 caute: TITULO: Cauterización.
 Descripción: Cierra cutículas, otorga brillo y suavidad sin necesidad de alisar.

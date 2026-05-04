@@ -15,7 +15,7 @@ export const categorias = [
       {
         id: 'woodlight',
         titulo: 'Woodlight',
-        precio: '',
+        precio: 'Desde $100.000',
         descripcion:
           'Técnica de mechas realizadas con gorro o cap que generan un efecto similar al balayage, con decoloración controlada y distribuida de forma irregular para imitar los reflejos naturales del sol.\nEs ideal para quienes buscan un resultado más difuminado y de bajo mantenimiento.',
         imagen: '/coloracion/02.jpeg',
@@ -23,7 +23,7 @@ export const categorias = [
       {
         id: 'reflejos-global',
         titulo: 'Reflejos Global',
-        precio: '',
+        precio: 'Desde $150.000',
         descripcion:
           'Aplicación de mechas en gran cantidad y de manera uniforme por todo el cabello, logrando un efecto muy luminoso y rubio total.\nEs la técnica indicada para quienes desean una transformación de mayor impacto y cobertura completa con máxima luminosidad.',
         imagen: '/coloracion/03.jpeg',
@@ -72,7 +72,7 @@ export const categorias = [
       {
         id: 'alisado-master',
         titulo: 'Alisado Máster Progresiv',
-        precio: '',
+        precio: '$76.000',
         descripcion: 'Contiene keratina y formol en porcentaje aprobado. Trabajamos con este producto en garantía de 10 años.\nConservamos las mismas clientas y todas conservan la calidad de la fibra.\nSe va con los lavados. No es definitivo.\nSu duración varía de 2 a 4 meses.\n\nEs termo activo y se mantiene con nutrición.\nEl proceso en el salón es bastante largo así que asistir con paciencia ya que se puede demorar de 4 a 8 horas por sus técnicas precisas de alisado definitivo.',
         imagen: '/tratamientos capilares/alisadoMaster1.jpeg',
         imagenes: [
@@ -133,7 +133,7 @@ export const categorias = [
       {
         id: 'masaje-holistico',
         titulo: 'Masaje Holístico + Reiki',
-        precio: '$50.000',
+        precio: '',
         descripcion:
           'Comienza con Reiki. El Reiki es una terapia energética de origen japonés que se basa en la canalización de la "energía vital universal" a través de la imposición de manos para promover el equilibrio físico, mental y espiritual.\nAcompañamos con un suave y relajante masaje para desbloquear energía estancada que por consecuencia nos esté provocando un dolor físico o muchos pensamientos, dolor de cabeza.\nFinalizamos con reflexología en cabeza, manos y pies.',
         imagen: '/masajes/masaje1.jpeg',
