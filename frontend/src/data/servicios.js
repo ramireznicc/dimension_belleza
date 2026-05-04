@@ -65,7 +65,7 @@ export const categorias = [
       {
         id: 'karseell',
         titulo: 'Karseell',
-        precio: '',
+        precio: '$50.000',
         descripcion: 'Karseell es un tratamiento capilar intensivo formulado para nutrir, reparar y revitalizar el cabello desde el interior de la fibra capilar.\nSu fórmula, enriquecida con colágeno, aceites nutritivos y proteínas, actúa profundamente restaurando la elasticidad, suavidad y brillo del cabello.\nEstá especialmente diseñado para cabellos dañados, secos, decolorados o tratados químicamente, devolviéndoles fuerza, hidratación y un aspecto saludable desde la primera aplicación.',
         imagen: '/tratamientos capilares/karseell1.jpeg',
       },
