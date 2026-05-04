@@ -6,7 +6,7 @@ export const categorias = [
       {
         id: 'balayage',
         titulo: 'Balayage',
-        precio: 'Desde $35.000',
+        precio: '$150.000',
         descripcion:
           'Técnica de aclarado a mano alzada que se aplica de medios a puntas, respetando la raíz para lograr un efecto de color degradado natural.\nSe puede realizar de forma total en todo el cabello o de manera sectorizada según el diseño deseado.\nEl resultado es una transición suave y luminosa, con un crecimiento muy favorecedor que no exige retoques frecuentes.',
         imagen: '/coloracion/01.jpeg',
@@ -15,7 +15,7 @@ export const categorias = [
       {
         id: 'woodlight',
         titulo: 'Woodlight',
-        precio: 'Desde $28.000',
+        precio: '',
         descripcion:
           'Técnica de mechas realizadas con gorro o cap que generan un efecto similar al balayage, con decoloración controlada y distribuida de forma irregular para imitar los reflejos naturales del sol.\nEs ideal para quienes buscan un resultado más difuminado y de bajo mantenimiento.',
         imagen: '/coloracion/02.jpeg',
@@ -23,7 +23,7 @@ export const categorias = [
       {
         id: 'reflejos-global',
         titulo: 'Reflejos Global',
-        precio: 'Desde $40.000',
+        precio: '',
         descripcion:
           'Aplicación de mechas en gran cantidad y de manera uniforme por todo el cabello, logrando un efecto muy luminoso y rubio total.\nEs la técnica indicada para quienes desean una transformación de mayor impacto y cobertura completa con máxima luminosidad.',
         imagen: '/coloracion/03.jpeg',
@@ -31,7 +31,7 @@ export const categorias = [
       {
         id: 'babylights',
         titulo: 'Babylights',
-        precio: 'Desde $32.000',
+        precio: '$100.000',
         descripcion:
           'Mechas muy finas y delicadas distribuidas en pequeñas secciones que imitan los reflejos naturales que el sol deja en el cabello desde la infancia.\nEl resultado es sutil, con un brillo natural y multidimensional, ideal para quienes buscan cambios discretos y elegantes.',
         imagen: '/coloracion/04.jpeg',
@@ -40,7 +40,7 @@ export const categorias = [
       {
         id: 'contouring',
         titulo: 'Contouring',
-        precio: 'Desde $30.000',
+        precio: '$70.000',
         descripcion:
           'Técnica estratégica de mechas diseñada para enmarcar el contorno del rostro con reflejos de luz, potenciando las facciones y aportando luminosidad donde más se necesita.\nEl efecto es visualmente favorecedor y estilizante, adaptado a la forma de cada rostro.',
         imagen: '/coloracion/05.jpeg',
@@ -49,7 +49,7 @@ export const categorias = [
       {
         id: 'tintura-raices',
         titulo: 'Tintura en Raíces + Baño de Luz',
-        precio: 'Desde $18.000',
+        precio: '$66.000',
         descripcion:
           'Utilizamos tinturas sin amoníaco de líneas profesionales de alta gama que cuidan y respetan la fibra capilar durante el proceso de coloración.\nLa tintura se aplica únicamente en la zona de raíz para cubrir el crecimiento, mientras que el baño de luz se utiliza para revivir y tonificar el color en el resto del cabello, evitando la aplicación innecesaria de tinte en toda la longitud.\nLa coloración completa se realiza únicamente cuando se busca un cambio de look radical.',
         imagen: '/coloracion/06.jpeg',
@@ -84,7 +84,7 @@ export const categorias = [
       {
         id: 'tratamiento-ampolla-nutritiva',
         titulo: 'Tratamiento con ampolla nutritiva',
-        precio: '',
+        precio: '$50.000',
         descripcion: 'Descripción próximamente.',
         imagen: '/tratamientos capilares/ampolla1.jpeg',
         imagenes: [
@@ -95,7 +95,7 @@ export const categorias = [
       {
         id: 'cauterizacion',
         titulo: 'Cauterización',
-        precio: '',
+        precio: '$50.000',
         descripcion: 'Cierra cutículas, otorga brillo y suavidad sin necesidad de alisar.',
         imagen: '/tratamientos capilares/caute.jpeg',
         imagenes: ['/tratamientos capilares/caute.jpeg', '/tratamientos capilares/caute2.jpeg'],
@@ -109,8 +109,8 @@ export const categorias = [
       {
         id: 'lavado-corte',
         titulo: 'Lavado + corte',
-        precio: '',
-        descripcion: 'Lavado y corte de pelo.',
+        precio: '$40.000',
+        descripcion: 'Lavado, corte de pelo y brushing.',
         imagen: '/cortes y peinados/corte1.jpeg',
       },
       {
@@ -138,41 +138,6 @@ export const categorias = [
           'Comienza con Reiki. El Reiki es una terapia energética de origen japonés que se basa en la canalización de la "energía vital universal" a través de la imposición de manos para promover el equilibrio físico, mental y espiritual.\nAcompañamos con un suave y relajante masaje para desbloquear energía estancada que por consecuencia nos esté provocando un dolor físico o muchos pensamientos, dolor de cabeza.\nFinalizamos con reflexología en cabeza, manos y pies.',
         imagen: '/masajes/masaje1.jpeg',
         imagenes: ['/masajes/masaje1.jpeg', '/masajes/sesionHolisticaIntegral1.jpeg', '/masajes/reiki1.jpeg', '/masajes/reiki2.jpeg'],
-      },
-    ],
-  },
-  {
-    id: 'depilacion-laser',
-    titulo: 'Depilación láser',
-    servicios: [
-      {
-        id: 'depilacion-laser-1',
-        titulo: 'Depilación Láser',
-        precio: '',
-        descripcion: 'La depilación láser es uno de los métodos más elegidos hoy en día porque no solo elimina el vello, sino que también mejora la piel.\nNo duele y conlleva mínimos cuidados 24hs post depilación.\nDepilación Láser jornada 1 vez al mes (consultar fechas disponibles). Los turnos se reservan con una seña del 50%.',
-        imagen: '/depilación laser/depi1.jpeg',
-        imagenes: ['/depilación laser/depi1.jpeg', '/depilación laser/depi2.jpeg'],
-      },
-    ],
-  },
-  {
-    id: 'limpieza-facial',
-    titulo: 'Tratamientos faciales',
-    servicios: [
-      {
-        id: 'limpieza-facial-1',
-        titulo: 'Limpieza facial',
-        precio: '',
-        descripcion: 'Descripción próximamente.',
-        imagen: '/tratamientos faciales/limpieza.jpeg',
-      },
-      {
-        id: 'limpieza-radiofrecuencia',
-        titulo: 'Limpieza + Radiofrecuencia',
-        precio: '',
-        descripcion: 'La limpieza facial elimina impurezas, células muertas y exceso de sebo.\nLa radiofrecuencia estimula colágeno mejorando la firmeza y calidad de la piel.\nLa combinación de ambas es ideal para mantener la piel sana, prevenir el envejecimiento y potenciar cualquier rutina de skincare.',
-        imagen: '/tratamientos faciales/limpiezaYradiofrec1.jpeg',
-        imagenes: ['/tratamientos faciales/limpiezaYradiofrec1.jpeg', '/tratamientos faciales/limpiezaYradiofrec.jpeg'],
       },
     ],
   },

@@ -85,21 +85,6 @@ export default function ServicioCard({ servicio, index = 0 }) {
               background: 'linear-gradient(to top, rgba(5,3,18,0.75) 0%, rgba(5,3,18,0.15) 50%, transparent 100%)',
             }}
           />
-
-          {/* Badge precio */}
-          <div
-            className="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold backdrop-blur-sm"
-            style={{
-              background: 'rgba(5,3,18,0.65)',
-              border: '1px solid rgba(255,45,160,0.4)',
-              color: '#ff82c5',
-              letterSpacing: '0.03em',
-            }}
-          >
-            {servicio.precio}
-          </div>
-
-
         </div>
 
         {/* ── Contenido ── */}
@@ -122,6 +107,19 @@ export default function ServicioCard({ servicio, index = 0 }) {
               Ver más
             </span>
           </div>
+
+          {servicio.precio && (
+            <span
+              className="text-sm sm:text-base font-extrabold"
+              style={{
+                background: 'linear-gradient(90deg, #ff2da0, #c026d3)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+              }}
+            >
+              {servicio.precio}
+            </span>
+          )}
 
           <div
             className="h-px w-full"
@@ -269,18 +267,6 @@ export default function ServicioCard({ servicio, index = 0 }) {
 
               {/* Contenido — columna derecha en desktop */}
               <div className="flex flex-col justify-center p-7 md:p-8 overflow-y-auto">
-                {/* Precio */}
-                <span
-                  className="text-xs font-bold mb-3 inline-block"
-                  style={{
-                    color: '#ff82c5',
-                    letterSpacing: '0.06em',
-                    textShadow: '0 0 10px rgba(255,45,160,0.4)',
-                  }}
-                >
-                  {servicio.precio}
-                </span>
-
                 <h3 className="text-2xl md:text-3xl font-semibold font-heading mb-3" style={{ color: '#e2d9f3' }}>
                   {servicio.titulo}
                 </h3>
@@ -292,9 +278,22 @@ export default function ServicioCard({ servicio, index = 0 }) {
 
                 <DescripcionText
                   text={servicio.descripcion}
-                  className="text-sm leading-relaxed mb-7"
+                  className="text-sm leading-relaxed mb-4"
                   style={{ color: 'rgba(226,217,243,0.62)' }}
                 />
+
+                {servicio.precio && (
+                  <span
+                    className="text-xl md:text-2xl font-extrabold mb-6 inline-block"
+                    style={{
+                      background: 'linear-gradient(90deg, #ff2da0, #c026d3)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                    }}
+                  >
+                    {servicio.precio}
+                  </span>
+                )}
 
                 <a
                   href={waUrl}

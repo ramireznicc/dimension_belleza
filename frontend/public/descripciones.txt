@@ -1,61 +1,80 @@
 01: TITULO: Balayage
-Descripción: Técnica de aclarado a mano alzada que se aplica de medios a puntas, respetando la raíz para lograr un efecto de color degradado natural. Se puede realizar de forma total en todo el cabello o de manera sectorizada según el diseño deseado. El resultado es una transición suave y luminosa, con un crecimiento muy favorecedor que no exige retoques frecuentes.
+Descripción: Técnica de aclarado a mano alzada que se aplica de medios a puntas, respetando la raíz para lograr un efecto de color degradado natural. 
+<br>Se puede realizar de forma total en todo el cabello o de manera sectorizada según el diseño deseado.
+<br>El resultado es una transición suave y luminosa, con un crecimiento muy favorecedor que no exige retoques frecuentes.
+Precio: $150000
+
 
 02: TITULO: Woodlight
-Descripción: Técnica de mechas realizadas con gorro o cap que generan un efecto similar al balayage, con decoloración controlada y distribuida de forma irregular para imitar los reflejos naturales del sol. Es ideal para quienes buscan un resultado más difuminado y de bajo mantenimiento.
+Descripción: Técnica de mechas realizadas con gorro o cap que generan un efecto similar al balayage, con decoloración controlada y distribuida de forma irregular para imitar los reflejos naturales del sol.
+<br>Es ideal para quienes buscan un resultado más difuminado y de bajo mantenimiento.
+Precio: $
 
 03: TITULO: Reflejos Global
-Descripción: Aplicación de mechas en gran cantidad y de manera uniforme por todo el cabello, logrando un efecto muy luminoso y rubio total. Es la técnica indicada para quienes desean una transformación de mayor impacto y cobertura completa con máxima luminosidad.
+Descripción: Aplicación de mechas en gran cantidad y de manera uniforme por todo el cabello, logrando un efecto muy luminoso y rubio total. 
+<br>Es la técnica indicada para quienes desean una transformación de mayor impacto y cobertura completa con máxima luminosidad.
+Precio: $
 
 04: TITULO: Babylights
-Descripción: Mechas muy finas y delicadas distribuidas en pequeñas secciones que imitan los reflejos naturales que el sol deja en el cabello desde la infancia. El resultado es sutil, con un brillo natural y multidimensional, ideal para quienes buscan cambios discretos y elegantes.
+Descripción: Mechas muy finas y delicadas distribuidas en pequeñas secciones que imitan los reflejos naturales que el sol deja en el cabello desde la infancia. 
+<br>El resultado es sutil, con un brillo natural y multidimensional, ideal para quienes buscan cambios discretos y elegantes.
+Precio: $100000
 
 05: TITULO: Contouring
-Descripción: Técnica estratégica de mechas diseñada para enmarcar el contorno del rostro con reflejos de luz, potenciando las facciones y aportando luminosidad donde más se necesita. El efecto es visualmente favorecedor y estilizante, adaptado a la forma de cada rostro.
+Descripción: Técnica estratégica de mechas diseñada para enmarcar el contorno del rostro con reflejos de luz, potenciando las facciones y aportando luminosidad donde más se necesita. 
+<br>El efecto es visualmente favorecedor y estilizante, adaptado a la forma de cada rostro.
+Precio: $70000
 
 06: TITULO: Tintura en Raíces + Baño de Luz
-Descripción: Utilizamos tinturas sin amoníaco de líneas profesionales de alta gama que cuidan y respetan la fibra capilar durante el proceso de coloración. La tintura se aplica únicamente en la zona de raíz para cubrir el crecimiento, mientras que el baño de luz se utiliza para revivir y tonificar el color en el resto del cabello, evitando la aplicación innecesaria de tinte en toda la longitud. La coloración completa se realiza únicamente cuando se busca un cambio de look radical.
+Descripción: Utilizamos tinturas sin amoníaco de líneas profesionales de alta gama que cuidan y respetan la fibra capilar durante el proceso de coloración.
+<br>La tintura se aplica únicamente en la zona de raíz para cubrir el crecimiento, mientras que el baño de luz se utiliza para revivir y tonificar el color en el resto del cabello, evitando la aplicación innecesaria de tinte en toda la longitud. 
+<br>La coloración completa se realiza únicamente cuando se busca un cambio de look radical.
+Precio: $66000
 
 ACLARACIÓN GENERAL:
 Para cualquier técnica que incluya decoloración, es importante tener en cuenta que el tiempo de pose puede extenderse entre 1 y 2 horas, dependiendo del cabello y el resultado buscado. Sumando el tiempo de empapelado o aplicación según el diseño elegido, el lavado, la nutrición y el peinado final, la sesión completa puede durar entre 4 y 5 horas aproximadamente. Cada cabello reacciona de manera diferente a los productos, y en Dimensión Belleza la salud capilar siempre tiene prioridad sobre alcanzar el tono deseado en una sola sesión.
-Los mejores resultados se obtienen sobre cabellos vírgenes (sin coloraciones previas). En cabellos tratados con tintes o productos de otros salones, trabajamos con especial precaución, ya que desconocemos los componentes utilizados anteriormente y priorizamos en todo momento el cuidado de tu cabello.
+<br>Los mejores resultados se obtienen sobre cabellos vírgenes (sin coloraciones previas). En cabellos tratados con tintes o productos de otros salones, trabajamos con especial precaución, ya que desconocemos los componentes utilizados anteriormente y priorizamos en todo momento el cuidado de tu cabello.
+Precio: $
 
-07: TITULO: Masaje Holístico.
-Descripción: Comienza con Reiki 
-El Reiki es una terapia energética de origen japonés que se basa en la canalización de la "energía vital universal" a través de la imposición de manos para promover el equilibrio físico, mental y espiritual.
-Acompañamos con un suave y relajante masaje para desbloquear energía estancada que por consecuencia nos esté provocando un dolor físico o muchos pensamientos, dolor de cabeza. 
-Y finalizamos con reflexologia en cabeza, manos y pies.
+07: TITULO: Masaje Holístico + reiki.
+Descripción: Comienza con Reiki. El Reiki es una terapia energética de origen japonés que se basa en la canalización de la "energía vital universal" a través de la imposición de manos para promover el equilibrio físico, mental y espiritual.
+<br>Acompañamos con un suave y relajante masaje para desbloquear energía estancada que por consecuencia nos esté provocando un dolor físico o muchos pensamientos, dolor de cabeza. 
+<br> Finalizamos con reflexologia en cabeza, manos y pies.
 Precio: $50000
 
 corte1: TITULO: Lavado + corte
-Descripción: Lavado y corte de pelo.
-Precio: $
+Descripción: Lavado, corte de pelo y brushing.
+Precio: $40000
 
 trenzas1+trenzas2: TITULO: Trenzas Malibú.
-Descripción: Trenzas Malibú es un estilo propio de Dimensión Belleza. Son extensiones de cabello con ondas que se adaptan a la energía de cada persona. Cómodas y energéticamente fuertes para mujeres que buscan elevar su vibra. Opcion rubias o castañas.
+Descripción: Trenzas Malibú es un estilo propio de Dimensión Belleza. Son extensiones de cabello con ondas que se adaptan a la energía de cada persona. 
+<br>Cómodas y energéticamente fuertes para mujeres que buscan elevar su vibra. 
+<br>Opcion rubias o castañas.
 Precio: $
 
-depi1: TITULO: Depilaciòn Láser.
-Descripción: La depilación láser es uno de los métodos más elegidos hoy en día porque no solo elimina el vello, sino que también mejora la piel. 
-No duele y con lleva mínimos cuidados 24hs post depilación. Depilación Láser jornada 1 vez al mes (consultar fechas disponibles). Los turnos se reservan con una seña del 50%.
- 
 alisadoMaster1: TITULO: Alisado máster progresiv.
 Descripción: Contiene keratina y formol en porcentaje aprobado. 
 Trabajamos con este producto en garantía de 10 años.
-Conservamos las mismas clientas y todas conservan la calidad de la fibra.
-Se va con los lavados. No es definitivo. 
-Su duración varía de 2 a 4 meses.
-El proceso en el salón lleva un tiempo estimado de 2 horas. Se deja puesto de 2 a 3 días dependiendo grosor del cabello. 
+<br>Conservamos las mismas clientas y todas conservan la calidad de la fibra.
+<br>Se va con los lavados. No es definitivo. 
+<br>Su duración varía de 2 a 4 meses.
+<br>
 Es termo activo y se mantiene con nutrición.
-El proceso en el salón es bastante largo así que asistir con paciencia ya que se puede demorar de 4 a 8 horas por sus técnicas precisas de alisado definitivo.
+<br>El proceso en el salón es bastante largo así que asistir con paciencia ya que se puede demorar de 4 a 8 horas por sus técnicas precisas de alisado definitivo.
+Precio: $
 
 karseell1: TITULO: Karseell.
-Descripción: Karseell es un tratamiento capilar intensivo formulado para nutrir, reparar y revitalizar el cabello desde el interior de la fibra capilar. Su fórmula, enriquecida con colágeno, aceites nutritivos y proteínas, actúa profundamente restaurando la elasticidad, suavidad y brillo del cabello. Está especialmente diseñado para cabellos dañados, secos, decolorados o tratados químicamente, devolviéndoles fuerza, hidratación y un aspecto saludable desde la primera aplicación.
+Descripción: Karseell es un tratamiento capilar intensivo formulado para nutrir, reparar y revitalizar el cabello desde el interior de la fibra capilar. 
+<br>Su fórmula, enriquecida con colágeno, aceites nutritivos y proteínas, actúa profundamente restaurando la elasticidad, suavidad y brillo del cabello. 
+<br>Está especialmente diseñado para cabellos dañados, secos, decolorados o tratados químicamente, devolviéndoles fuerza, hidratación y un aspecto saludable desde la primera aplicación.
+Precio: $
 
+caute: TITULO: Cauterización.
+Descripción: Cierra cutículas, otorga brillo y suavidad sin necesidad de alisar.
+Precio: $50000
 
-
-
-
-
+ampolla1: TITULO: Tratamiento con ampolla nutritiva.
+Descripción: 
+Precio: $50000
 
 

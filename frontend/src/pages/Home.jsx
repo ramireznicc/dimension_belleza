@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Scissors, Sparkles, Heart, Zap, ChevronDown, CalendarDays } from 'lucide-react';
+import { ArrowRight, Scissors, Heart, ChevronDown, CalendarDays } from 'lucide-react';
 import WhatsAppIcon from '../components/WhatsAppIcon';
 
 const fadeUp = (delay = 0) => ({
@@ -25,130 +25,23 @@ const categorias = [
     descripcion: 'Corte, coloración, mechas, alisados y tratamientos capilares a medida.',
   },
   {
-    icon: Sparkles,
-    titulo: 'Estética Facial',
-    descripcion: 'Limpiezas, hidratación, microdermoabrasión y tratamientos antiedad.',
-  },
-  {
     icon: Heart,
-    titulo: 'Estética Corporal',
-    descripcion: 'Masajes, drenajes linfáticos, cavitación y tratamientos reductores.',
-  },
-  {
-    icon: Zap,
-    titulo: 'Depilación Láser',
-    descripcion: 'Tecnología de última generación para resultados definitivos y sin dolor.',
+    titulo: 'Bienestar',
+    descripcion: 'Masajes holísticos, Reiki y reflexología para el equilibrio del cuerpo y la mente.',
   },
 ];
 
-const SLIDE_INTERVAL = 4500;
 
 function RecomendacionCarousel() {
-  const [current, setCurrent] = useState(0);
-  const [progressKey, setProgressKey] = useState(0);
-  const [direction, setDirection] = useState(1);
-  const total = 4;
-  const touchStartX = useRef(null);
-
-  const go = (next) => {
-    setDirection(next > current || (current === total - 1 && next === 0) ? 1 : -1);
-    setCurrent(next);
-    setProgressKey((k) => k + 1);
-  };
-
-  const prev = () => go((current - 1 + total) % total);
-  const next = () => go((current + 1) % total);
-
-  const handleTouchStart = (e) => { touchStartX.current = e.touches[0].clientX; };
-  const handleTouchEnd = (e) => {
-    if (touchStartX.current === null) return;
-    const delta = touchStartX.current - e.changedTouches[0].clientX;
-    if (Math.abs(delta) > 40) delta > 0 ? next() : prev();
-    touchStartX.current = null;
-  };
-
-  useEffect(() => {
-    const t = setInterval(() => {
-      setDirection(1);
-      setCurrent((c) => (c + 1) % total);
-      setProgressKey((k) => k + 1);
-    }, SLIDE_INTERVAL);
-    return () => clearInterval(t);
-  }, []);
-
   return (
     <div className="flex justify-center">
       <div className="w-full" style={{ maxWidth: '420px' }}>
-        <div>
-          {/* Imagen animada */}
-          <div
-            className="overflow-hidden relative"
-            style={{ minHeight: 140 }}
-            onTouchStart={handleTouchStart}
-            onTouchEnd={handleTouchEnd}
-          >
-            <AnimatePresence mode="wait" custom={direction}>
-              <motion.img
-                key={current}
-                src={`/recomendaciones/recomendacion${current + 1}.png`}
-                alt={`Recomendación ${current + 1}`}
-                className="w-full h-auto block rounded-2xl"
-                style={{ filter: 'drop-shadow(0 8px 24px rgba(255,45,160,0.15)) drop-shadow(0 2px 8px rgba(0,0,0,0.4))' }}
-                custom={direction}
-                initial={{ opacity: 0, x: direction * 40 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: direction * -40 }}
-                transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-              />
-            </AnimatePresence>
-          </div>
-
-          {/* Barra de progreso */}
-          <div className="mx-4 mt-3 mb-3 rounded-full overflow-hidden" style={{ height: '2px', background: 'rgba(255,255,255,0.08)' }}>
-            <motion.div
-              key={progressKey}
-              className="h-full rounded-full"
-              style={{ background: 'linear-gradient(90deg, #ff2da0, #c026d3)' }}
-              initial={{ width: '0%' }}
-              animate={{ width: '100%' }}
-              transition={{ duration: SLIDE_INTERVAL / 1000, ease: 'linear' }}
-            />
-          </div>
-
-          {/* Navegación: flechas + dots */}
-          <div className="flex items-center justify-between px-4 pb-3">
-            <button
-              onClick={prev}
-              className="w-7 h-7 rounded-full flex items-center justify-center transition-all"
-              style={{ background: 'rgba(255,45,160,0.1)', border: '1px solid rgba(255,45,160,0.2)', color: '#ff2da0' }}
-            >
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M7.5 2L3.5 6L7.5 10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
-            </button>
-
-            <div className="flex gap-1.5">
-              {Array.from({ length: total }).map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => go(i)}
-                  className="rounded-full transition-all duration-300"
-                  style={{
-                    width: i === current ? '14px' : '5px',
-                    height: '5px',
-                    background: i === current ? '#ff2da0' : 'rgba(255,255,255,0.2)',
-                  }}
-                />
-              ))}
-            </div>
-
-            <button
-              onClick={next}
-              className="w-7 h-7 rounded-full flex items-center justify-center transition-all"
-              style={{ background: 'rgba(255,45,160,0.1)', border: '1px solid rgba(255,45,160,0.2)', color: '#ff2da0' }}
-            >
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M4.5 2L8.5 6L4.5 10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
-            </button>
-          </div>
-        </div>
+        <img
+          src="/recomendaciones/recomendacion1.png"
+          alt="Recomendación"
+          className="w-full h-auto block rounded-2xl"
+          style={{ filter: 'drop-shadow(0 8px 24px rgba(255,45,160,0.15)) drop-shadow(0 2px 8px rgba(0,0,0,0.4))' }}
+        />
       </div>
     </div>
   );
@@ -163,7 +56,7 @@ const SLOTS = [
 
 const SRCS = [
   '/quienes-somos/profile2.jpeg',
-  '/quienes-somos/lore1.jpeg',
+  '/quienes-somos/inicio-coloracion2.jpeg',
   '/quienes-somos/inicio-extra1.jpeg',
   '/quienes-somos/inicio-alisado1.jpeg',
   '/quienes-somos/inicio-coloracion1.jpeg',
@@ -277,7 +170,7 @@ export default function Home() {
             className="text-lg md:text-xl max-w-xl mx-auto mb-10 leading-relaxed"
             style={{ color: 'rgba(226,217,243,0.65)' }}
           >
-            Estilismo, Estética Corporal &amp; Facial y Depilación Láser.
+            Estilismo y tratamientos de bienestar.
             Transformá tu imagen con profesionalismo y dedicación.
           </motion.p>
 
@@ -505,9 +398,7 @@ export default function Home() {
               </p>
               <ul className="flex flex-col gap-2">
                 {[
-                  { label: 'Masajes y Reiki',  id: 'masaje-reiki' },
-                  { label: 'Depilación láser', id: 'depilacion-laser' },
-                  { label: 'Tratamientos faciales', id: 'limpieza-facial' },
+                  { label: 'Masajes y Reiki', id: 'masaje-reiki' },
                 ].map(({ label, id }) => (
                   <motion.li key={id} variants={cardVariant}>
                     <Link

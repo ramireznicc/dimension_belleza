@@ -54,9 +54,7 @@ export default function Footer() {
           <h4 className="font-medium mb-3 font-heading" style={{ color: 'rgba(226,217,243,0.85)' }}>Servicios</h4>
           <ul className="text-sm space-y-2" style={{ color: 'rgba(226,217,243,0.4)' }}>
             <li>Estilismo</li>
-            <li>Estética Facial</li>
             <li>Estética Corporal</li>
-            <li>Depilación Láser</li>
           </ul>
         </div>
 
