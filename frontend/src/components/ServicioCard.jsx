@@ -70,13 +70,22 @@ export default function ServicioCard({ servicio, index = 0 }) {
       >
         {/* ── Imagen ── */}
         <div className="relative overflow-hidden" style={{ aspectRatio: '3/4', background: 'rgba(5,3,18,0.6)' }}>
-          <img
-            src={servicio.imagen}
-            alt={servicio.titulo}
-            loading="lazy"
-            className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
-            style={{ transitionTimingFunction: 'cubic-bezier(0.22,1,0.36,1)' }}
-          />
+          {servicio.imagen?.endsWith('.mp4') ? (
+            <video
+              src={servicio.imagen}
+              className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
+              style={{ transitionTimingFunction: 'cubic-bezier(0.22,1,0.36,1)' }}
+              autoPlay loop muted playsInline
+            />
+          ) : (
+            <img
+              src={servicio.imagen}
+              alt={servicio.titulo}
+              loading="lazy"
+              className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
+              style={{ transitionTimingFunction: 'cubic-bezier(0.22,1,0.36,1)' }}
+            />
+          )}
 
           {/* Vignette inferior */}
           <div

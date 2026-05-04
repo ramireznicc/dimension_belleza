@@ -32,16 +32,57 @@ const categorias = [
 ];
 
 
+const RECOMENDACIONES = [
+  '/recomendaciones/recomendacion1.png',
+  '/recomendaciones/recomendacion2.jpeg',
+];
+
 function RecomendacionCarousel() {
+  const [idx, setIdx] = useState(0);
+
+  useEffect(() => {
+    const t = setInterval(() => setIdx((i) => (i + 1) % RECOMENDACIONES.length), 4000);
+    return () => clearInterval(t);
+  }, []);
+
   return (
-    <div className="flex justify-center">
-      <div className="w-full" style={{ maxWidth: '420px' }}>
+    <div className="flex flex-col items-center gap-3">
+      <div className="w-full relative" style={{ maxWidth: '420px' }}>
         <img
-          src="/recomendaciones/recomendacion1.png"
+          key={idx}
+          src={RECOMENDACIONES[idx]}
           alt="Recomendación"
           className="w-full h-auto block rounded-2xl"
           style={{ filter: 'drop-shadow(0 8px 24px rgba(255,45,160,0.15)) drop-shadow(0 2px 8px rgba(0,0,0,0.4))' }}
         />
+        <button
+          onClick={() => setIdx((i) => (i - 1 + RECOMENDACIONES.length) % RECOMENDACIONES.length)}
+          className="absolute left-2 top-1/2 -translate-y-1/2 p-1.5 rounded-full"
+          style={{ background: 'rgba(5,3,18,0.7)', border: '1px solid rgba(255,255,255,0.15)', color: '#e2d9f3' }}
+        >
+          ‹
+        </button>
+        <button
+          onClick={() => setIdx((i) => (i + 1) % RECOMENDACIONES.length)}
+          className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 rounded-full"
+          style={{ background: 'rgba(5,3,18,0.7)', border: '1px solid rgba(255,255,255,0.15)', color: '#e2d9f3' }}
+        >
+          ›
+        </button>
+      </div>
+      <div className="flex gap-1.5">
+        {RECOMENDACIONES.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setIdx(i)}
+            className="rounded-full transition-all duration-300"
+            style={{
+              width: i === idx ? '14px' : '5px',
+              height: '5px',
+              background: i === idx ? '#ff2da0' : 'rgba(255,255,255,0.3)',
+            }}
+          />
+        ))}
       </div>
     </div>
   );

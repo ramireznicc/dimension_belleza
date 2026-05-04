@@ -76,4 +76,8 @@ ampolla1: TITULO: Tratamiento con ampolla nutritiva.
 Descripción: 
 Precio: $50000
 
-
+ampolla1: TITULO: Extensiones.
+Descripción: Extensiones de cabello natural, aplicadas con microrings que hacen que el resultado sea un pelo super natural que se puede peinar, planchar y ondular.
+<br> Información adicional: el service se realiza cada 2 meses y requiere un mantenimiento recomendado semanalmente en la peluquería. 
+<br>Durante el proceso de llevar las extensiones intentamos realizar tratamientos que favorezcan el crecimiento.
+Precio: El precio de las extensiones varía de acuerdo al largo y la cantidad.

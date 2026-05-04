@@ -73,7 +73,7 @@ export const categorias = [
         id: 'alisado-master',
         titulo: 'Alisado Máster Progresiv',
         precio: '$76.000',
-        descripcion: 'Contiene keratina y formol en porcentaje aprobado. Trabajamos con este producto en garantía de 10 años.\nConservamos las mismas clientas y todas conservan la calidad de la fibra.\nSe va con los lavados. No es definitivo.\nSu duración varía de 2 a 4 meses.\n\nEs termo activo y se mantiene con nutrición.\nEl proceso en el salón es bastante largo así que asistir con paciencia ya que se puede demorar de 4 a 8 horas por sus técnicas precisas de alisado definitivo.',
+        descripcion: 'Contiene keratina y formol en porcentaje aprobado.\nTrabajamos con este producto en garantía de 10 años.\nConservamos las mismas clientas y todas conservan la calidad de la fibra.\nSe va con los lavados. No es definitivo.\nSu duración varía de 2 a 4 meses.\n\nEs termo activo y se mantiene con nutrición.\nEl proceso en el salón es bastante largo así que asistir con paciencia ya que se puede demorar de 4 a 8 horas por sus técnicas precisas de alisado definitivo.',
         imagen: '/tratamientos capilares/alisadoMaster1.jpeg',
         imagenes: [
           '/tratamientos capilares/alisadoMaster1.jpeg',
@@ -123,6 +123,14 @@ export const categorias = [
           '/cortes y peinados/trenzas1.jpeg',
           '/cortes y peinados/trenzas2.jpeg',
         ],
+      },
+      {
+        id: 'extensiones',
+        titulo: 'Extensiones',
+        precio: 'El precio varía de acuerdo al largo y la cantidad.',
+        descripcion: 'Extensiones de cabello natural, aplicadas con microrings que hacen que el resultado sea un pelo super natural que se puede peinar, planchar y ondular.\nInformación adicional: el service se realiza cada 2 meses y requiere un mantenimiento recomendado semanalmente en la peluquería.\nDurante el proceso de llevar las extensiones intentamos realizar tratamientos que favorezcan el crecimiento.',
+        imagen: '/cortes y peinados/extensiones.mp4',
+        imagenes: ['/cortes y peinados/extensiones.mp4'],
       },
     ],
   },
