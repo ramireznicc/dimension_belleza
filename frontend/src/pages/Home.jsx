@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Scissors, Heart, ChevronDown, CalendarDays } from 'lucide-react';
 import WhatsAppIcon from '../components/WhatsAppIcon';
+import { mediaUrl } from '../lib/supabase';
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 24 },
@@ -33,8 +34,8 @@ const categorias = [
 
 
 const RECOMENDACIONES = [
-  '/recomendaciones/recomendacion1.png',
-  '/recomendaciones/recomendacion2.jpeg',
+  mediaUrl('/recomendaciones/recomendacion1.png'),
+  mediaUrl('/recomendaciones/recomendacion2.jpeg'),
 ];
 
 function RecomendacionCarousel() {
@@ -113,11 +114,11 @@ const SLOTS = [
 ];
 
 const SRCS = [
-  '/quienes-somos/profile2.jpeg',
-  '/quienes-somos/inicio-coloracion2.jpeg',
-  '/quienes-somos/inicio-extra1.jpeg',
-  '/quienes-somos/inicio-alisado1.jpeg',
-  '/quienes-somos/inicio-coloracion1.jpeg',
+  mediaUrl('/quienes-somos/profile2.jpeg'),
+  mediaUrl('/quienes-somos/inicio-coloracion2.jpeg'),
+  mediaUrl('/quienes-somos/inicio-extra1.jpeg'),
+  mediaUrl('/quienes-somos/inicio-alisado1.jpeg'),
+  mediaUrl('/quienes-somos/inicio-coloracion1.jpeg'),
 ];
 
 const TOTAL = SRCS.length;
@@ -237,7 +238,7 @@ export default function Home() {
               Ver servicios <ArrowRight size={18} />
             </Link>
             <a
-              href="https://wa.me/543413080131?text=Hola!%20Quisiera%20sacar%20un%20turno."
+              href={`https://wa.me/543413080131?text=${encodeURIComponent('Hola! Estoy interesadx en sacar un turno 😊')}`}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-outline flex items-center gap-2"

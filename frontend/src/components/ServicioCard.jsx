@@ -50,7 +50,7 @@ export default function ServicioCard({ servicio, index = 0 }) {
   const nextImg = () => { setImgDir(1);  setImgIndex((i) => (i + 1) % imgs.length); };
 
   const waUrl = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(
-    `Hola! Me gustaría consultar sobre el servicio de ${servicio.titulo} y reservar un turno.`
+    `Hola! Estoy interesadx en ${servicio.titulo} 😊`
   )}`;
 
   return (

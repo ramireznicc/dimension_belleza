@@ -24,7 +24,7 @@ export default function FloatingWhatsApp() {
     <AnimatePresence>
       {visible && (
         <motion.a
-          href="https://wa.me/543413080131?text=Hola!%20Quisiera%20hacer%20una%20consulta."
+          href={`https://wa.me/543413080131?text=${encodeURIComponent('Hola! Estoy interesadx en conocer los servicios 😊')}`}
           target="_blank"
           rel="noopener noreferrer"
           className="fixed bottom-6 right-5 z-50 flex items-center rounded-full cursor-pointer select-none overflow-hidden"
