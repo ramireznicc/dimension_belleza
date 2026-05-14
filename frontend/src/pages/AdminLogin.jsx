@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { checkCredentials, setSession } from '../utils/auth';
+import { signIn } from '../utils/auth';
 
 export default function AdminLogin() {
-  const [form, setForm] = useState({ user: '', pass: '' });
+  const [form, setForm] = useState({ email: '', pass: '' });
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -25,12 +25,11 @@ export default function AdminLogin() {
     e.preventDefault();
     setLoading(true);
     setError('');
-    const ok = await checkCredentials(form.user, form.pass);
-    if (ok) {
-      setSession();
+    try {
+      await signIn(form.email, form.pass);
       navigate('/admin/dashboard');
-    } else {
-      setError('Usuario o contraseña incorrectos.');
+    } catch (err) {
+      setError('Email o contraseña incorrectos.');
     }
     setLoading(false);
   };
@@ -47,7 +46,6 @@ export default function AdminLogin() {
         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
         className="w-full max-w-sm"
       >
-        {/* Logo + título */}
         <div className="text-center mb-8">
           <img
             src="/dimension_belleza_LOGO.svg"
@@ -71,7 +69,6 @@ export default function AdminLogin() {
           </p>
         </div>
 
-        {/* Formulario */}
         <div
           className="rounded-2xl p-6"
           style={{
@@ -84,14 +81,14 @@ export default function AdminLogin() {
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <label className="block text-sm font-medium mb-1.5" style={{ color: 'rgba(226,217,243,0.7)' }}>
-                Usuario
+                Email
               </label>
               <input
-                type="text"
+                type="email"
                 required
-                autoComplete="username"
-                value={form.user}
-                onChange={(e) => setForm({ ...form, user: e.target.value })}
+                autoComplete="email"
+                value={form.email}
+                onChange={(e) => setForm({ ...form, email: e.target.value })}
                 style={inputStyle}
                 onFocus={(e) => { e.target.style.borderColor = 'rgba(255,45,160,0.5)'; e.target.style.boxShadow = '0 0 0 3px rgba(255,45,160,0.1)'; }}
                 onBlur={(e) => { e.target.style.borderColor = 'rgba(255,255,255,0.1)'; e.target.style.boxShadow = 'none'; }}
