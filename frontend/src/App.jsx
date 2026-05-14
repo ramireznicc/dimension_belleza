@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -11,10 +11,22 @@ import Servicios from './pages/Servicios';
 import Contacto from './pages/Contacto';
 import AdminLogin from './pages/AdminLogin';
 import AdminDashboard from './pages/AdminDashboard';
+import SetPassword from './pages/SetPassword';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
   useEffect(() => { window.scrollTo(0, 0); }, [pathname]);
+  return null;
+}
+
+function InviteRedirect() {
+  const navigate = useNavigate();
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash.includes('type=invite') || hash.includes('type=recovery')) {
+      navigate('/admin/set-password' + hash, { replace: true });
+    }
+  }, [navigate]);
   return null;
 }
 
@@ -26,6 +38,7 @@ function AppRoutes() {
     return (
       <Routes>
         <Route path="/admin" element={<AdminLogin />} />
+        <Route path="/admin/set-password" element={<SetPassword />} />
         <Route path="/admin/dashboard" element={
           <ProtectedRoute><AdminDashboard /></ProtectedRoute>
         } />
@@ -69,6 +82,7 @@ function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
+      <InviteRedirect />
       <AppShell />
     </BrowserRouter>
   );
