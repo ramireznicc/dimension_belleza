@@ -5,14 +5,6 @@ import { ArrowRight, Scissors, Heart, ChevronDown, CalendarDays } from 'lucide-r
 import WhatsAppIcon from '../components/WhatsAppIcon';
 import { mediaUrl } from '../lib/supabase';
 
-const SHOOTING_STARS = [
-  { top: '8%',  left: '75%', delay: 1.0,  dur: 0.75, len: 110, rep: 8  },
-  { top: '18%', left: '55%', delay: 4.5,  dur: 0.65, len: 80,  rep: 11 },
-  { top: '5%',  left: '88%', delay: 7.0,  dur: 0.85, len: 130, rep: 9  },
-  { top: '28%', left: '65%', delay: 2.5,  dur: 0.60, len: 90,  rep: 13 },
-  { top: '12%', left: '42%', delay: 10.0, dur: 0.70, len: 100, rep: 10 },
-];
-
 // Posiciones en px relativas al wrapper del título (con padding de 48px arriba/abajo, 64px lados)
 const HERO_SPARKLES = [
   { top: -18,  left: -20,  size: 28, delay: 0,   dur: 3.2, color: '#ff2da0' },
@@ -224,28 +216,6 @@ export default function Home() {
           animate={{ scale: [1, 1.1, 1], opacity: [0.6, 0.95, 0.6] }}
           transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
         />
-
-        {/* Estrellas fugaces */}
-        {SHOOTING_STARS.map((s, i) => (
-          <motion.div
-            key={`shoot-${i}`}
-            aria-hidden="true"
-            className="absolute pointer-events-none"
-            style={{ top: s.top, left: s.left }}
-            animate={{ x: [0, -260], y: [0, 260], opacity: [0, 1, 1, 0] }}
-            transition={{ duration: s.dur, delay: s.delay, repeat: Infinity, repeatDelay: s.rep, ease: 'easeIn' }}
-          >
-            <div style={{
-              width: s.len,
-              height: 1.5,
-              borderRadius: 2,
-              background: 'linear-gradient(to left, #fff 0%, rgba(255,255,255,0.6) 40%, transparent 100%)',
-              boxShadow: '0 0 4px rgba(255,255,255,0.9), 0 0 8px rgba(200,180,255,0.5)',
-              transform: 'rotate(-45deg)',
-              transformOrigin: 'right center',
-            }} />
-          </motion.div>
-        ))}
 
         <div className="relative max-w-4xl mx-auto">
           <motion.div {...fadeUp(0)} className="flex flex-col items-center gap-2 mb-8">
