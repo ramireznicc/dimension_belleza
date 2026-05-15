@@ -143,7 +143,7 @@ export default function ServicioCard({ servicio, index = 0 }) {
               href={waUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 w-full text-xs font-bold py-2.5 rounded-xl transition-all duration-200"
+              className="flex items-center justify-center gap-1 sm:gap-2 w-full text-[10px] sm:text-xs font-bold py-1.5 sm:py-2.5 rounded-xl transition-all duration-200"
               style={{
                 background: 'linear-gradient(135deg, #22c55e 0%, #16a34a 100%)',
                 color: '#fff',
@@ -158,7 +158,8 @@ export default function ServicioCard({ servicio, index = 0 }) {
                 e.currentTarget.style.transform = 'translateY(0)';
               }}
             >
-              <WhatsAppIcon size={15} />
+              <span className="sm:hidden"><WhatsAppIcon size={11} /></span>
+              <span className="hidden sm:inline"><WhatsAppIcon size={15} /></span>
               <span className="hidden sm:inline">Consultar por WhatsApp</span>
               <span className="sm:hidden">Consultar</span>
             </a>
