@@ -199,12 +199,36 @@ export default function Home() {
 
         <div className="relative max-w-4xl mx-auto">
           <motion.div {...fadeUp(0)} className="flex flex-col items-center gap-2 mb-8">
-            <h1
-              className="hero-title-shimmer text-6xl sm:text-7xl md:text-8xl leading-tight"
-              style={{ fontFamily: "'Poiret One', cursive", fontWeight: 700, WebkitTextStroke: '0.5px rgba(255,255,255,0.15)' }}
-            >
-              Dimensión<br />Belleza
-            </h1>
+            <div className="relative inline-block">
+              {/* Destellos */}
+              {[
+                { top: '-22%', left: '5%',   size: 18, delay: 0,    dur: 2.8, color: '#ff2da0' },
+                { top: '-18%', left: '82%',  size: 13, delay: 0.8,  dur: 3.3, color: '#c026d3' },
+                { top: '48%',  left: '-6%',  size: 10, delay: 1.3,  dur: 2.6, color: '#ff82c5' },
+                { top: '48%',  left: '101%', size: 14, delay: 0.4,  dur: 3.0, color: '#a855f7' },
+                { top: '108%', left: '18%',  size: 11, delay: 1.7,  dur: 2.9, color: '#ff2da0' },
+                { top: '112%', left: '72%',  size: 16, delay: 0.6,  dur: 3.5, color: '#c026d3' },
+                { top: '-8%',  left: '46%',  size: 8,  delay: 1.1,  dur: 2.4, color: '#ff82c5' },
+              ].map((s, i) => (
+                <motion.span
+                  key={i}
+                  aria-hidden="true"
+                  className="absolute pointer-events-none select-none"
+                  style={{ top: s.top, left: s.left, fontSize: s.size, color: s.color, lineHeight: 1 }}
+                  animate={{ scale: [0.5, 1.3, 0.5], opacity: [0.2, 1, 0.2], rotate: [0, 30, 0] }}
+                  transition={{ duration: s.dur, delay: s.delay, repeat: Infinity, ease: 'easeInOut' }}
+                >
+                  ✦
+                </motion.span>
+              ))}
+
+              <h1
+                className="hero-title-shimmer text-6xl sm:text-7xl md:text-8xl leading-tight"
+                style={{ fontFamily: "'Poiret One', cursive", fontWeight: 700, WebkitTextStroke: '0.5px rgba(255,255,255,0.15)' }}
+              >
+                Dimensión<br />Belleza
+              </h1>
+            </div>
           </motion.div>
 
           <motion.p
