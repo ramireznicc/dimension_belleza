@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { LogOut, Pencil, Check, X, Upload, Eye, EyeOff, ImagePlus, Plus } from 'lucide-react';
+import { LogOut, Pencil, Check, X, Upload, Eye, EyeOff, ImagePlus, Plus, Trash2 } from 'lucide-react';
 import { signOut } from '../utils/auth';
 import { supabase } from '../lib/supabase';
 import { useServiciosAdmin } from '../hooks/useServicios';
@@ -84,6 +84,8 @@ function ServiceCard({ servicio, onSaved }) {
   const [uploadingGallery, setUploadingGallery] = useState(false);
   const [saved, setSaved] = useState(false);
   const [toggling, setToggling] = useState(false);
+  const [confirmDelete, setConfirmDelete] = useState(false);
+  const [deleting, setDeleting] = useState(false);
 
   const handleSave = async () => {
     setSaving(true);
@@ -121,6 +123,13 @@ function ServiceCard({ servicio, onSaved }) {
     setToggling(true);
     await supabase.from('servicios').update({ activo: !servicio.activo }).eq('id', servicio.id);
     setToggling(false);
+    onSaved();
+  };
+
+  const handleDelete = async () => {
+    setDeleting(true);
+    await supabase.from('servicios').delete().eq('id', servicio.id);
+    setDeleting(false);
     onSaved();
   };
 
@@ -209,20 +218,61 @@ function ServiceCard({ servicio, onSaved }) {
               {servicio.activo ? <Eye size={16} /> : <EyeOff size={16} />}
             </button>
 
-            <button
-              onClick={() => setEditing(true)}
-              className="flex items-center justify-center gap-1.5 rounded-xl font-semibold text-sm"
-              style={{
-                height: 44,
-                padding: '0 16px',
-                background: saved ? 'rgba(34,197,94,0.15)' : 'rgba(255,45,160,0.12)',
-                color: saved ? '#4ade80' : '#ff82c5',
-                border: `1px solid ${saved ? 'rgba(34,197,94,0.3)' : 'rgba(255,45,160,0.3)'}`,
-              }}
-            >
-              {saved ? <Check size={14} /> : <Pencil size={14} />}
-              {saved ? 'Guardado' : 'Editar'}
-            </button>
+            {confirmDelete ? (
+              <>
+                <button
+                  onClick={handleDelete}
+                  disabled={deleting}
+                  className="flex items-center justify-center gap-1.5 rounded-xl font-semibold text-sm"
+                  style={{
+                    height: 44, padding: '0 14px',
+                    background: 'rgba(239,68,68,0.2)',
+                    color: '#f87171',
+                    border: '1px solid rgba(239,68,68,0.4)',
+                  }}
+                >
+                  <Check size={14} />
+                  {deleting ? '...' : 'Confirmar'}
+                </button>
+                <button
+                  onClick={() => setConfirmDelete(false)}
+                  className="flex items-center justify-center rounded-xl"
+                  style={{ width: 44, height: 44, background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)', color: 'rgba(226,217,243,0.4)' }}
+                >
+                  <X size={16} />
+                </button>
+              </>
+            ) : (
+              <>
+                <button
+                  onClick={() => setConfirmDelete(true)}
+                  className="flex items-center justify-center rounded-xl"
+                  style={{
+                    width: 44, height: 44,
+                    background: 'rgba(239,68,68,0.08)',
+                    border: '1px solid rgba(239,68,68,0.2)',
+                    color: 'rgba(239,68,68,0.6)',
+                  }}
+                >
+                  <Trash2 size={16} />
+                </button>
+
+                <button
+                  onClick={() => setEditing(true)}
+                  className="flex items-center justify-center gap-1.5 rounded-xl font-semibold text-sm"
+                  style={{
+                    height: 44,
+                    padding: '0 16px',
+                    background: saved ? 'rgba(34,197,94,0.15)' : 'rgba(255,45,160,0.12)',
+                    color: saved ? '#4ade80' : '#ff82c5',
+                    border: `1px solid ${saved ? 'rgba(34,197,94,0.3)' : 'rgba(255,45,160,0.3)'}`,
+                  }}
+                >
+                  {saved ? <Check size={14} /> : <Pencil size={14} />}
+                  {saved ? 'Guardado' : 'Editar'}
+                </button>
+              </>
+            )}
           </div>
         </div>
       )}
