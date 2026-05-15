@@ -6,11 +6,11 @@ import WhatsAppIcon from '../components/WhatsAppIcon';
 import { mediaUrl } from '../lib/supabase';
 
 const SHOOTING_STARS = [
-  { top: '6%',  left: '80%', delay: '0s',   len: 120, totalDur: '6s'  },
-  { top: '20%', left: '60%', delay: '2.5s', len: 90,  totalDur: '7s'  },
-  { top: '10%', left: '90%', delay: '4.8s', len: 140, totalDur: '5s'  },
-  { top: '30%', left: '70%', delay: '1.2s', len: 100, totalDur: '8s'  },
-  { top: '15%', left: '45%', delay: '6.0s', len: 110, totalDur: '6s'  },
+  { top: '8%',  left: '75%', delay: 1.0,  dur: 0.75, len: 110, rep: 8  },
+  { top: '18%', left: '55%', delay: 4.5,  dur: 0.65, len: 80,  rep: 11 },
+  { top: '5%',  left: '88%', delay: 7.0,  dur: 0.85, len: 130, rep: 9  },
+  { top: '28%', left: '65%', delay: 2.5,  dur: 0.60, len: 90,  rep: 13 },
+  { top: '12%', left: '42%', delay: 10.0, dur: 0.70, len: 100, rep: 10 },
 ];
 
 // Posiciones en px relativas al wrapper del título (con padding de 48px arriba/abajo, 64px lados)
@@ -225,32 +225,26 @@ export default function Home() {
           transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
         />
 
-        {/* Estrellas fugaces — CSS animation para evitar problemas con transforms anidados */}
-        <style>{`
-          @keyframes shootingStar {
-            0%   { transform: translateX(0)     translateY(0)     rotate(-42deg); opacity: 0; }
-            8%   { opacity: 1; }
-            85%  { opacity: 0.9; }
-            100% { transform: translateX(-380px) translateY(380px) rotate(-42deg); opacity: 0; }
-          }
-        `}</style>
+        {/* Estrellas fugaces */}
         {SHOOTING_STARS.map((s, i) => (
-          <div
+          <motion.div
             key={`shoot-${i}`}
             aria-hidden="true"
             className="absolute pointer-events-none"
-            style={{
-              top: s.top,
-              left: s.left,
+            style={{ top: s.top, left: s.left }}
+            animate={{ x: [0, -260], y: [0, 260], opacity: [0, 1, 1, 0] }}
+            transition={{ duration: s.dur, delay: s.delay, repeat: Infinity, repeatDelay: s.rep, ease: 'easeIn' }}
+          >
+            <div style={{
               width: s.len,
-              height: 2,
+              height: 1.5,
               borderRadius: 2,
-              background: 'linear-gradient(to left, #fff 0%, rgba(255,255,255,0.7) 30%, transparent 100%)',
-              boxShadow: '0 0 6px rgba(255,255,255,0.9), 0 0 12px rgba(210,190,255,0.6)',
-              animation: `shootingStar ${s.totalDur} linear ${s.delay} infinite`,
+              background: 'linear-gradient(to left, #fff 0%, rgba(255,255,255,0.6) 40%, transparent 100%)',
+              boxShadow: '0 0 4px rgba(255,255,255,0.9), 0 0 8px rgba(200,180,255,0.5)',
+              transform: 'rotate(-45deg)',
               transformOrigin: 'right center',
-            }}
-          />
+            }} />
+          </motion.div>
         ))}
 
         <div className="relative max-w-4xl mx-auto">
