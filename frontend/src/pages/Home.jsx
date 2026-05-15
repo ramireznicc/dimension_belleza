@@ -198,29 +198,12 @@ export default function Home() {
 
 
         <div className="relative max-w-4xl mx-auto">
-          <motion.div {...fadeUp(0)} className="flex flex-col items-center gap-4 mb-8">
-
-            {/* Logo con glow animado */}
-            <motion.img
-              src="/dimension_belleza_LOGO.svg"
-              alt="Dimensión Belleza"
-              className="w-64 md:w-80 lg:w-96"
-              animate={{
-                filter: [
-                  'drop-shadow(0 0 20px rgba(255,45,160,0.35)) drop-shadow(0 0 44px rgba(192,38,211,0.18))',
-                  'drop-shadow(0 0 32px rgba(255,45,160,0.6)) drop-shadow(0 0 64px rgba(192,38,211,0.35))',
-                  'drop-shadow(0 0 20px rgba(255,45,160,0.35)) drop-shadow(0 0 44px rgba(192,38,211,0.18))',
-                ],
-              }}
-              transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
-            />
-
-            {/* Texto con shimmer */}
+          <motion.div {...fadeUp(0)} className="flex flex-col items-center gap-2 mb-8">
             <h1
-              className="hero-title-shimmer text-5xl md:text-6xl leading-none"
+              className="hero-title-shimmer text-6xl sm:text-7xl md:text-8xl leading-tight"
               style={{ fontFamily: "'Poiret One', cursive", fontWeight: 700, WebkitTextStroke: '0.5px rgba(255,255,255,0.15)' }}
             >
-              Dimensión Belleza
+              Dimensión<br />Belleza
             </h1>
           </motion.div>
 
