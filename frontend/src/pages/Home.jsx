@@ -5,24 +5,25 @@ import { ArrowRight, Scissors, Heart, ChevronDown, CalendarDays } from 'lucide-r
 import WhatsAppIcon from '../components/WhatsAppIcon';
 import { mediaUrl } from '../lib/supabase';
 
+// Posiciones en px relativas al wrapper del título (con padding de 48px arriba/abajo, 64px lados)
 const HERO_SPARKLES = [
-  { top: '8%',  left: '4%',  size: 32, delay: 0,    dur: 3.2, color: '#ff2da0' },
-  { top: '6%',  left: '90%', size: 24, delay: 1.1,  dur: 2.8, color: '#c026d3' },
-  { top: '38%', left: '2%',  size: 28, delay: 0.5,  dur: 3.6, color: '#a855f7' },
-  { top: '42%', left: '92%', size: 26, delay: 1.8,  dur: 3.0, color: '#ff82c5' },
-  { top: '72%', left: '5%',  size: 22, delay: 0.8,  dur: 2.6, color: '#ff2da0' },
-  { top: '70%', left: '89%', size: 30, delay: 1.4,  dur: 3.4, color: '#c026d3' },
+  { top: -18,  left: -20,  size: 28, delay: 0,   dur: 3.2, color: '#ff2da0' },
+  { top: -22,  left: '60%',size: 20, delay: 1.1, dur: 2.8, color: '#c026d3' },
+  { top: -10,  right: -24, size: 24, delay: 0.6, dur: 3.5, color: '#a855f7' },
+  { top: '45%',left: -28,  size: 22, delay: 1.8, dur: 3.0, color: '#ff82c5' },
+  { top: '45%',right: -26, size: 26, delay: 0.4, dur: 2.7, color: '#e879f9' },
+  { bottom:-20, left: '20%',size: 20, delay: 1.3, dur: 3.3, color: '#ff2da0' },
+  { bottom:-18, right:'18%',size: 18, delay: 0.9, dur: 2.9, color: '#c026d3' },
 ];
 
 const HERO_STARS = [
-  { top: '14%', left: '18%', size: 6, delay: 0.4,  dur: 2.3 },
-  { top: '10%', left: '75%', size: 5, delay: 1.5,  dur: 2.7 },
-  { top: '26%', left: '8%',  size: 5, delay: 0.2,  dur: 3.1 },
-  { top: '30%', left: '88%', size: 6, delay: 0.9,  dur: 2.1 },
-  { top: '52%', left: '6%',  size: 4, delay: 2.2,  dur: 3.0 },
-  { top: '55%', left: '91%', size: 6, delay: 0.6,  dur: 2.4 },
-  { top: '80%', left: '20%', size: 5, delay: 1.7,  dur: 2.6 },
-  { top: '78%', left: '78%', size: 6, delay: 0.1,  dur: 2.2 },
+  { top: -8,   left: '30%', size: 5, delay: 0.4, dur: 2.3 },
+  { top: -14,  left: '80%', size: 4, delay: 1.5, dur: 2.7 },
+  { top: '25%',left: -14,   size: 5, delay: 0.2, dur: 3.1 },
+  { top: '25%',right: -12,  size: 4, delay: 0.9, dur: 2.1 },
+  { top: '70%',left: -10,   size: 5, delay: 1.7, dur: 2.6 },
+  { top: '70%',right: -14,  size: 4, delay: 0.1, dur: 2.4 },
+  { bottom:-10, left: '50%', size: 5, delay: 1.1, dur: 2.8 },
 ];
 
 const fadeUp = (delay = 0) => ({
@@ -216,53 +217,55 @@ export default function Home() {
           transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
         />
 
-        {/* Destellos ✦ */}
-        {HERO_SPARKLES.map((s, i) => (
-          <motion.span
-            key={`sparkle-${i}`}
-            aria-hidden="true"
-            className="absolute pointer-events-none select-none"
-            style={{
-              top: s.top, left: s.left,
-              fontSize: s.size,
-              color: s.color,
-              lineHeight: 1,
-              zIndex: 2,
-              filter: `drop-shadow(0 0 10px ${s.color}) drop-shadow(0 0 20px ${s.color})`,
-            }}
-            animate={{ scale: [0.7, 1.3, 0.7], opacity: [0.55, 1, 0.55], rotate: [0, 45, 0] }}
-            transition={{ duration: s.dur, delay: s.delay, repeat: Infinity, ease: 'easeInOut' }}
-          >
-            ✦
-          </motion.span>
-        ))}
-
-        {/* Estrellas pequeñas */}
-        {HERO_STARS.map((s, i) => (
-          <motion.div
-            key={`star-${i}`}
-            aria-hidden="true"
-            className="absolute pointer-events-none rounded-full"
-            style={{
-              top: s.top, left: s.left,
-              width: s.size, height: s.size,
-              zIndex: 2,
-              background: 'radial-gradient(circle, #fff 0%, rgba(220,180,255,0.8) 50%, transparent 100%)',
-              boxShadow: '0 0 6px 2px rgba(220,150,255,0.6)',
-            }}
-            animate={{ scale: [0.6, 1.6, 0.6], opacity: [0.5, 1, 0.5] }}
-            transition={{ duration: s.dur, delay: s.delay, repeat: Infinity, ease: 'easeInOut' }}
-          />
-        ))}
-
         <div className="relative max-w-4xl mx-auto">
           <motion.div {...fadeUp(0)} className="flex flex-col items-center gap-2 mb-8">
-            <h1
-              className="hero-title-shimmer text-6xl sm:text-7xl md:text-8xl leading-tight"
-              style={{ fontFamily: "'Poiret One', cursive", fontWeight: 700, WebkitTextStroke: '0.5px rgba(255,255,255,0.15)' }}
-            >
-              Dimensión<br />Belleza
-            </h1>
+            {/* Wrapper con padding para que los destellos no salgan del section */}
+            <div className="relative" style={{ padding: '32px 56px' }}>
+
+              {/* Destellos ✦ */}
+              {HERO_SPARKLES.map((s, i) => (
+                <motion.span
+                  key={`sparkle-${i}`}
+                  aria-hidden="true"
+                  className="absolute pointer-events-none select-none"
+                  style={{
+                    top: s.top, left: s.left, right: s.right, bottom: s.bottom,
+                    fontSize: s.size,
+                    color: s.color,
+                    lineHeight: 1,
+                    filter: `drop-shadow(0 0 8px ${s.color}) drop-shadow(0 0 16px ${s.color})`,
+                  }}
+                  animate={{ scale: [0.7, 1.3, 0.7], opacity: [0.55, 1, 0.55], rotate: [0, 45, 0] }}
+                  transition={{ duration: s.dur, delay: s.delay, repeat: Infinity, ease: 'easeInOut' }}
+                >
+                  ✦
+                </motion.span>
+              ))}
+
+              {/* Estrellitas */}
+              {HERO_STARS.map((s, i) => (
+                <motion.div
+                  key={`star-${i}`}
+                  aria-hidden="true"
+                  className="absolute pointer-events-none rounded-full"
+                  style={{
+                    top: s.top, left: s.left, right: s.right, bottom: s.bottom,
+                    width: s.size, height: s.size,
+                    background: 'radial-gradient(circle, #fff 0%, rgba(220,180,255,0.8) 50%, transparent 100%)',
+                    boxShadow: '0 0 6px 2px rgba(220,150,255,0.6)',
+                  }}
+                  animate={{ scale: [0.6, 1.6, 0.6], opacity: [0.5, 1, 0.5] }}
+                  transition={{ duration: s.dur, delay: s.delay, repeat: Infinity, ease: 'easeInOut' }}
+                />
+              ))}
+
+              <h1
+                className="hero-title-shimmer text-6xl sm:text-7xl md:text-8xl leading-tight"
+                style={{ fontFamily: "'Poiret One', cursive", fontWeight: 700, WebkitTextStroke: '0.5px rgba(255,255,255,0.15)' }}
+              >
+                Dimensión<br />Belleza
+              </h1>
+            </div>
           </motion.div>
 
           <motion.p
