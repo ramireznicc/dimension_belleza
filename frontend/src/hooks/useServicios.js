@@ -1,5 +1,18 @@
 import { useState, useEffect } from 'react';
-import { supabase } from '../lib/supabase';
+import { supabase, mediaUrl } from '../lib/supabase';
+
+function toFullUrl(path) {
+  if (!path || path.startsWith('http')) return path;
+  return mediaUrl(path);
+}
+
+function normalizeServicio(s) {
+  return {
+    ...s,
+    imagen: toFullUrl(s.imagen),
+    imagenes: s.imagenes?.map(toFullUrl) ?? null,
+  };
+}
 
 export function useServicios() {
   const [categorias, setCategorias] = useState([]);
@@ -27,7 +40,7 @@ export function useServicios() {
 
     const merged = cats.map((cat) => ({
       ...cat,
-      servicios: servs.filter((s) => s.categoria_id === cat.id),
+      servicios: servs.filter((s) => s.categoria_id === cat.id).map(normalizeServicio),
     }));
 
     setCategorias(merged);
@@ -64,7 +77,7 @@ export function useServiciosAdmin() {
 
     const merged = cats.map((cat) => ({
       ...cat,
-      servicios: servs.filter((s) => s.categoria_id === cat.id),
+      servicios: servs.filter((s) => s.categoria_id === cat.id).map(normalizeServicio),
     }));
 
     setCategorias(merged);
