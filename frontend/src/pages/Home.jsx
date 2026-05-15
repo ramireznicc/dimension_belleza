@@ -5,6 +5,29 @@ import { ArrowRight, Scissors, Heart, ChevronDown, CalendarDays } from 'lucide-r
 import WhatsAppIcon from '../components/WhatsAppIcon';
 import { mediaUrl } from '../lib/supabase';
 
+const HERO_SPARKLES = [
+  { top: '-30%', left: '2%',   size: 24, delay: 0,    dur: 3.2, color: '#ff2da0' },
+  { top: '-22%', left: '88%',  size: 16, delay: 1.1,  dur: 2.8, color: '#c026d3' },
+  { top: '50%',  left: '-8%',  size: 18, delay: 0.5,  dur: 3.6, color: '#a855f7' },
+  { top: '55%',  left: '104%', size: 20, delay: 1.8,  dur: 3.0, color: '#ff82c5' },
+  { top: '118%', left: '10%',  size: 14, delay: 0.8,  dur: 2.6, color: '#ff2da0' },
+  { top: '122%', left: '80%',  size: 22, delay: 1.4,  dur: 3.4, color: '#c026d3' },
+  { top: '-12%', left: '47%',  size: 11, delay: 2.0,  dur: 2.5, color: '#e879f9' },
+  { top: '104%', left: '50%',  size: 13, delay: 0.3,  dur: 2.9, color: '#a855f7' },
+];
+
+const HERO_STARS = [
+  { top: '-20%', left: '20%',  size: 4, delay: 0.4,  dur: 2.3 },
+  { top: '-30%', left: '65%',  size: 3, delay: 1.5,  dur: 2.7 },
+  { top: '-8%',  left: '72%',  size: 5, delay: 0.2,  dur: 3.1 },
+  { top: '35%',  left: '-3%',  size: 4, delay: 0.9,  dur: 2.1 },
+  { top: '40%',  left: '106%', size: 3, delay: 2.2,  dur: 3.0 },
+  { top: '70%',  left: '107%', size: 5, delay: 0.6,  dur: 2.4 },
+  { top: '112%', left: '28%',  size: 4, delay: 1.7,  dur: 2.6 },
+  { top: '115%', left: '62%',  size: 5, delay: 0.1,  dur: 2.2 },
+  { top: '65%',  left: '-5%',  size: 3, delay: 1.3,  dur: 2.8 },
+];
+
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 24 },
   animate: { opacity: 1, y: 0, transition: { duration: 0.55, delay, ease: [0.22, 1, 0.36, 1] } },
@@ -199,12 +222,52 @@ export default function Home() {
 
         <div className="relative max-w-4xl mx-auto">
           <motion.div {...fadeUp(0)} className="flex flex-col items-center gap-2 mb-8">
-            <h1
-              className="hero-title-shimmer text-6xl sm:text-7xl md:text-8xl leading-tight"
-              style={{ fontFamily: "'Poiret One', cursive", fontWeight: 700, WebkitTextStroke: '0.5px rgba(255,255,255,0.15)' }}
-            >
-              Dimensión<br />Belleza
-            </h1>
+            <div className="relative inline-block" style={{ overflow: 'visible' }}>
+
+              {/* Destellos grandes ✦ */}
+              {HERO_SPARKLES.map((s, i) => (
+                <motion.span
+                  key={`sparkle-${i}`}
+                  aria-hidden="true"
+                  className="absolute pointer-events-none select-none"
+                  style={{
+                    top: s.top, left: s.left,
+                    fontSize: s.size,
+                    color: s.color,
+                    lineHeight: 1,
+                    filter: `drop-shadow(0 0 6px ${s.color}) drop-shadow(0 0 12px ${s.color}88)`,
+                  }}
+                  animate={{ scale: [0.4, 1.2, 0.4], opacity: [0.1, 1, 0.1], rotate: [0, 45, 0] }}
+                  transition={{ duration: s.dur, delay: s.delay, repeat: Infinity, ease: 'easeInOut' }}
+                >
+                  ✦
+                </motion.span>
+              ))}
+
+              {/* Estrellas pequeñas · */}
+              {HERO_STARS.map((s, i) => (
+                <motion.span
+                  key={`star-${i}`}
+                  aria-hidden="true"
+                  className="absolute pointer-events-none select-none rounded-full"
+                  style={{
+                    top: s.top, left: s.left,
+                    width: s.size, height: s.size,
+                    background: 'radial-gradient(circle, #fff 0%, rgba(200,150,255,0.6) 60%, transparent 100%)',
+                    filter: 'blur(0.5px)',
+                  }}
+                  animate={{ scale: [0.3, 1.4, 0.3], opacity: [0.1, 0.9, 0.1] }}
+                  transition={{ duration: s.dur, delay: s.delay, repeat: Infinity, ease: 'easeInOut' }}
+                />
+              ))}
+
+              <h1
+                className="hero-title-shimmer text-6xl sm:text-7xl md:text-8xl leading-tight"
+                style={{ fontFamily: "'Poiret One', cursive", fontWeight: 700, WebkitTextStroke: '0.5px rgba(255,255,255,0.15)' }}
+              >
+                Dimensión<br />Belleza
+              </h1>
+            </div>
           </motion.div>
 
           <motion.p
